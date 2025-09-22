@@ -1,0 +1,8 @@
+# Netlify redirects file
+# Add any custom redirects here
+
+# Redirect old URLs to new ones if needed
+# /old-page /new-page 301
+
+# Handle Jekyll's trailing slash behavior
+/* /index.html 200

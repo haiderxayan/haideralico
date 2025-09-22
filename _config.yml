@@ -2,7 +2,7 @@
 title: "Haider Ali"
 description: "UX Designer crafting digital experiences that are beautiful, meaningful, and user-centered. Transforming complex problems into intuitive solutions."
 baseurl: "" # the subpath of your site, e.g. /blog
-url: "" # the base hostname & protocol for your site
+url: "https://haideralico.netlify.app" # the base hostname & protocol for your site
 
 # Build settings
 markdown: kramdown
