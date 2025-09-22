@@ -10,14 +10,22 @@ Thoughts on UX design, user research, and the intersection of technology and hum
 
 ## Latest Posts
 
-<div class="blog-posts">
-{% for post in site.posts limit:5 %}
-  <div class="blog-post">
-    <h3><a href="{{ post.url }}">{{ post.title }}</a></h3>
-    <div class="post-meta">{{ post.date | date: "%B %d, %Y" }}</div>
-    <div class="post-excerpt">{{ post.excerpt }}</div>
-    <a href="{{ post.url }}" class="read-more">Read more →</a>
-  </div>
+<div class="blog-posts-grid">
+{% for post in site.posts limit:6 %}
+  <article class="blog-post-card">
+    <div class="post-image">
+      <img src="/assets/images/blog/placeholder.svg" alt="{{ post.title }}" />
+    </div>
+    <div class="post-content">
+      <h3><a href="{{ post.url }}">{{ post.title }}</a></h3>
+      <p class="post-subtitle">{{ post.subtitle }}</p>
+      <div class="post-meta">
+        <span class="author">Haider Ali</span>
+        <span class="date">{{ post.date | date: "%b %d" }}</span>
+        <span class="read-time">{{ post.read_time | default: "5" }} min read</span>
+      </div>
+    </div>
+  </article>
 {% endfor %}
 </div>
 

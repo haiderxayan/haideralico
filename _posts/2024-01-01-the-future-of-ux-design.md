@@ -1,7 +1,9 @@
 ---
 layout: post
 title: "The Future of UX Design: Trends and Predictions for 2024"
+subtitle: "Exploring emerging technologies and design principles that will shape digital experiences"
 date: 2024-01-01 12:00:00 -0800
+read_time: 8
 categories: [UX Design, Future Trends]
 tags: [future, trends, ux-design, 2024]
 excerpt: "As we enter 2024, the landscape of UX design is evolving rapidly. Here are the key trends and predictions that will shape the future of user experience design."
