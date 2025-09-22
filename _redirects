@@ -1,8 +1,19 @@
 # Netlify redirects file
-# Add any custom redirects here
-
-# Redirect old URLs to new ones if needed
-# /old-page /new-page 301
-
 # Handle Jekyll's trailing slash behavior
-/* /index.html 200
+
+# Specific redirects for common paths (without trailing slashes)
+/work /work/ 301
+/writing /writing/ 301
+/reading /reading/ 301
+/contact /contact/ 301
+/resume /resume/ 301
+
+# Handle Jekyll's directory-based routing for actual pages
+/work/ /work/index.html 200
+/writing/ /writing/index.html 200
+/reading/ /reading/index.html 200
+/contact/ /contact/index.html 200
+/resume/ /resume/index.html 200
+
+# Root domain
+/ /index.html 200
