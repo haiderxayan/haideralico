@@ -1,0 +1,69 @@
+# Site settings
+title: "Haider Ali"
+description: "UX Designer crafting digital experiences that are beautiful, meaningful, and user-centered. Transforming complex problems into intuitive solutions."
+baseurl: "" # the subpath of your site, e.g. /blog
+url: "" # the base hostname & protocol for your site
+
+# Build settings
+markdown: kramdown
+highlighter: rouge
+permalink: /:categories/:year/:month/:day/:title/
+
+# Collections
+collections:
+  pages:
+    output: true
+    permalink: /:name/
+
+# Defaults
+defaults:
+  - scope:
+      path: ""
+      type: "posts"
+    values:
+      layout: "post"
+  - scope:
+      path: ""
+      type: "pages"
+    values:
+      layout: "page"
+
+# Plugins
+plugins:
+  - jekyll-feed
+  - jekyll-sitemap
+  - jekyll-seo-tag
+
+# Exclude from processing
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - node_modules
+  - vendor/bundle/
+  - vendor/cache/
+  - vendor/gems/
+  - vendor/ruby/
+  - README.md
+  - .gitignore
+  - .sass-cache/
+  - .jekyll-cache/
+  - .jekyll-metadata
+
+# Social media
+twitter_username: haiderali_ux
+github_username: haiderali
+linkedin_username: haiderali-ux
+email: hello@haiderali.co
+
+# Navigation
+navigation:
+  - title: Home
+    url: /
+  - title: Work
+    url: /work/
+  - title: Writing
+    url: /writing/
+  - title: Reading
+    url: /reading/
+  - title: Contact
+    url: /contact/

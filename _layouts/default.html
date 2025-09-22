@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="{{ page.lang | default: site.lang | default: 'en' }}">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    {%- seo -%}
+    
+    <link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}">
+    <link rel="canonical" href="{{ page.url | replace:'index.html','' | absolute_url }}">
+    <link rel="alternate" type="application/rss+xml" title="{{ site.title | escape }}" href="{{ '/feed.xml' | relative_url }}">
+    
+    {%- if jekyll.environment == 'production' and site.google_analytics -%}
+        {%- include google-analytics.html -%}
+    {%- endif -%}
+</head>
+
+<body>
+    <header class="site-header">
+        <div class="header-container">
+            <a class="site-logo" href="{{ '/' | relative_url }}">
+                <span class="logo-text">H</span>
+            </a>
+            
+            <nav class="site-nav">
+                <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+                <label for="nav-trigger" class="nav-toggle">
+                    <span class="hamburger">
+                        <span class="hamburger-line"></span>
+                        <span class="hamburger-line"></span>
+                        <span class="hamburger-line"></span>
+                    </span>
+                </label>
+                
+                <div class="nav-menu">
+                    {%- for item in site.navigation -%}
+                        <a class="nav-link" href="{{ item.url | relative_url }}">{{ item.title | escape }}</a>
+                    {%- endfor -%}
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <main class="page-content" aria-label="Content">
+        <div class="wrapper">
+            {{ content }}
+        </div>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <h3 class="footer-heading">Haider Ali</h3>
+                    <p class="footer-description">UX Designer crafting digital experiences</p>
+                </div>
+                
+                <div class="footer-links">
+                    <div class="footer-col">
+                        <h4>Navigation</h4>
+                        <ul class="footer-nav">
+                            <li><a href="/">Home</a></li>
+                            <li><a href="/work/">Work</a></li>
+                            <li><a href="/writing/">Writing</a></li>
+                            <li><a href="/reading/">Reading</a></li>
+                            <li><a href="/contact/">Contact</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="footer-col">
+                        <h4>Connect</h4>
+                        <ul class="contact-list">
+                            <li><a href="mailto:hello@haiderali.co">hello@haiderali.co</a></li>
+                            <li><a href="https://twitter.com/haiderali_ux" target="_blank">Twitter</a></li>
+                            <li><a href="https://github.com/haiderali" target="_blank">GitHub</a></li>
+                            <li><a href="https://linkedin.com/in/haiderali-ux" target="_blank">LinkedIn</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2024 Haider Ali. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
