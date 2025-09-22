@@ -1,6 +1,6 @@
-# Jekyll Website
+# Haider Ali - UX Designer Portfolio
 
-A modern Jekyll-based website with a clean, responsive design.
+A modern Jekyll-based portfolio website showcasing UX design work, writing, and professional experience.
 
 ## Getting Started
 
@@ -43,9 +43,21 @@ A modern Jekyll-based website with a clean, responsive design.
 │   ├── js/              # JavaScript files
 │   └── images/          # Images
 ├── index.html           # Homepage
-├── about.md             # About page
+├── work.md              # Work portfolio
+├── writing.md           # Blog/writing page
+├── reading.md           # Reading list
+├── contact.md           # Contact page
 └── Gemfile              # Ruby dependencies
 ```
+
+## Features
+
+- **Responsive Design**: Mobile-first approach with clean, modern aesthetics
+- **3-Column Blog Layout**: UX Collective-inspired blog post grid
+- **Portfolio Showcase**: Featured work with case studies
+- **Reading List**: Curated books and resources
+- **Contact Integration**: Multiple ways to get in touch
+- **Sharp Edge Design**: Minimal, professional styling with backdrop blur effects
 
 ## Customization
 
@@ -55,12 +67,16 @@ Edit `_config.yml` to customize:
 - Site title and description
 - Navigation menu
 - Social media links
-- Google Analytics
+- Contact information
 - Build settings
 
 ### Styling
 
-The main stylesheet is located at `assets/css/main.scss`. It imports the Minima theme and adds custom styles.
+The main stylesheet is located at `assets/css/main.scss`. Features include:
+- Modern design system with CSS variables
+- Responsive grid layouts
+- Hover effects and animations
+- Sharp edge design aesthetic
 
 ### Adding Content
 
