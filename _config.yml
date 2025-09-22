@@ -65,5 +65,7 @@ navigation:
     url: /writing/
   - title: Reading
     url: /reading/
+  - title: Resume
+    url: /resume/
   - title: Contact
     url: /contact/
