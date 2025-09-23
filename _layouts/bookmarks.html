@@ -50,7 +50,12 @@
     <!-- Additional Meta Tags -->
     <link rel="canonical" href="{{ page.url | replace:'index.html','' | absolute_url }}">
     <link rel="alternate" type="application/rss+xml" title="{{ site.title | escape }}" href="{{ '/feed.xml' | relative_url }}">
+    
+    <!-- Main CSS -->
     <link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}">
+    
+    <!-- Bookmarks Page Specific CSS -->
+    <link rel="stylesheet" href="{{ '/assets/css/bookmarks.css' | relative_url }}">
     
     <!-- Preconnect to external domains for performance -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -145,9 +150,58 @@
         </div>
     </header>
 
-    <main class="page-content" aria-label="Content">
-        <div class="wrapper">
-            {{ content }}
+    <!-- Main Content -->
+    <main class="bookmarks-main">
+        <div class="bookmarks-container">
+            <!-- Left Sidebar Navigation -->
+            <aside class="bookmarks-sidebar">
+                <nav class="sidebar-nav">
+                    <div class="sidebar-section">
+                        <h3 class="sidebar-title">Overview</h3>
+                        <ul class="sidebar-links">
+                            <li><a href="#product-vision" class="sidebar-link">Product Vision</a></li>
+                            <li><a href="#intro" class="sidebar-link">Introduction</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="sidebar-section">
+                        <h3 class="sidebar-title">Tool Categories</h3>
+                        <ul class="sidebar-links">
+                            <li><a href="#design-tools" class="sidebar-link">Design Tools</a></li>
+                            <li><a href="#research-testing" class="sidebar-link">Research & Testing</a></li>
+                            <li><a href="#inspiration-learning" class="sidebar-link">Inspiration & Learning</a></li>
+                            <li><a href="#development-tools" class="sidebar-link">Development Tools</a></li>
+                            <li><a href="#productivity" class="sidebar-link">Productivity</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="sidebar-section">
+                        <h3 class="sidebar-title">Quick Links</h3>
+                        <ul class="sidebar-links">
+                            <li><a href="#design-tools" class="sidebar-link">Figma</a></li>
+                            <li><a href="#research-testing" class="sidebar-link">Maze</a></li>
+                            <li><a href="#inspiration-learning" class="sidebar-link">Dribbble</a></li>
+                            <li><a href="#development-tools" class="sidebar-link">VS Code</a></li>
+                            <li><a href="#productivity" class="sidebar-link">Notion</a></li>
+                        </ul>
+                    </div>
+                </nav>
+            </aside>
+            
+            <!-- Main Content Area -->
+            <div class="bookmarks-content">
+                <!-- Mobile Menu Toggle -->
+                <button class="mobile-sidebar-toggle" id="mobile-sidebar-toggle">
+                    <span class="hamburger">
+                        <span class="hamburger-line"></span>
+                        <span class="hamburger-line"></span>
+                        <span class="hamburger-line"></span>
+                    </span>
+                    <span>Menu</span>
+                </button>
+                
+                {{ content }}
+            </div>
         </div>
     </main>
 
@@ -199,5 +253,35 @@
             </div>
         </div>
     </footer>
+
+    <!-- Mobile Sidebar JavaScript -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const sidebarToggle = document.getElementById('mobile-sidebar-toggle');
+            const sidebar = document.querySelector('.bookmarks-sidebar');
+            const overlay = document.createElement('div');
+            overlay.className = 'sidebar-overlay';
+            document.body.appendChild(overlay);
+
+            sidebarToggle.addEventListener('click', function() {
+                sidebar.classList.toggle('sidebar-open');
+                overlay.classList.toggle('overlay-open');
+            });
+
+            overlay.addEventListener('click', function() {
+                sidebar.classList.remove('sidebar-open');
+                overlay.classList.remove('overlay-open');
+            });
+
+            // Close sidebar when clicking on links
+            const sidebarLinks = document.querySelectorAll('.sidebar-link');
+            sidebarLinks.forEach(link => {
+                link.addEventListener('click', function() {
+                    sidebar.classList.remove('sidebar-open');
+                    overlay.classList.remove('overlay-open');
+                });
+            });
+        });
+    </script>
 </body>
 </html>
