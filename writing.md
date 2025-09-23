@@ -1,37 +1,27 @@
 ---
 layout: page
-title: Writing
+title: UserFirst - Purpose & Vision
 permalink: /writing/
+class: writing-page
 ---
 
-# My Writing
+# UserFirst: Purpose & Vision
 
-Thoughts on UX design, user research, and the intersection of technology and human behavior.
+## Why UserFirst Exists
 
-## Latest Posts
+**UserFirst** represents a fundamental belief: every design decision should prioritize the user's needs, goals, and experiences above all else. In a world where technology often serves business metrics first, UserFirst stands as a reminder that sustainable success comes from genuinely serving users.
 
-<div class="blog-posts-grid">
-{% for post in site.posts limit:6 %}
-  <article class="blog-post-card">
-    <div class="post-image">
-      <img src="/assets/images/blog/placeholder.svg" alt="{{ post.title }}" />
-    </div>
-    <div class="post-content">
-      <h3><a href="{{ post.url }}">{{ post.title }}</a></h3>
-      <p class="post-subtitle">{{ post.subtitle }}</p>
-      <div class="post-meta">
-        <span class="author">Haider Ali</span>
-        <span class="date">{{ post.date | date: "%b %d" }}</span>
-        <span class="read-time">{{ post.read_time | default: "5" }} min read</span>
-      </div>
-    </div>
-  </article>
-{% endfor %}
-</div>
+### Our Core Principles
+
+- **Users First, Always** - Every decision starts with understanding user needs
+- **Evidence-Based Design** - Research and data drive our design choices
+- **Accessibility by Default** - Inclusive design is not optional, it's essential
+- **Continuous Learning** - We evolve with our users and the changing landscape
+- **Transparent Process** - Sharing knowledge strengthens the entire design community
 
 ## About My Writing
 
-I write about UX design, user research, and the challenges of creating digital experiences that truly serve users. My goal is to share practical insights, lessons learned, and thought-provoking ideas that can help other designers and product teams.
+Through UserFirst, I explore the intersection of UX design, user research, and human-centered technology. My goal is to share practical insights, research findings, and thought-provoking ideas that help designers and product teams create experiences that truly serve users.
 
 ### Topics I Cover
 
@@ -49,6 +39,17 @@ Writing helps me:
 - **Document lessons learned** from real projects
 - **Connect with others** who are passionate about user experience
 
+## Latest Posts
+
+{% assign sorted_posts = site.posts | sort: 'date' %}
+{% for post in sorted_posts limit:6 %}
+### [{{ post.title }}]({{ post.url }})
+*{{ post.date | date: "%B %d, %Y" }} • {{ post.read_time | default: "5" }} min read*
+
+{{ post.subtitle | default: post.excerpt | strip_html | truncate: 150 }}
+
+{% endfor %}
+
 ## Subscribe
 
 Want to stay updated with my latest posts? You can:
@@ -63,6 +64,58 @@ I occasionally write for other publications and am always interested in contribu
 ## Speaking
 
 In addition to writing, I also speak at conferences and workshops about UX design topics. Check out my [contact page](/contact/) for more information about speaking opportunities.
+
+<!-- Latest Articles Section -->
+<section class="related-posts">
+    <h2 class="related-posts-title">Latest Articles</h2>
+    <div class="related-posts-grid">
+        {% assign latest_posts = site.posts | where_exp: "post", "post.url != page.url" | limit: 2 %}
+        {% if latest_posts.size == 0 %}
+            {% assign latest_posts = site.posts | limit: 2 %}
+        {% endif %}
+        {% for latest_post in latest_posts %}
+        <article class="related-post-card">
+            {% if latest_post.image %}
+            <div class="related-post-image">
+                <img src="{{ latest_post.image }}" alt="{{ latest_post.image_alt | default: latest_post.title | escape }}" loading="lazy" width="400" height="200">
+            </div>
+            {% endif %}
+            <div class="related-post-content">
+                {% assign category_tag = latest_post.categories | first | upcase %}
+                {% if category_tag contains 'UX DESIGN' or category_tag contains 'DESIGN' or category_tag contains 'MOBILE UX' or category_tag contains 'PSYCHOLOGY' or category_tag contains 'DESIGN SYSTEMS' %}
+                    {% assign display_tag = 'DESIGN' %}
+                {% elsif category_tag contains 'USER RESEARCH' or category_tag contains 'TEAM COLLABORATION' %}
+                    {% assign display_tag = 'RESEARCH & STRATEGY' %}
+                {% elsif category_tag contains 'AI' %}
+                    {% assign display_tag = 'AI' %}
+                {% elsif category_tag contains 'DATA ANALYTICS' or category_tag contains 'DATA' %}
+                    {% assign display_tag = 'DATA ANALYTICS' %}
+                {% elsif category_tag contains 'CONTENT' %}
+                    {% assign display_tag = 'CONTENT' %}
+                {% elsif category_tag contains 'CAREER' %}
+                    {% assign display_tag = 'CAREER' %}
+                {% elsif category_tag contains 'DEVELOPMENT' %}
+                    {% assign display_tag = 'DEVELOPMENT' %}
+                {% elsif category_tag contains 'NEWS' or category_tag contains 'CULTURE' %}
+                    {% assign display_tag = 'NEWS & CULTURE' %}
+                {% else %}
+                    {% assign display_tag = 'DESIGN' %}
+                {% endif %}
+                <span class="unified-tag card-element-spacing">{{ display_tag }}</span>
+                <h3 class="related-post-title card-element-spacing">
+                    <a href="{{ latest_post.url | relative_url }}">{{ latest_post.title | escape }}</a>
+                </h3>
+                <div class="related-post-meta card-element-spacing">
+                    <span class="related-post-date">{{ latest_post.date | date: "%b %d, %Y" }}</span>
+                    {% if latest_post.read_time %}
+                    <span class="related-post-read-time">{{ latest_post.read_time }} min read</span>
+                    {% endif %}
+                </div>
+            </div>
+        </article>
+        {% endfor %}
+    </div>
+</section>
 
 ---
 

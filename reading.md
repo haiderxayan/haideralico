@@ -8,53 +8,21 @@ permalink: /reading/
 
 A curated collection of books, articles, and resources that inspire my design thinking and professional growth.
 
-## Currently Reading
+## Latest Reading Insights
 
-<div class="reading-section">
-  <h3>"The Design of Everyday Things" by Don Norman</h3>
-  <div class="book-meta">Essential reading for understanding the psychology of design and how users interact with products.</div>
-  <div class="book-description">
-    A foundational text that every UX designer should read. Norman's insights into affordances, signifiers, and the human-centered design process continue to shape how I approach design problems.
+{% for post in site.posts %}
+{% if post.categories contains 'Reading' %}
+<div class="reading-post">
+  <h3><a href="{{ post.url }}">{{ post.title }}</a></h3>
+  <div class="post-meta">
+    <span class="post-date">{{ post.date | date: "%B %d, %Y" }}</span>
+    <span class="read-time">{{ post.read_time }} min read</span>
   </div>
-  <div class="book-takeaway">
-    <strong>Why I'm reading it:</strong> This book provides the theoretical foundation for understanding how people interact with designed objects and systems.
-  </div>
+  <p class="post-excerpt">{{ post.excerpt }}</p>
+  <a href="{{ post.url }}" class="read-more">Read more →</a>
 </div>
-
-## Recently Read
-
-<div class="reading-section">
-  <h3>"Atomic Habits" by James Clear</h3>
-  <div class="book-meta">An excellent guide to building good habits and breaking bad ones through small, incremental changes.</div>
-  <div class="book-description">
-    Clear's approach to habit formation through small, consistent actions has profound implications for design processes and team workflows.
-  </div>
-  <div class="book-takeaway">
-    <strong>Key Takeaway:</strong> The concept of "systems over goals" applies beautifully to design processes. Focus on improving your design system rather than just hitting specific metrics.
-  </div>
-</div>
-
-<div class="reading-section">
-  <h3>"Thinking, Fast and Slow" by Daniel Kahneman</h3>
-  <div class="book-meta">A deep dive into the two systems of thinking and how they influence decision-making.</div>
-  <div class="book-description">
-    Kahneman's research on cognitive biases and decision-making processes provides valuable insights for creating more intuitive user interfaces.
-  </div>
-  <div class="book-takeaway">
-    <strong>Design Application:</strong> Understanding cognitive biases helps create more intuitive interfaces and better user experiences.
-  </div>
-</div>
-
-<div class="reading-section">
-  <h3>"The Lean Startup" by Eric Ries</h3>
-  <div class="book-meta">How to build a sustainable business through validated learning and iterative development.</div>
-  <div class="book-description">
-    While focused on startups, Ries's methodology has direct applications to UX design and product development processes.
-  </div>
-  <div class="book-takeaway">
-    <strong>UX Connection:</strong> The build-measure-learn cycle is fundamental to user-centered design and continuous improvement.
-  </div>
-</div>
+{% endif %}
+{% endfor %}
 
 ## Design & UX Favorites
 
