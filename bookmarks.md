@@ -204,6 +204,60 @@ canonical_url: "https://haiderali.co/bookmarks/"
             <p class="bookmark-description">Evidence-based UX research and best practices from industry experts.</p>
             <a href="https://nngroup.com" target="_blank" class="bookmark-link">Visit NN Group →</a>
         </div>
+
+        <div class="bookmark-card">
+            <div class="bookmark-header">
+                <span class="bookmark-category">UX Strategy</span>
+                <h3 class="bookmark-title">Boagworld</h3>
+            </div>
+            <p class="bookmark-description">Paul Boag's UX consultancy and insights - 31 years of digital experience helping teams create better user experiences.</p>
+            <a href="https://boagworld.com" target="_blank" class="bookmark-link">Visit Boagworld →</a>
+        </div>
+
+        <div class="bookmark-card">
+            <div class="bookmark-header">
+                <span class="bookmark-category">UX Strategy</span>
+                <h3 class="bookmark-title">Jared Spool</h3>
+            </div>
+            <p class="bookmark-description">UX strategist and founder of Center Centre, offering practical insights on design leadership and user experience strategy.</p>
+            <a href="https://uie.com" target="_blank" class="bookmark-link">Visit UIE →</a>
+        </div>
+
+        <div class="bookmark-card">
+            <div class="bookmark-header">
+                <span class="bookmark-category">UX Research</span>
+                <h3 class="bookmark-title">Steve Krug</h3>
+            </div>
+            <p class="bookmark-description">Author of "Don't Make Me Think" and usability consultant helping teams create intuitive user experiences.</p>
+            <a href="https://sensible.com" target="_blank" class="bookmark-link">Visit Sensible →</a>
+        </div>
+
+        <div class="bookmark-card">
+            <div class="bookmark-header">
+                <span class="bookmark-category">UX Strategy</span>
+                <h3 class="bookmark-title">Gerry McGovern</h3>
+            </div>
+            <p class="bookmark-description">Digital transformation expert and author focusing on customer experience and organizational change.</p>
+            <a href="https://gerrymcgovern.com" target="_blank" class="bookmark-link">Visit Gerry McGovern →</a>
+        </div>
+
+        <div class="bookmark-card">
+            <div class="bookmark-header">
+                <span class="bookmark-category">Design Systems</span>
+                <h3 class="bookmark-title">Brad Frost</h3>
+            </div>
+            <p class="bookmark-description">Design systems consultant and author of "Atomic Design" - helping teams create scalable design systems.</p>
+            <a href="https://bradfrost.com" target="_blank" class="bookmark-link">Visit Brad Frost →</a>
+        </div>
+
+        <div class="bookmark-card">
+            <div class="bookmark-header">
+                <span class="bookmark-category">UX Strategy</span>
+                <h3 class="bookmark-title">Kim Goodwin</h3>
+            </div>
+            <p class="bookmark-description">UX strategist and author of "Designing for the Digital Age" - expert in user-centered design and team leadership.</p>
+            <a href="https://kimgoodwin.com" target="_blank" class="bookmark-link">Visit Kim Goodwin →</a>
+        </div>
     </div>
 </section>
 
@@ -297,6 +351,89 @@ canonical_url: "https://haiderali.co/bookmarks/"
             </div>
             <p class="bookmark-description">Easy scheduling tool for meetings and appointments.</p>
             <a href="https://calendly.com" target="_blank" class="bookmark-link">Visit Calendly →</a>
+        </div>
+    </div>
+</section>
+
+<!-- AI Tools Section -->
+<section class="bookmarks-section" id="ai-tools">
+    <div class="section-header">
+        <span class="section-icon">🤖</span>
+        <h2 class="section-title">AI Writing Tools</h2>
+        <p class="section-description">AI-powered tools to help with book writing, content creation, and storytelling</p>
+    </div>
+    
+    <div class="bookmarks-grid">
+        <div class="bookmark-card">
+            <div class="bookmark-header">
+                <span class="bookmark-category">Writing Assistant</span>
+                <h3 class="bookmark-title">ChatGPT</h3>
+            </div>
+            <p class="bookmark-description">Advanced AI writing assistant for brainstorming, outlining, editing, and generating content for books.</p>
+            <a href="https://chat.openai.com" target="_blank" class="bookmark-link">Visit ChatGPT →</a>
+        </div>
+
+        <div class="bookmark-card">
+            <div class="bookmark-header">
+                <span class="bookmark-category">Writing Platform</span>
+                <h3 class="bookmark-title">Claude AI</h3>
+            </div>
+            <p class="bookmark-description">Anthropic's AI assistant with strong capabilities for creative writing, research, and long-form content.</p>
+            <a href="https://claude.ai" target="_blank" class="bookmark-link">Visit Claude AI →</a>
+        </div>
+
+        <div class="bookmark-card">
+            <div class="bookmark-header">
+                <span class="bookmark-category">Book Writing</span>
+                <h3 class="bookmark-title">Sudowrite</h3>
+            </div>
+            <p class="bookmark-description">AI writing tool specifically designed for fiction writers, offering story generation and style enhancement.</p>
+            <a href="https://sudowrite.com" target="_blank" class="bookmark-link">Visit Sudowrite →</a>
+        </div>
+
+        <div class="bookmark-card">
+            <div class="bookmark-header">
+                <span class="bookmark-category">Grammar & Style</span>
+                <h3 class="bookmark-title">Grammarly</h3>
+            </div>
+            <p class="bookmark-description">AI-powered writing assistant for grammar checking, style suggestions, and clarity improvements.</p>
+            <a href="https://grammarly.com" target="_blank" class="bookmark-link">Visit Grammarly →</a>
+        </div>
+
+        <div class="bookmark-card">
+            <div class="bookmark-header">
+                <span class="bookmark-category">Story Development</span>
+                <h3 class="bookmark-title">Plot Factory</h3>
+            </div>
+            <p class="bookmark-description">Comprehensive writing platform with AI assistance for plot development, character creation, and story organization.</p>
+            <a href="https://plotfactory.com" target="_blank" class="bookmark-link">Visit Plot Factory →</a>
+        </div>
+
+        <div class="bookmark-card">
+            <div class="bookmark-header">
+                <span class="bookmark-category">Research Assistant</span>
+                <h3 class="bookmark-title">Perplexity AI</h3>
+            </div>
+            <p class="bookmark-description">AI research assistant that helps gather information, fact-check, and provide sources for book writing.</p>
+            <a href="https://perplexity.ai" target="_blank" class="bookmark-link">Visit Perplexity →</a>
+        </div>
+
+        <div class="bookmark-card">
+            <div class="bookmark-header">
+                <span class="bookmark-category">Content Generation</span>
+                <h3 class="bookmark-title">Copy.ai</h3>
+            </div>
+            <p class="bookmark-description">AI copywriting tool that can help generate book descriptions, marketing copy, and promotional content.</p>
+            <a href="https://copy.ai" target="_blank" class="bookmark-link">Visit Copy.ai →</a>
+        </div>
+
+        <div class="bookmark-card">
+            <div class="bookmark-header">
+                <span class="bookmark-category">Writing Enhancement</span>
+                <h3 class="bookmark-title">ProWritingAid</h3>
+            </div>
+            <p class="bookmark-description">Comprehensive writing editor with AI-powered suggestions for style, readability, and consistency.</p>
+            <a href="https://prowritingaid.com" target="_blank" class="bookmark-link">Visit ProWritingAid →</a>
         </div>
     </div>
 </section>
