@@ -2,6 +2,67 @@
 layout: default
 ---
 
+<!-- JSON-LD Structured Data -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "{{ page.title | escape }}",
+  "description": "{{ page.excerpt | default: page.description | strip_html | escape }}",
+  "image": "{{ page.image | default: '/assets/images/haider-logo.jpg' | absolute_url }}",
+  "author": {
+    "@type": "Person",
+    "name": "{{ page.author | default: site.author | default: site.title }}",
+    "url": "{{ site.url }}",
+    "sameAs": [
+      "https://twitter.com/{{ site.twitter_username }}",
+      "https://github.com/{{ site.github_username }}",
+      "https://linkedin.com/in/{{ site.linkedin_username }}"
+    ]
+  },
+  "publisher": {
+    "@type": "Person",
+    "name": "{{ site.title }}",
+    "url": "{{ site.url }}",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "{{ '/assets/images/haider-logo.jpg' | absolute_url }}"
+    }
+  },
+  "datePublished": "{{ page.date | date_to_xmlschema }}",
+  "dateModified": "{{ page.last_modified_at | default: page.date | date_to_xmlschema }}",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "{{ page.url | absolute_url }}"
+  },
+  "url": "{{ page.url | absolute_url }}",
+  "keywords": "{{ page.tags | join: ', ' | escape }}",
+  "articleSection": "{{ page.categories | first | escape }}",
+  "wordCount": "{{ content | number_of_words }}",
+  "timeRequired": "PT{{ page.read_time | default: 5 }}M"
+}
+</script>
+
+<!-- Breadcrumb Navigation -->
+<nav class="breadcrumb" aria-label="Breadcrumb">
+    <ol class="breadcrumb-list">
+        <li class="breadcrumb-item">
+            <a href="{{ '/' | relative_url }}">Home</a>
+        </li>
+        <li class="breadcrumb-item">
+            <a href="{{ '/writing/' | relative_url }}">Writing</a>
+        </li>
+        {% if page.categories %}
+        <li class="breadcrumb-item">
+            <a href="{{ '/writing/' | relative_url }}#{{ page.categories.first | slugify }}">{{ page.categories.first }}</a>
+        </li>
+        {% endif %}
+        <li class="breadcrumb-item breadcrumb-current" aria-current="page">
+            {{ page.title | escape }}
+        </li>
+    </ol>
+</nav>
+
 <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
     <header class="post-header">
         <h1 class="post-title p-name" itemprop="name headline">{{ page.title | escape }}</h1>
@@ -10,15 +71,76 @@ layout: default
                 {%- assign date_format = site.minima.date_format | default: "%b %-d, %Y" -%}
                 {{ page.date | date: date_format }}
             </time>
+            {%- if page.read_time -%}
+                • <span class="read-time">{{ page.read_time }} min read</span>
+            {%- endif -%}
             {%- if page.author -%}
                 • <span itemprop="author" itemscope itemtype="http://schema.org/Person"><span class="p-author h-card" itemprop="name">{{ page.author }}</span></span>
             {%- endif -%}
         </p>
+        
+        {%- if page.image -%}
+            <div class="post-featured-image">
+                <img src="{{ page.image | relative_url }}" alt="{{ page.image_alt | default: page.title | escape }}" itemprop="image" loading="lazy" width="1200" height="630">
+            </div>
+        {%- endif -%}
     </header>
 
     <div class="post-content e-content" itemprop="articleBody">
         {{ content }}
     </div>
+
+    <!-- Latest Articles Section -->
+    <section class="related-posts">
+        <h2 class="related-posts-title">Latest Articles</h2>
+        <div class="related-posts-grid">
+            {% assign latest_posts = site.posts | where_exp: "post", "post.url != page.url" | limit: 2 %}
+            {% if latest_posts.size == 0 %}
+                {% assign latest_posts = site.posts | limit: 2 %}
+            {% endif %}
+            {% for latest_post in latest_posts %}
+            <article class="related-post-card">
+                {% if latest_post.image %}
+                <div class="related-post-image">
+                    <img src="{{ latest_post.image }}" alt="{{ latest_post.image_alt | default: latest_post.title | escape }}" loading="lazy" width="400" height="200">
+                </div>
+                {% endif %}
+                <div class="related-post-content">
+                    {% assign category_tag = latest_post.categories | first | upcase %}
+                    {% if category_tag contains 'UX DESIGN' or category_tag contains 'DESIGN' or category_tag contains 'MOBILE UX' or category_tag contains 'PSYCHOLOGY' or category_tag contains 'DESIGN SYSTEMS' %}
+                        {% assign display_tag = 'DESIGN' %}
+                    {% elsif category_tag contains 'USER RESEARCH' or category_tag contains 'TEAM COLLABORATION' %}
+                        {% assign display_tag = 'RESEARCH & STRATEGY' %}
+                    {% elsif category_tag contains 'AI' %}
+                        {% assign display_tag = 'AI' %}
+                    {% elsif category_tag contains 'DATA ANALYTICS' or category_tag contains 'DATA' %}
+                        {% assign display_tag = 'DATA ANALYTICS' %}
+                    {% elsif category_tag contains 'CONTENT' %}
+                        {% assign display_tag = 'CONTENT' %}
+                    {% elsif category_tag contains 'CAREER' %}
+                        {% assign display_tag = 'CAREER' %}
+                    {% elsif category_tag contains 'DEVELOPMENT' %}
+                        {% assign display_tag = 'DEVELOPMENT' %}
+                    {% elsif category_tag contains 'NEWS' or category_tag contains 'CULTURE' %}
+                        {% assign display_tag = 'NEWS & CULTURE' %}
+                    {% else %}
+                        {% assign display_tag = 'DESIGN' %}
+                    {% endif %}
+                    <span class="unified-tag card-element-spacing">{{ display_tag }}</span>
+                    <h3 class="related-post-title card-element-spacing">
+                        <a href="{{ latest_post.url | relative_url }}">{{ latest_post.title | escape }}</a>
+                    </h3>
+                    <div class="related-post-meta card-element-spacing">
+                        <span class="related-post-date">{{ latest_post.date | date: "%b %d, %Y" }}</span>
+                        {% if latest_post.read_time %}
+                        <span class="related-post-read-time">{{ latest_post.read_time }} min read</span>
+                        {% endif %}
+                    </div>
+                </div>
+            </article>
+            {% endfor %}
+        </div>
+    </section>
 
     {%- if site.disqus.shortname -%}
         {%- include disqus_comments.html -%}

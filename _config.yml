@@ -3,6 +3,10 @@ title: "Haider Ali"
 description: "UX Designer crafting digital experiences that are beautiful, meaningful, and user-centered. Transforming complex problems into intuitive solutions."
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "https://haiderali.co" # the base hostname & protocol for your site
+lang: "en"
+locale: "en_US"
+keywords: "UX Designer, User Experience Design, UI Design, Product Design, User Research, Design Systems, Mobile UX, Web Design, Haider Ali"
+author: "Haider Ali"
 
 # Build settings
 markdown: kramdown
@@ -33,6 +37,24 @@ plugins:
   - jekyll-feed
   - jekyll-sitemap
   - jekyll-seo-tag
+
+# Sitemap configuration
+sitemap:
+  changefreq: weekly
+  priority: 0.7
+  lastmod: true
+  exclude:
+    - /_site/
+    - /_posts/
+    - /_layouts/
+    - /_includes/
+    - /_config.yml
+    - /Gemfile
+    - /Gemfile.lock
+    - /.git/
+    - /.sass-cache/
+    - /.jekyll-cache/
+    - /.jekyll-metadata
 
 # Exclude from processing
 exclude:

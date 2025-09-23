@@ -7,6 +7,7 @@ read_time: 7
 categories: [Mobile UX, Psychology, UX Design]
 tags: [mobile-ux, psychology, gestures, touch]
 excerpt: "Mobile interfaces aren't just smaller versions of desktop designs. Understanding the psychology of touch and gesture can transform your mobile user experience."
+image: https://images.unsplash.com/photo-1558655146-d09347e92766?w=1200&h=600&fit=crop&crop=center
 ---
 
 Mobile UX design isn't just about making things smaller or fitting more content on a screen. It's about understanding how people interact with touch interfaces and designing experiences that feel natural and intuitive. The psychology of touch and gesture is fundamentally different from mouse and keyboard interactions, and ignoring these differences leads to frustrating user experiences.

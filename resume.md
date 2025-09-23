@@ -1,21 +1,18 @@
 ---
-layout: page
+layout: post
 title: Resume
 permalink: /resume/
 ---
 
-# Haider Ali - UX Designer
+# UX Designer
 
 ## Professional Summary
 
 Experienced UX Designer with a passion for creating digital experiences that are both beautiful and meaningful. Specialized in transforming complex problems into intuitive solutions through human-centered design principles.
 
-## Contact Information
+## Hiring Inquiries
 
-- **Email:** hello@haiderali.co
-- **LinkedIn:** [linkedin.com/in/haiderali-ux](https://linkedin.com/in/haiderali-ux)
-- **Twitter:** [@haiderali_ux](https://twitter.com/haiderali_ux)
-- **GitHub:** [github.com/haiderali](https://github.com/haiderali)
+Interested in working together? [Contact me](/contact/) to discuss opportunities.
 
 ## Core Skills
 
@@ -35,7 +32,7 @@ Experienced UX Designer with a passion for creating digital experiences that are
 
 ## Professional Experience
 
-### Senior UX Designer | TechStart Inc.
+### Senior UX Designer
 *2022 - Present*
 
 - Led UX design for mobile e-commerce platform serving 100K+ users
@@ -43,26 +40,10 @@ Experienced UX Designer with a passion for creating digital experiences that are
 - Redesigned checkout flow, reducing cart abandonment by 30%
 - Implemented accessibility features reaching WCAG 2.1 AA standards
 
-### UX Designer | MedTech Solutions
-*2020 - 2022*
-
-- Designed intuitive dashboard for healthcare professionals managing patient data
-- Achieved 50% faster task completion times through streamlined workflows
-- Created mobile-responsive design for on-the-go access
-- Conducted usability testing with 100+ healthcare professionals
-
-### Junior UX Designer | FinanceFlow
-*2019 - 2020*
-
-- Designed user-friendly financial planning application
-- Helped users save 20% more through improved goal-setting features
-- Created user journey maps and personas for target demographics
-- Collaborated with development teams for successful feature launches
-
 ## Education
 
 ### Bachelor of Design in Digital Media
-*University of Design & Technology | 2015 - 2019*
+*2015 - 2019*
 
 - Focus: User Experience Design & Human-Computer Interaction
 - Graduated Magna Cum Laude
@@ -94,6 +75,6 @@ I believe in creating experiences that are not just functional, but delightful. 
 
 ---
 
-*Download PDF version: [Resume.pdf](/assets/documents/Resume.pdf)*
+*Looking to hire? Please [contact me via email](mailto:haiderxayan@gmail.com) to discuss opportunities and request additional information.*
 
 *Last updated: January 2024*

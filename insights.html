@@ -1,0 +1,251 @@
+---
+layout: default
+title: Insights
+description: UX Design insights, research findings, and industry trends from Haider Ali
+---
+
+{% assign all_posts = site.posts | sort: 'date' | reverse %}
+{% assign featured_posts = all_posts | slice: 0, 6 %}
+{% assign recent_posts = all_posts %}
+
+<div class="insights-page">
+    <!-- Hero Section -->
+    <section class="insights-hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1 class="hero-title">Design Insights & Research</h1>
+                <p class="hero-description">
+                    Discover the latest trends, research findings, and practical insights 
+                    from the world of UX design and user research.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- All Time Favorites -->
+    <section class="favorites-section">
+        <div class="container">
+            <div class="favorites-grid">
+                <!-- Column 1: 2 posts (vertical layout) -->
+                <div class="favorites-column">
+                    {% for post in featured_posts limit:2 %}
+                    <article class="article-card-vertical">
+                        <div class="article-image">
+                            <img src="https://images.unsplash.com/photo-1551650975-87deedd944c3?w=400&h=200&fit=crop" alt="{{ post.title }}">
+                        </div>
+                        <div class="article-content">
+                            {% assign category_tag = post.categories | first | upcase %}
+                            {% if category_tag contains 'UX DESIGN' or category_tag contains 'DESIGN' or category_tag contains 'MOBILE UX' or category_tag contains 'PSYCHOLOGY' or category_tag contains 'DESIGN SYSTEMS' %}
+                                {% assign display_tag = 'DESIGN' %}
+                            {% elsif category_tag contains 'USER RESEARCH' or category_tag contains 'TEAM COLLABORATION' %}
+                                {% assign display_tag = 'RESEARCH & STRATEGY' %}
+                            {% elsif category_tag contains 'AI' %}
+                                {% assign display_tag = 'AI' %}
+                            {% elsif category_tag contains 'DATA ANALYTICS' or category_tag contains 'DATA' %}
+                                {% assign display_tag = 'DATA ANALYTICS' %}
+                            {% elsif category_tag contains 'CONTENT' %}
+                                {% assign display_tag = 'CONTENT' %}
+                            {% elsif category_tag contains 'CAREER' %}
+                                {% assign display_tag = 'CAREER' %}
+                            {% elsif category_tag contains 'DEVELOPMENT' %}
+                                {% assign display_tag = 'DEVELOPMENT' %}
+                            {% elsif category_tag contains 'NEWS' or category_tag contains 'CULTURE' %}
+                                {% assign display_tag = 'NEWS & CULTURE' %}
+                            {% else %}
+                                {% assign display_tag = 'DESIGN' %}
+                            {% endif %}
+                            <span class="unified-tag card-element-spacing">{{ display_tag }}</span>
+                            <h3 class="card-element-spacing"><a href="{{ post.url }}">{{ post.title }}</a></h3>
+                            <div class="article-meta card-element-spacing">
+                                <span class="publish-date">{{ post.date | date: "%b %d, %Y" }}</span>
+                                <span class="read-time">{{ post.read_time }} min read</span>
+                            </div>
+                        </div>
+                    </article>
+                    {% endfor %}
+                </div>
+
+                <!-- Column 2: 1 featured post with larger image -->
+                <div class="favorites-column featured-column">
+                    {% assign featured_post = featured_posts[2] %}
+                    <article class="article-card-featured">
+                        <div class="article-image-large">
+                            <img src="https://images.unsplash.com/photo-1558655146-9f40138edfeb?w=600&h=400&fit=crop" alt="{{ featured_post.title }}">
+                        </div>
+                        <div class="article-content-large">
+                            {% assign category_tag = featured_post.categories | first | upcase %}
+                            {% if category_tag contains 'UX DESIGN' or category_tag contains 'DESIGN' or category_tag contains 'MOBILE UX' or category_tag contains 'PSYCHOLOGY' or category_tag contains 'DESIGN SYSTEMS' %}
+                                {% assign display_tag = 'DESIGN' %}
+                            {% elsif category_tag contains 'USER RESEARCH' or category_tag contains 'TEAM COLLABORATION' %}
+                                {% assign display_tag = 'RESEARCH & STRATEGY' %}
+                            {% elsif category_tag contains 'AI' %}
+                                {% assign display_tag = 'AI' %}
+                            {% elsif category_tag contains 'DATA ANALYTICS' or category_tag contains 'DATA' %}
+                                {% assign display_tag = 'DATA ANALYTICS' %}
+                            {% elsif category_tag contains 'CONTENT' %}
+                                {% assign display_tag = 'CONTENT' %}
+                            {% elsif category_tag contains 'CAREER' %}
+                                {% assign display_tag = 'CAREER' %}
+                            {% elsif category_tag contains 'DEVELOPMENT' %}
+                                {% assign display_tag = 'DEVELOPMENT' %}
+                            {% elsif category_tag contains 'NEWS' or category_tag contains 'CULTURE' %}
+                                {% assign display_tag = 'NEWS & CULTURE' %}
+                            {% else %}
+                                {% assign display_tag = 'DESIGN' %}
+                            {% endif %}
+                            <span class="unified-tag card-element-spacing">{{ display_tag }}</span>
+                            <h3 class="card-element-spacing"><a href="{{ featured_post.url }}">{{ featured_post.title }}</a></h3>
+                            <p class="article-excerpt card-element-spacing">
+                                {{ featured_post.excerpt | truncate: 120 }}
+                            </p>
+                            <div class="article-meta card-element-spacing">
+                                <span class="publish-date">{{ featured_post.date | date: "%b %d, %Y" }}</span>
+                                <span class="read-time">{{ featured_post.read_time }} min read</span>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+
+                <!-- Column 3: 3 posts (text only) -->
+                <div class="favorites-column">
+                    {% for post in featured_posts limit:3 offset:3 %}
+                    <article class="article-card-text">
+                        <div class="article-content">
+                            {% assign category_tag = post.categories | first | upcase %}
+                            {% if category_tag contains 'UX DESIGN' or category_tag contains 'DESIGN' or category_tag contains 'MOBILE UX' or category_tag contains 'PSYCHOLOGY' or category_tag contains 'DESIGN SYSTEMS' %}
+                                {% assign display_tag = 'DESIGN' %}
+                            {% elsif category_tag contains 'USER RESEARCH' or category_tag contains 'TEAM COLLABORATION' %}
+                                {% assign display_tag = 'RESEARCH & STRATEGY' %}
+                            {% elsif category_tag contains 'AI' %}
+                                {% assign display_tag = 'AI' %}
+                            {% elsif category_tag contains 'DATA ANALYTICS' or category_tag contains 'DATA' %}
+                                {% assign display_tag = 'DATA ANALYTICS' %}
+                            {% elsif category_tag contains 'CONTENT' %}
+                                {% assign display_tag = 'CONTENT' %}
+                            {% elsif category_tag contains 'CAREER' %}
+                                {% assign display_tag = 'CAREER' %}
+                            {% elsif category_tag contains 'DEVELOPMENT' %}
+                                {% assign display_tag = 'DEVELOPMENT' %}
+                            {% elsif category_tag contains 'NEWS' or category_tag contains 'CULTURE' %}
+                                {% assign display_tag = 'NEWS & CULTURE' %}
+                            {% else %}
+                                {% assign display_tag = 'DESIGN' %}
+                            {% endif %}
+                            <span class="unified-tag card-element-spacing">{{ display_tag }}</span>
+                            <h3 class="card-element-spacing"><a href="{{ post.url }}">{{ post.title }}</a></h3>
+                            <p class="article-excerpt card-element-spacing">
+                                {{ post.excerpt | truncate: 100 }}
+                            </p>
+                            <div class="article-meta card-element-spacing">
+                                <span class="publish-date">{{ post.date | date: "%b %d, %Y" }}</span>
+                                <span class="read-time">{{ post.read_time }} min read</span>
+                            </div>
+                        </div>
+                    </article>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Recent Articles by Topic -->
+    <section class="recent-articles">
+        <div class="container">
+            <h2 class="section-title">Recent Articles by Topic</h2>
+            
+            <!-- Topic Filter -->
+            <div class="topic-filter">
+                <button class="filter-btn active" data-topic="all">All Posts</button>
+                <button class="filter-btn" data-topic="research">Research & Strategy</button>
+                <button class="filter-btn" data-topic="design">Design</button>
+                <button class="filter-btn" data-topic="ai">AI</button>
+                <button class="filter-btn" data-topic="data">Data Analytics</button>
+                <button class="filter-btn" data-topic="content">Content</button>
+                <button class="filter-btn" data-topic="career">Career</button>
+                <button class="filter-btn" data-topic="development">Development</button>
+                <button class="filter-btn" data-topic="news">News & Culture</button>
+            </div>
+
+            <!-- Articles List -->
+            <div class="articles-list">
+                {% for post in recent_posts %}
+                <article class="article-item" data-topic="{% assign category_tag = post.categories | first | upcase %}{% if category_tag contains 'USER RESEARCH' or category_tag contains 'TEAM COLLABORATION' %}research{% elsif category_tag contains 'UX DESIGN' or category_tag contains 'DESIGN' or category_tag contains 'MOBILE UX' or category_tag contains 'PSYCHOLOGY' or category_tag contains 'DESIGN SYSTEMS' %}design{% elsif category_tag contains 'AI' %}ai{% elsif category_tag contains 'DATA ANALYTICS' or category_tag contains 'DATA' %}data{% elsif category_tag contains 'CONTENT' %}content{% elsif category_tag contains 'CAREER' %}career{% elsif category_tag contains 'DEVELOPMENT' %}development{% elsif category_tag contains 'NEWS' or category_tag contains 'CULTURE' %}news{% else %}design{% endif %}">
+                    <div class="article-info">
+                        {% assign category_tag = post.categories | first | upcase %}
+                        {% if category_tag contains 'UX DESIGN' or category_tag contains 'DESIGN' or category_tag contains 'MOBILE UX' or category_tag contains 'PSYCHOLOGY' or category_tag contains 'DESIGN SYSTEMS' %}
+                            {% assign display_tag = 'DESIGN' %}
+                        {% elsif category_tag contains 'USER RESEARCH' or category_tag contains 'TEAM COLLABORATION' %}
+                            {% assign display_tag = 'RESEARCH & STRATEGY' %}
+                        {% elsif category_tag contains 'AI' %}
+                            {% assign display_tag = 'AI' %}
+                        {% elsif category_tag contains 'DATA ANALYTICS' or category_tag contains 'DATA' %}
+                            {% assign display_tag = 'DATA ANALYTICS' %}
+                        {% elsif category_tag contains 'CONTENT' %}
+                            {% assign display_tag = 'CONTENT' %}
+                        {% elsif category_tag contains 'CAREER' %}
+                            {% assign display_tag = 'CAREER' %}
+                        {% elsif category_tag contains 'DEVELOPMENT' %}
+                            {% assign display_tag = 'DEVELOPMENT' %}
+                        {% elsif category_tag contains 'NEWS' or category_tag contains 'CULTURE' %}
+                            {% assign display_tag = 'NEWS & CULTURE' %}
+                        {% else %}
+                            {% assign display_tag = 'DESIGN' %}
+                        {% endif %}
+                        <span class="unified-tag">[{{ display_tag }}]</span>
+                        <h3><a href="{{ post.url }}">{{ post.title }}</a></h3>
+                        <p class="article-excerpt">
+                            {{ post.excerpt }}
+                        </p>
+                        <div class="article-meta">
+                            <span class="author">Haider Ali</span>
+                            <span class="date">{{ post.date | date: "%b %d, %Y" }}</span>
+                            <span class="read-time">{{ post.read_time }} min read</span>
+                        </div>
+                    </div>
+                </article>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter Signup -->
+    <section class="newsletter-signup">
+        <div class="container">
+            <div class="newsletter-content">
+                <h2>Stay Updated with Design Insights</h2>
+                <p>Get the latest UX research, design trends, and practical tips delivered to your inbox.</p>
+                <form class="newsletter-form">
+                    <input type="email" placeholder="Enter your email address" required>
+                    <button type="submit" class="btn btn-primary">Subscribe</button>
+                </form>
+            </div>
+        </div>
+    </section>
+</div>
+
+<script>
+// Topic filter functionality
+document.addEventListener('DOMContentLoaded', function() {
+    const filterButtons = document.querySelectorAll('.filter-btn');
+    const articleItems = document.querySelectorAll('.article-item');
+
+    filterButtons.forEach(button => {
+        button.addEventListener('click', function() {
+            const topic = this.getAttribute('data-topic');
+            
+            // Update active button
+            filterButtons.forEach(btn => btn.classList.remove('active'));
+            this.classList.add('active');
+            
+            // Filter articles
+            articleItems.forEach(article => {
+                if (topic === 'all' || article.getAttribute('data-topic') === topic) {
+                    article.style.display = 'block';
+                } else {
+                    article.style.display = 'none';
+                }
+            });
+        });
+    });
+});
+</script>

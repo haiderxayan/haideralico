@@ -5,11 +5,114 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     
+    <!-- SEO Meta Tags -->
     {%- seo -%}
     
-    <link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}">
+    <!-- Additional SEO Meta Tags -->
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+    <meta name="googlebot" content="index, follow">
+    <meta name="bingbot" content="index, follow">
+    <meta name="author" content="{{ page.author | default: site.author | default: site.title }}">
+    <meta name="keywords" content="{{ page.keywords | default: site.keywords }}">
+    <meta name="theme-color" content="#2563eb">
+    <meta name="msapplication-TileColor" content="#2563eb">
+    
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:type" content="{% if page.layout == 'post' %}article{% else %}website{% endif %}">
+    <meta property="og:site_name" content="{{ site.title | escape }}">
+    <meta property="og:locale" content="{{ site.locale | default: 'en_US' }}">
+    {% if page.image %}
+    <meta property="og:image" content="{{ page.image | absolute_url }}">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="{{ page.title | escape }}">
+    {% else %}
+    <meta property="og:image" content="{{ '/assets/images/haider-logo.jpg' | absolute_url }}">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="{{ site.title | escape }} - UX Designer">
+    {% endif %}
+    
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@{{ site.twitter_username }}">
+    <meta name="twitter:creator" content="@{{ site.twitter_username }}">
+    <meta name="twitter:title" content="{{ page.title | default: site.title | escape }}">
+    <meta name="twitter:description" content="{{ page.excerpt | default: page.description | default: site.description | strip_html | truncate: 160 | escape }}">
+    {% if page.image %}
+    <meta name="twitter:image" content="{{ page.image | absolute_url }}">
+    <meta name="twitter:image:alt" content="{{ page.title | escape }}">
+    {% else %}
+    <meta name="twitter:image" content="{{ '/assets/images/haider-logo.jpg' | absolute_url }}">
+    <meta name="twitter:image:alt" content="{{ site.title | escape }} - UX Designer">
+    {% endif %}
+    
+    <!-- Additional Meta Tags -->
     <link rel="canonical" href="{{ page.url | replace:'index.html','' | absolute_url }}">
     <link rel="alternate" type="application/rss+xml" title="{{ site.title | escape }}" href="{{ '/feed.xml' | relative_url }}">
+    <link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}">
+    
+    <!-- Preconnect to external domains for performance -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://images.unsplash.com">
+    <link rel="dns-prefetch" href="https://fonts.gstatic.com">
+    <link rel="dns-prefetch" href="https://images.unsplash.com">
+    
+    <!-- Performance optimizations -->
+    <meta name="format-detection" content="telephone=no">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    
+    <!-- Favicon and App Icons -->
+    <link rel="icon" type="image/x-icon" href="{{ '/assets/images/haider-logo.jpg' | relative_url }}">
+    <link rel="apple-touch-icon" href="{{ '/assets/images/haider-logo.jpg' | relative_url }}">
+    <link rel="manifest" href="{{ '/manifest.json' | relative_url }}">
+    
+    <!-- JSON-LD Structured Data -->
+    {% if page.layout == 'post' %}
+    <!-- Blog post structured data is handled in post.html -->
+    {% else %}
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "{% if page.url == '/' %}Person{% else %}WebPage{% endif %}",
+      {% if page.url == '/' %}
+      "name": "{{ site.title }}",
+      "description": "{{ site.description }}",
+      "url": "{{ site.url }}",
+      "image": "{{ '/assets/images/haider-logo.jpg' | absolute_url }}",
+      "jobTitle": "UX Designer",
+      "worksFor": {
+        "@type": "Organization",
+        "name": "Freelance"
+      },
+      "sameAs": [
+        "https://twitter.com/{{ site.twitter_username }}",
+        "https://github.com/{{ site.github_username }}",
+        "https://linkedin.com/in/{{ site.linkedin_username }}"
+      ],
+      "knowsAbout": [
+        "User Experience Design",
+        "User Interface Design",
+        "User Research",
+        "Design Systems",
+        "Mobile UX",
+        "Web Design"
+      ]
+      {% else %}
+      "name": "{{ page.title | default: site.title }}",
+      "description": "{{ page.description | default: page.excerpt | default: site.description | strip_html | escape }}",
+      "url": "{{ page.url | absolute_url }}",
+      "isPartOf": {
+        "@type": "WebSite",
+        "name": "{{ site.title }}",
+        "url": "{{ site.url }}"
+      }
+      {% endif %}
+    }
+    </script>
+    {% endif %}
     
     {%- if jekyll.environment == 'production' and site.google_analytics -%}
         {%- include google-analytics.html -%}
@@ -65,6 +168,15 @@
                             <li><a href="/writing/">Writing</a></li>
                             <li><a href="/reading/">Reading</a></li>
                             <li><a href="/contact/">Contact</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="footer-col">
+                        <h4>Resources</h4>
+                        <ul class="footer-nav">
+                            <li><a href="/insights/">Insights</a></li>
+                            <li><a href="/resume/">Resume</a></li>
+                            <li><a href="/about/">About</a></li>
                         </ul>
                     </div>
                     
