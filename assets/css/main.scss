@@ -74,8 +74,7 @@ body {
 
 // Modern UX Designer Portfolio Styles
 
-// Import Google Fonts
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+// Fonts are loaded via <link> in the HTML head for better performance
 
 // Reset and Base Styles
 * {
@@ -97,6 +96,30 @@ body {
   background-color: $background-color;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+// Respect reduced motion preferences
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation: none !important;
+    transition: none !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+// Skip link for keyboard users
+.skip-link {
+  position: absolute;
+  top: -40px;
+  left: 0;
+  background: #000;
+  color: #fff;
+  padding: 8px 12px;
+  z-index: 1000;
+  text-decoration: none;
+}
+.skip-link:focus {
+  top: 10px;
 }
 
 // Container
@@ -260,8 +283,11 @@ section {
 
 .skills-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  grid-template-columns: repeat(2, 1fr);
   gap: 2rem;
+  @include media-query($on-palm) {
+    grid-template-columns: 1fr;
+  }
 }
 
 .skill-card {
@@ -552,6 +578,204 @@ section {
   p {
     margin: 0;
     color: $text-light;
+  }
+}
+
+// Favorites section (used on homepage)
+.favorites-section {
+  background: white;
+  padding: 4rem 0;
+
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0;
+  }
+
+  .favorites-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.5fr 1fr;
+    gap: 2rem;
+
+    @include media-query($on-laptop) {
+      grid-template-columns: 1fr;
+      gap: 2rem;
+    }
+  }
+
+  .favorites-column {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+
+    &.featured-column {
+      .article-card-featured {
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+      }
+    }
+  }
+
+  .article-card-vertical {
+    margin-bottom: 1.5rem;
+    transition: all 0.3s ease;
+
+    &:hover {
+      transform: translateY(-2px);
+    }
+
+    .article-image {
+      width: 100%;
+      height: 200px;
+      overflow: hidden;
+      border-radius: 4px;
+      margin-bottom: 1rem;
+
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.3s ease;
+      }
+
+      &:hover img {
+        transform: scale(1.05);
+      }
+    }
+
+    .article-content {
+      h3 {
+        font-size: 1rem;
+        font-weight: 600;
+        color: $text-color;
+        margin-bottom: 0;
+        line-height: 1.3;
+      }
+
+      .article-excerpt {
+        color: $text-light;
+        line-height: 1.5;
+        font-size: 0.85rem;
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+
+      .article-meta {
+        display: flex;
+        gap: 0.75rem;
+        font-size: 0.75rem;
+        color: $text-light;
+
+        .read-time {
+          font-weight: 500;
+        }
+      }
+    }
+  }
+
+  .article-card-featured {
+    background: white;
+    border-radius: 8px;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    height: 100%;
+
+    &:hover {
+      transform: translateY(-2px);
+    }
+
+    .article-image-large {
+      height: 300px;
+      overflow: hidden;
+
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.3s ease;
+      }
+
+      &:hover img {
+        transform: scale(1.05);
+      }
+    }
+
+    .article-content-large {
+      padding: 2rem 0;
+
+      h3 {
+        font-size: 1.5rem;
+        font-weight: 600;
+        color: $text-color;
+        line-height: 1.3;
+      }
+
+      .article-excerpt {
+        color: $text-light;
+        line-height: 1.6;
+        display: -webkit-box;
+        -webkit-line-clamp: 3;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+
+      .article-meta {
+        display: flex;
+        gap: 1rem;
+        font-size: 0.9rem;
+        color: $text-light;
+
+        .read-time {
+          font-weight: 500;
+        }
+      }
+    }
+  }
+
+  .article-card-text {
+    margin-bottom: 1.5rem;
+    transition: all 0.3s ease;
+
+    &:hover {
+      transform: translateY(-2px);
+    }
+
+    .article-content {
+      h3 {
+        font-size: 1rem;
+        font-weight: 600;
+        color: $text-color;
+        margin-bottom: 0;
+        line-height: 1.3;
+      }
+
+      .article-excerpt {
+        color: $text-light;
+        line-height: 1.5;
+        font-size: 0.85rem;
+        display: -webkit-box;
+        -webkit-line-clamp: 1;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+
+      .article-meta {
+        display: flex;
+        gap: 0.75rem;
+        font-size: 0.75rem;
+        color: $text-light;
+
+        .read-time {
+          font-weight: 500;
+        }
+      }
+    }
   }
 }
 
@@ -2562,4 +2786,3 @@ section {
         margin: 0;
     }
 }
-

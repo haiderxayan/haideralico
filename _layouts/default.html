@@ -51,11 +51,13 @@
     <link rel="canonical" href="{{ page.url | replace:'index.html','' | absolute_url }}">
     <link rel="alternate" type="application/rss+xml" title="{{ site.title | escape }}" href="{{ '/feed.xml' | relative_url }}">
     <link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}">
+    <!-- Google Fonts: load via link (faster than @import) -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     
     <!-- Preconnect to external domains for performance -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://images.unsplash.com">
-    <link rel="dns-prefetch" href="https://fonts.gstatic.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="dns-prefetch" href="https://images.unsplash.com">
     
     <!-- Performance optimizations -->
@@ -120,15 +122,16 @@
 </head>
 
 <body>
+    <a class="skip-link" href="#main-content">Skip to main content</a>
     <header class="site-header">
         <div class="header-container">
             <a class="site-logo" href="{{ '/' | relative_url }}">
                 <span class="logo-text">H</span>
             </a>
             
-            <nav class="site-nav">
+            <nav class="site-nav" aria-label="Primary">
                 <input type="checkbox" id="nav-trigger" class="nav-trigger" />
-                <label for="nav-trigger" class="nav-toggle">
+                <label for="nav-trigger" class="nav-toggle" aria-label="Toggle navigation" aria-controls="primary-menu">
                     <span class="hamburger">
                         <span class="hamburger-line"></span>
                         <span class="hamburger-line"></span>
@@ -136,16 +139,16 @@
                     </span>
                 </label>
                 
-                <div class="nav-menu">
+                <div class="nav-menu" id="primary-menu">
                     {%- for item in site.navigation -%}
-                        <a class="nav-link" href="{{ item.url | relative_url }}">{{ item.title | escape }}</a>
+                        <a class="nav-link{% if page.url == item.url %} active{% endif %}" href="{{ item.url | relative_url }}"{% if page.url == item.url %} aria-current="page"{% endif %}>{{ item.title | escape }}</a>
                     {%- endfor -%}
                 </div>
             </nav>
         </div>
     </header>
 
-    <main class="page-content" aria-label="Content">
+    <main class="page-content" aria-label="Content" id="main-content">
         <div class="wrapper">
             {{ content }}
         </div>
@@ -185,17 +188,17 @@
                     <div class="footer-col">
                         <h4>Connect</h4>
                         <ul class="contact-list">
-                            <li><a href="mailto:hello@haiderali.co">hello@haiderali.co</a></li>
-                            <li><a href="https://twitter.com/haiderali_ux" target="_blank">Twitter</a></li>
-                            <li><a href="https://github.com/haiderali" target="_blank">GitHub</a></li>
-                            <li><a href="https://linkedin.com/in/haiderali-ux" target="_blank">LinkedIn</a></li>
+                            <li><a href="mailto:haiderxayan@gmail.com">haiderxayan@gmail.com</a></li>
+                            <li><a href="https://twitter.com/haiderali_ux" target="_blank" rel="noopener">Twitter</a></li>
+                            <li><a href="https://github.com/haiderali" target="_blank" rel="noopener">GitHub</a></li>
+                            <li><a href="https://linkedin.com/in/haiderali-ux" target="_blank" rel="noopener">LinkedIn</a></li>
                         </ul>
                     </div>
                 </div>
             </div>
             
             <div class="footer-bottom">
-                <p>&copy; 2024 Haider Ali. All rights reserved.</p>
+                <p>&copy; {{ site.time | date: "%Y" }} Haider Ali. All rights reserved.</p>
             </div>
         </div>
     </footer>

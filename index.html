@@ -1,13 +1,16 @@
 ---
+layout: default
+title: "Haider Ali — Evidence-led UX & CRO"
+description: "I design evidence-backed experiences people trust. I partner with product teams to remove friction, ship with confidence, and prove the impact of design with measurable outcomes."
+permalink: "/"
+---
 <div class="home">
     <!-- Hero Section -->
     <section class="hero">
         <div class="hero-inner">
             <h1 class="hero-title">I design evidence-backed experiences people trust.</h1>
             <p class="hero-description">I'm Haider Ali, a UX designer partnering with product teams to remove friction, ship with confidence, and prove the impact of design with measurable outcomes.</p>
-            <div class="hero-actions">
-                <a href="#work" class="btn btn-primary">See Featured Work</a>
-            </div>
+            
         </div>
     </section>
 
@@ -40,147 +43,146 @@
         </div>
     </section>
 
-    <!-- Portfolio Preview -->
-    <section class="portfolio-preview" id="work">
-        <div class="container">
-            <h2 class="section-title">Featured Work</h2>
-            <div class="portfolio-grid">
-                <article class="portfolio-item">
-                    <div class="portfolio-badge">Case Study</div>
-                    <h3>E-commerce growth through customer journeys</h3>
-                    <p>Led qualitative discovery and prototyping that lifted checkout conversion by 42% and unlocked a new retention playbook.</p>
-                    <ul class="portfolio-meta">
-                        <li>Role: Product UX Lead</li>
-                        <li>Focus: Journey orchestration, CRO</li>
-                        <li>Impact: +$1.2M ARR</li>
-                    </ul>
-                    <a class="portfolio-link" href="/work#commerce">Read the project summary</a>
-                </article>
-                <article class="portfolio-item">
-                    <div class="portfolio-badge">In Sprint</div>
-                    <h3>Healthcare operations command center</h3>
-                    <p>Partnered with clinicians to design a shared dashboard that reduced critical response times by 28%.</p>
-                    <ul class="portfolio-meta">
-                        <li>Role: Research & Service Design</li>
-                        <li>Focus: Workflow automation</li>
-                        <li>Impact: 2x faster triage</li>
-                    </ul>
-                    <a class="portfolio-link" href="/work#health">Dive into the process</a>
-                </article>
-                <article class="portfolio-item">
-                    <div class="portfolio-badge">Product Evolution</div>
-                    <h3>Fintech onboarding for emerging markets</h3>
-                    <p>Re-imagined onboarding flows with progressive profiling, improving activation by 63% while reducing support tickets.</p>
-                    <ul class="portfolio-meta">
-                        <li>Role: UX Strategist</li>
-                        <li>Focus: Localization, onboarding</li>
-                        <li>Impact: +63% activation</li>
-                    </ul>
-                    <a class="portfolio-link" href="/work#fintech">Explore the outcomes</a>
-                </article>
-            </div>
-            <div class="portfolio-cta">
-                <a href="/work" class="btn btn-outline">See the full portfolio</a>
-            </div>
-        </div>
-    </section>
+    
 
-    <!-- Results Section -->
-    <section class="results">
-        <div class="container">
-            <div class="results-header">
-                <h2 class="section-title">Results clients rely on</h2>
-                <p>Each engagement pairs qualitative insight with experimentation so teams can defend every product decision with data.</p>
-            </div>
-            <div class="results-grid">
-                <div class="result-card">
-                    <span class="result-value">+68%</span>
-                    <h3>Engagement increase</h3>
-                    <p>Introduced behavior-driven personalization for a SaaS platform, lifting weekly active users within four weeks.</p>
-                </div>
-                <div class="result-card">
-                    <span class="result-value">-35%</span>
-                    <h3>Time-to-value reduction</h3>
-                    <p>Restructured onboarding and in-product education to shorten the first-win moment for complex enterprise tooling.</p>
-                </div>
-                <div class="result-card">
-                    <span class="result-value">4.7★</span>
-                    <h3>App store rating</h3>
-                    <p>Guided cross-functional teams through continuous discovery to improve satisfaction and keep support costs low.</p>
-                </div>
-            </div>
-        </div>
-    </section>
+    
 
-    <!-- About Preview -->
-    <section class="about-preview">
-        <div class="container">
-            <div class="about-content">
-                <div class="about-text">
-                    <h2>About Me</h2>
-                    <p>
-                        With over 5 years of experience in UX design, I've had the privilege of working 
-                        with startups and Fortune 500 companies to create digital products that make a difference. 
-                        I believe in the power of design to solve real problems and create positive impact.
-                    </p>
-                    <p>
-                        When I'm not designing, you'll find me exploring new coffee shops, 
-                        sketching in my notebook, or hiking in the mountains.
-                    </p>
-                    <a href="/about" class="btn btn-primary">Learn More</a>
-                </div>
-                <div class="about-stats">
-                    <div class="stat">
-                        <span class="stat-number">50+</span>
-                        <span class="stat-label">Projects Completed</span>
-                    </div>
-                    <div class="stat">
-                        <span class="stat-number">5</span>
-                        <span class="stat-label">Years Experience</span>
-                    </div>
-                    <div class="stat">
-                        <span class="stat-number">25+</span>
-                        <span class="stat-label">Happy Clients</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+    
 
-    <!-- Latest Insights -->
-    <section class="latest-insights" id="insights">
+    {% assign all_posts = site.posts | sort: 'date' | reverse %}
+    {% assign featured_posts = all_posts | slice: 0, 6 %}
+    <section class="favorites-section" id="insights">
         <div class="container">
-            <div class="insights-header">
-                <h2 class="section-title">Latest writing & resources</h2>
-                <p>Practical notes on uncovering opportunity, designing for outcomes, and guiding product teams through change.</p>
-            </div>
-            <ul class="insights-list">
-                {% assign published_posts = site.posts | where_exp: "post", "post.draft != true" %}
-                {% if published_posts and published_posts.size > 0 %}
-                    {% for post in published_posts limit:3 %}
-                        <li class="insight-card">
-                            <a class="insight-link" href="{{ post.url }}">
-                                <span class="insight-date">{{ post.date | date: "%b %d, %Y" }}</span>
-                                <h3>{{ post.title }}</h3>
-                                {% if post.description %}
-                                    <p>{{ post.description }}</p>
-                                {% else %}
-                                    <p>{{ post.excerpt | strip_html | truncate: 160 }}</p>
-                                {% endif %}
-                            </a>
-                        </li>
-                    {% endfor %}
-                {% else %}
-                    <li class="insight-card empty">
-                        <div class="insight-link">
-                            <h3>Fresh insight is on the way.</h3>
-                            <p>I'm currently distilling new field notes. Check back soon or reach out for tailored recommendations.</p>
+            <h2 class="section-title">Latest writing & resources</h2>
+            <div class="favorites-grid">
+                <!-- Column 1: 2 posts (vertical layout) -->
+                <div class="favorites-column">
+                    {% for post in featured_posts limit:2 %}
+                    <article class="article-card-vertical">
+                        <div class="article-image">
+                            {% if post.image %}
+                                <img src="{{ post.image }}?w=400&h=200&fit=crop" alt="{{ post.image_alt | default: post.title | escape }}">
+                            {% else %}
+                                <img src="https://images.unsplash.com/photo-1551650975-87deedd944c3?w=400&h=200&fit=crop" alt="{{ post.title }}">
+                            {% endif %}
                         </div>
-                    </li>
-                {% endif %}
-            </ul>
-            <div class="insights-cta">
-                <a class="btn btn-outline" href="/writing">Browse the archive</a>
+                        <div class="article-content">
+                            {% assign category_tag = post.categories | first | upcase %}
+                            {% if category_tag contains 'UX DESIGN' or category_tag contains 'DESIGN' or category_tag contains 'MOBILE UX' or category_tag contains 'PSYCHOLOGY' or category_tag contains 'DESIGN SYSTEMS' %}
+                                {% assign display_tag = 'DESIGN' %}
+                            {% elsif category_tag contains 'USER RESEARCH' or category_tag contains 'TEAM COLLABORATION' %}
+                                {% assign display_tag = 'RESEARCH & STRATEGY' %}
+                            {% elsif category_tag contains 'AI' %}
+                                {% assign display_tag = 'AI' %}
+                            {% elsif category_tag contains 'DATA ANALYTICS' or category_tag contains 'DATA' %}
+                                {% assign display_tag = 'DATA ANALYTICS' %}
+                            {% elsif category_tag contains 'CONTENT' %}
+                                {% assign display_tag = 'CONTENT' %}
+                            {% elsif category_tag contains 'CAREER' %}
+                                {% assign display_tag = 'CAREER' %}
+                            {% elsif category_tag contains 'DEVELOPMENT' %}
+                                {% assign display_tag = 'DEVELOPMENT' %}
+                            {% elsif category_tag contains 'NEWS' or category_tag contains 'CULTURE' %}
+                                {% assign display_tag = 'NEWS & CULTURE' %}
+                            {% else %}
+                                {% assign display_tag = 'DESIGN' %}
+                            {% endif %}
+                            <span class="unified-tag card-element-spacing">{{ display_tag }}</span>
+                            <h3 class="card-element-spacing"><a href="{{ post.url }}">{{ post.title }}</a></h3>
+                            <div class="article-meta card-element-spacing">
+                                <span class="publish-date">{{ post.date | date: "%b %d, %Y" }}</span>
+                                <span class="read-time">{{ post.read_time }} min read</span>
+                            </div>
+                        </div>
+                    </article>
+                    {% endfor %}
+                </div>
+
+                <!-- Column 2: 1 featured post with larger image -->
+                <div class="favorites-column featured-column">
+                    {% assign featured_post = featured_posts[2] %}
+                    {% if featured_post %}
+                    <article class="article-card-featured">
+                        <div class="article-image-large">
+                            {% if featured_post.image %}
+                                <img src="{{ featured_post.image }}?w=600&h=400&fit=crop" alt="{{ featured_post.image_alt | default: featured_post.title | escape }}">
+                            {% else %}
+                                <img src="https://images.unsplash.com/photo-1558655146-9f40138edfeb?w=600&h=400&fit=crop" alt="{{ featured_post.title }}">
+                            {% endif %}
+                        </div>
+                        <div class="article-content-large">
+                            {% assign category_tag = featured_post.categories | first | upcase %}
+                            {% if category_tag contains 'UX DESIGN' or category_tag contains 'DESIGN' or category_tag contains 'MOBILE UX' or category_tag contains 'PSYCHOLOGY' or category_tag contains 'DESIGN SYSTEMS' %}
+                                {% assign display_tag = 'DESIGN' %}
+                            {% elsif category_tag contains 'USER RESEARCH' or category_tag contains 'TEAM COLLABORATION' %}
+                                {% assign display_tag = 'RESEARCH & STRATEGY' %}
+                            {% elsif category_tag contains 'AI' %}
+                                {% assign display_tag = 'AI' %}
+                            {% elsif category_tag contains 'DATA ANALYTICS' or category_tag contains 'DATA' %}
+                                {% assign display_tag = 'DATA ANALYTICS' %}
+                            {% elsif category_tag contains 'CONTENT' %}
+                                {% assign display_tag = 'CONTENT' %}
+                            {% elsif category_tag contains 'CAREER' %}
+                                {% assign display_tag = 'CAREER' %}
+                            {% elsif category_tag contains 'DEVELOPMENT' %}
+                                {% assign display_tag = 'DEVELOPMENT' %}
+                            {% elsif category_tag contains 'NEWS' or category_tag contains 'CULTURE' %}
+                                {% assign display_tag = 'NEWS & CULTURE' %}
+                            {% else %}
+                                {% assign display_tag = 'DESIGN' %}
+                            {% endif %}
+                            <span class="unified-tag card-element-spacing">{{ display_tag }}</span>
+                            <h3 class="card-element-spacing"><a href="{{ featured_post.url }}">{{ featured_post.title }}</a></h3>
+                            <p class="article-excerpt card-element-spacing">
+                                {{ featured_post.excerpt | truncate: 120 }}
+                            </p>
+                            <div class="article-meta card-element-spacing">
+                                <span class="publish-date">{{ featured_post.date | date: "%b %d, %Y" }}</span>
+                                <span class="read-time">{{ featured_post.read_time }} min read</span>
+                            </div>
+                        </div>
+                    </article>
+                    {% endif %}
+                </div>
+
+                <!-- Column 3: 3 posts (text only) -->
+                <div class="favorites-column">
+                    {% for post in featured_posts limit:3 offset:3 %}
+                    <article class="article-card-text">
+                        <div class="article-content">
+                            {% assign category_tag = post.categories | first | upcase %}
+                            {% if category_tag contains 'UX DESIGN' or category_tag contains 'DESIGN' or category_tag contains 'MOBILE UX' or category_tag contains 'PSYCHOLOGY' or category_tag contains 'DESIGN SYSTEMS' %}
+                                {% assign display_tag = 'DESIGN' %}
+                            {% elsif category_tag contains 'USER RESEARCH' or category_tag contains 'TEAM COLLABORATION' %}
+                                {% assign display_tag = 'RESEARCH & STRATEGY' %}
+                            {% elsif category_tag contains 'AI' %}
+                                {% assign display_tag = 'AI' %}
+                            {% elsif category_tag contains 'DATA ANALYTICS' or category_tag contains 'DATA' %}
+                                {% assign display_tag = 'DATA ANALYTICS' %}
+                            {% elsif category_tag contains 'CONTENT' %}
+                                {% assign display_tag = 'CONTENT' %}
+                            {% elsif category_tag contains 'CAREER' %}
+                                {% assign display_tag = 'CAREER' %}
+                            {% elsif category_tag contains 'DEVELOPMENT' %}
+                                {% assign display_tag = 'DEVELOPMENT' %}
+                            {% elsif category_tag contains 'NEWS' or category_tag contains 'CULTURE' %}
+                                {% assign display_tag = 'NEWS & CULTURE' %}
+                            {% else %}
+                                {% assign display_tag = 'DESIGN' %}
+                            {% endif %}
+                            <span class="unified-tag card-element-spacing">{{ display_tag }}</span>
+                            <h3 class="card-element-spacing"><a href="{{ post.url }}">{{ post.title }}</a></h3>
+                            <p class="article-excerpt card-element-spacing">
+                                {{ post.excerpt | truncate: 100 }}
+                            </p>
+                            <div class="article-meta card-element-spacing">
+                                <span class="publish-date">{{ post.date | date: "%b %d, %Y" }}</span>
+                                <span class="read-time">{{ post.read_time }} min read</span>
+                            </div>
+                        </div>
+                    </article>
+                    {% endfor %}
+                </div>
             </div>
         </div>
     </section>
@@ -224,17 +226,5 @@
         </div>
     </section>
 
-    <!-- Contact CTA -->
-    <section class="contact-cta" id="contact">
-        <div class="container">
-            <div class="cta-content">
-                <h2>Let's Create Something Amazing Together</h2>
-                <p>Have a project in mind? I'd love to hear about it and explore how we can bring your vision to life.</p>
-                <div class="cta-actions">
-                    <a href="mailto:hello@haiderali.co" class="btn btn-primary">Get In Touch</a>
-                    <a href="/resume.pdf" class="btn btn-secondary" target="_blank">Download Resume</a>
-                </div>
-            </div>
-        </div>
-    </section>
+    
 </div>
