@@ -516,8 +516,3 @@ $on-desktop: 1280px;            // Desktop screens</code></pre>
         </div>
     </div>
 </section>
-
-<!-- Wiki Footer -->
-<div class="wiki-footer">
-    <p><em>This design system wiki is the single source of truth for all design and development decisions. Any deviations must be documented and approved before implementation.</em></p>
-</div>

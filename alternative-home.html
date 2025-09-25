@@ -1,209 +1,130 @@
+---
+layout: null
+permalink: /alternative-home.html
+---
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="robots" content="noindex, nofollow">
-    <title>Haider Ali - UX Designer</title>
+    <title>Haider Ali - Design Insights & Research</title>
     <link rel="stylesheet" href="/assets/css/alternative-home.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@600;700;800&display=swap" rel="stylesheet">
 </head>
 <body>
     <div class="alternative-home">
-        <!-- Hero Section - Exact copy of Boag's structure -->
+        <!-- Header -->
+        <header class="site-header">
+            <div class="header-container">
+                <a class="site-logo" href="/">
+                    <span class="logo-text">H</span>
+                </a>
+            </div>
+        </header>
+
+        <!-- Hero Section -->
         <section class="hero">
             <div class="hero-container">
                 <div class="hero-content">
                     <h1 class="hero-title">
-                        Your Users Deserve Better, As Do You.
+                        Design Insights & Research
                     </h1>
                     <p class="hero-description">
-                        I'm Haider Ali, a UX designer. I help you cut through politics, guesswork, 
-                        and stalled projects to create user experiences people actually love and 
-                        leaders can't ignore.
+                        Discover the latest trends, research findings, and practical insights from the world of UX design and user research.
                     </p>
-                    <div class="hero-actions">
-                        <a href="#contact" class="btn-primary">Let's Talk</a>
-                        <a href="/resume/" class="btn-secondary">Get Weekly UX Insights</a>
-                    </div>
                 </div>
             </div>
         </section>
 
-        <!-- Partner in UX Section - Exact copy of Boag's structure -->
-        <section class="partner-section">
+        <!-- Blog Feed Section -->
+        <section class="blog-feed">
             <div class="container">
-                <div class="partner-content">
-                    <h2 class="partner-title">Your Partner in UX and CRO strategy</h2>
-                    <h3 class="partner-subtitle">Your Users Deserve Better, As Do You.</h3>
-                    <p class="partner-description">
-                        I'm Haider Ali, a UX designer. I help you cut through politics, guesswork, 
-                        and stalled projects to create user experiences people actually love and 
-                        leaders can't ignore.
-                    </p>
-                    <div class="partner-actions">
-                        <a href="#contact" class="btn-primary">Let's Talk</a>
-                        <a href="/resume/" class="btn-secondary">Get Weekly UX Insights</a>
-                    </div>
+                {% assign published_posts = site.posts | where_exp: "post", "post.draft != true" %}
+                {% if published_posts and published_posts.size > 0 %}
+                <div class="post-list">
+                    {% for post in published_posts %}
+                    <article class="post-card">
+                        <div class="post-body">
+                            <h2 class="post-title">
+                                <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
+                            </h2>
+                            <p class="post-description">
+                                {% if post.description %}
+                                    {{ post.description }}
+                                {% else %}
+                                    {{ post.excerpt | strip_html | truncate: 160 }}
+                                {% endif %}
+                            </p>
+                        </div>
+                        {% if post.image %}
+                        <a class="post-image" href="{{ post.url | relative_url }}">
+                            <img src="{{ post.image }}" alt="{{ post.image_alt | default: post.title }}" loading="lazy">
+                        </a>
+                        {% else %}
+                        <a class="post-image placeholder" href="{{ post.url | relative_url }}">
+                            <img src="{{ '/assets/images/blog/placeholder.svg' | relative_url }}" alt="{{ post.title }}" loading="lazy">
+                        </a>
+                        {% endif %}
+                    </article>
+                    {% endfor %}
                 </div>
+                {% else %}
+                <p class="empty-state">Fresh insights are coming soon. Check back shortly.</p>
+                {% endif %}
             </div>
         </section>
 
-        <!-- How I Help Section - Exact copy of Boag's structure -->
-        <section class="how-i-help">
+        <!-- Footer -->
+        <footer class="site-footer">
             <div class="container">
-                <h2 class="section-title">how I help you</h2>
-                <div class="help-grid">
-                    <div class="help-card">
-                        <h3>Results You Can Prove</h3>
-                        <p>By finding friction points and fixing them, I help you deliver measurable improvements you can show to clients, stakeholders, or leadership.</p>
+                <div class="footer-content">
+                    <div class="footer-brand">
+                        <h3 class="footer-heading">Haider Ali</h3>
+                        <p class="footer-description">UX Designer crafting digital experiences</p>
                     </div>
-                    <div class="help-card">
-                        <h3>Clarity and Control</h3>
-                        <p>I help you untangle complex challenges and turn competing opinions into a clear, actionable plan. I put you in control.</p>
-                    </div>
-                    <div class="help-card">
-                        <h3>Cost Effective Support</h3>
-                        <p>Get expert help when you need it, without the cost, commitment, or complexity of a big consultancy or full-time hire.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Testimonials Section - Exact copy of Boag's testimonial structure -->
-        <section class="testimonials">
-            <div class="container">
-                <div class="testimonial-grid">
-                    <div class="testimonial-card">
-                        <div class="testimonial-content">
-                            <p>Haider has the ability to see what is hiding in plain sight. He validated ideas under consideration and provided new, actionable recommendations. The most valuable insight was illustrating how our issues were symptoms of an inefficient UX project team structure.</p>
+                    
+                    <div class="footer-links">
+                        <div class="footer-col">
+                            <h4>Navigation</h4>
+                            <ul class="footer-nav">
+                                <li><a href="/">Home</a></li>
+                                <li><a href="/work/">Work</a></li>
+                                <li><a href="/writing/">Writing</a></li>
+                                <li><a href="/reading/">Reading</a></li>
+                                <li><a href="/contact/">Contact</a></li>
+                            </ul>
                         </div>
-                        <div class="testimonial-author">
-                            <strong>Sarah Johnson</strong>
-                            <span>Product Manager, TechCorp</span>
+                        
+                        <div class="footer-col">
+                            <h4>Resources</h4>
+                            <ul class="footer-nav">
+                                <li><a href="/resources/">UX Resources</a></li>
+                                <li><a href="/insights/">Insights</a></li>
+                                <li><a href="/bookmarks/">Bookmarks</a></li>
+                                <li><a href="/design-system-wiki/">Design System</a></li>
+                                <li><a href="/resume/">Resume</a></li>
+                                <li><a href="/about/">About</a></li>
+                            </ul>
                         </div>
-                    </div>
-                    <div class="testimonial-card">
-                        <div class="testimonial-content">
-                            <p>Haider is one of the smartest, most passionate, most generous people I know in the UX industry. He is truly committed to helping organizations become simpler and more user-centric.</p>
-                        </div>
-                        <div class="testimonial-author">
-                            <strong>Mike Chen</strong>
-                            <span>Design Director, StartupXYZ</span>
-                        </div>
-                    </div>
-                    <div class="testimonial-card">
-                        <div class="testimonial-content">
-                            <p>Haider is an inspiration. His ability to understand and break down problems and offer advice, drawing on his years of experience is unrivalled. He genuinely wants to get the best out of you and your organisation.</p>
-                        </div>
-                        <div class="testimonial-author">
-                            <strong>Lisa Rodriguez</strong>
-                            <span>UX Lead, Enterprise Inc</span>
+                        
+                        <div class="footer-col">
+                            <h4>Connect</h4>
+                            <ul class="contact-list">
+                                <li><a href="mailto:haiderxayan@gmail.com">haiderxayan@gmail.com</a></li>
+                                <li><a href="https://twitter.com/haiderali_ux" target="_blank" rel="noopener">Twitter</a></li>
+                                <li><a href="https://github.com/haiderali" target="_blank" rel="noopener">GitHub</a></li>
+                                <li><a href="https://linkedin.com/in/haiderali-ux" target="_blank" rel="noopener">LinkedIn</a></li>
+                            </ul>
                         </div>
                     </div>
                 </div>
-            </div>
-        </section>
-
-        <!-- Who I Help Section - Exact copy of Boag's audience targeting -->
-        <section class="who-i-help">
-            <div class="container">
-                <h2 class="section-title">WHo I help</h2>
-                <div class="audience-grid">
-                    <div class="audience-card">
-                        <h3>In-House UX Leaders</h3>
-                        <p>I help you move UX beyond wireframes and prototypes so you're shaping strategy, winning budget, and building the kind of influence that gets your ideas implemented.</p>
-                    </div>
-                    <div class="audience-card">
-                        <h3>Marketing Leaders</h3>
-                        <p>I work with you to remove friction in your user journey, improve conversion rates, and create experiences your audience actually enjoys. All backed by data you can share with stakeholders.</p>
-                    </div>
-                    <div class="audience-card">
-                        <h3>Agencies & Freelancers</h3>
-                        <p>I give you the tools, advice, and confidence to win bigger projects, charge what you're worth, and deliver great work without burning out or reinventing the wheel every time.</p>
-                    </div>
+                
+                <div class="footer-bottom">
+                    <p>&copy; 2025 Haider Ali. All rights reserved.</p>
                 </div>
             </div>
-        </section>
-
-        <!-- Where I Help Most Section - Exact copy of Boag's service layout -->
-        <section class="where-i-help">
-            <div class="container">
-                <h2 class="section-title">Where I Help Most</h2>
-                <div class="services-grid">
-                    <div class="service-card">
-                        <h3>UX Strategic Improvements</h3>
-                        <p>I'll help you spot what's getting in the way of a great user experience and give you a clear, practical plan to fix it. From quick wins to bigger changes that get leadership on side.</p>
-                    </div>
-                    <div class="service-card">
-                        <h3>Improving Conversion</h3>
-                        <p>I'll help you turn more visitors into customers, donors, or subscribers with simple, evidence-based changes that make every click count.</p>
-                    </div>
-                    <div class="service-card">
-                        <h3>Leadership Coaching</h3>
-                        <p>I'll be your sounding board when you need to make tough calls, sharpen your strategy, or get unstuck leading a team or project.</p>
-                    </div>
-                    <div class="service-card">
-                        <h3>Training & Workshops</h3>
-                        <p>I'll run hands-on sessions and create custom playbooks or self-learning materials so your team can keep improving long after the workshop ends. All practical, all ready to use.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- About Me Section - Exact copy of Boag's "me at a glance" style -->
-        <section class="about-me">
-            <div class="container">
-                <div class="about-content">
-                    <div class="about-text">
-                        <h2>About me</h2>
-                        <p>I'm a UX designer and conversion optimization specialist with 5+ years in digital. I help teams create user experiences that work; winning support, improving results, and making change stick.</p>
-                        <div class="credentials">
-                            <div class="credential">
-                                <strong>Strategic UX Designer</strong>
-                                <span>Turning Insight Into Action</span>
-                            </div>
-                            <div class="credential">
-                                <strong>5+ Years in Digital</strong>
-                                <span>Helping Teams & Startups Grow</span>
-                            </div>
-                            <div class="credential">
-                                <strong>Expert in Improving Conversion</strong>
-                                <span>Evidence-Based Design Changes</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="about-stats">
-                        <div class="stat">
-                            <span class="stat-number">50+</span>
-                            <span class="stat-label">Projects Completed</span>
-                        </div>
-                        <div class="stat">
-                            <span class="stat-number">25+</span>
-                            <span class="stat-label">Happy Clients</span>
-                        </div>
-                        <div class="stat">
-                            <span class="stat-number">40%</span>
-                            <span class="stat-label">Avg. Conversion Improvement</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Contact CTA - Exact copy of Boag's final CTA style -->
-        <section class="contact-cta" id="contact">
-            <div class="container">
-                <div class="cta-content">
-                    <h2>Got a challenge? Let's fix it.</h2>
-                    <p>Whether you're stuck on a tricky UX problem, need a second opinion, or just want to explore working together, I'm here to help.</p>
-                    <div class="cta-actions">
-                        <a href="mailto:hello@haiderali.co" class="btn-primary">Get In Touch</a>
-                        <a href="/resume/" class="btn-secondary">Download Resume</a>
-                    </div>
-                </div>
-            </div>
-        </section>
+        </footer>
     </div>
 </body>
 </html>

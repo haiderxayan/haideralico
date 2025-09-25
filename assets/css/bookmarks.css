@@ -461,28 +461,3 @@
     }
 }
 
-.bookmarks-footer {
-    background: #f8f8f8;
-    padding: 2rem;
-    border-radius: 0;
-    margin-top: 3rem;
-    border-top: 1px solid #e0e0e0;
-    text-align: center;
-    
-    p {
-        font-style: italic;
-        color: #666666;
-        margin: 0;
-        font-size: 1rem;
-        
-        a {
-            color: #000000;
-            text-decoration: none;
-            font-weight: 600;
-            
-            &:hover {
-                text-decoration: underline;
-            }
-        }
-    }
-}

@@ -438,7 +438,3 @@ canonical_url: "https://haiderali.co/bookmarks/"
     </div>
 </section>
 
-<!-- Resources Footer -->
-<div class="bookmarks-footer">
-    <p><em>This collection is regularly updated with new tools and resources. If you have suggestions for additions, feel free to <a href="/contact/">reach out</a>!</em></p>
-</div>

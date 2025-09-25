@@ -2685,20 +2685,6 @@ section {
     }
 }
 
-.wiki-footer {
-    background: $background-light;
-    padding: 2rem;
-    border-radius: 0;
-    margin-top: 3rem;
-    border-top: 1px solid $border-color;
-    text-align: center;
-    
-    p {
-        font-style: italic;
-        color: $text-light;
-        margin: 0;
-    }
-}
 
 // Minimal Footer Styles
 .site-footer {
@@ -2784,5 +2770,295 @@ section {
         color: $text-light;
         font-size: 0.875rem;
         margin: 0;
+    }
+}
+
+// Resources Page Styles
+.resources-page {
+    .resources-hero {
+        background: linear-gradient(135deg, $primary-color 0%, darken($primary-color, 10%) 100%);
+        color: white;
+        padding: 4rem 0;
+        text-align: center;
+        
+        .page-title {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            
+            @include media-query($on-palm) {
+                font-size: 2.5rem;
+            }
+        }
+        
+        .page-description {
+            font-size: 1.25rem;
+            opacity: 0.9;
+            max-width: 600px;
+            margin: 0 auto;
+            line-height: 1.6;
+            
+            @include media-query($on-palm) {
+                font-size: 1.1rem;
+            }
+        }
+    }
+    
+    .featured-publications {
+        padding: 4rem 0;
+        
+        .publications-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .publication-card {
+            background: white;
+            border: 1px solid $border-color;
+            border-radius: 12px;
+            padding: 2rem;
+            transition: all 0.3s ease;
+            
+            &:hover {
+                transform: translateY(-2px);
+                box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+                border-color: $primary-color;
+            }
+            
+            &.featured {
+                border-color: $primary-color;
+                background: linear-gradient(135deg, rgba($primary-color, 0.05) 0%, rgba($primary-color, 0.02) 100%);
+            }
+            
+            .publication-meta {
+                display: flex;
+                gap: 1rem;
+                margin-bottom: 1rem;
+                
+                .publication-type {
+                    background: $primary-color;
+                    color: white;
+                    padding: 0.25rem 0.75rem;
+                    border-radius: 20px;
+                    font-size: 0.75rem;
+                    font-weight: 600;
+                    text-transform: uppercase;
+                    letter-spacing: 0.5px;
+                }
+                
+                .publication-date {
+                    color: $text-light;
+                    font-size: 0.875rem;
+                }
+            }
+            
+            .publication-title {
+                font-size: 1.5rem;
+                font-weight: 600;
+                margin-bottom: 0.5rem;
+                line-height: 1.4;
+                
+                a {
+                    color: $text-color;
+                    text-decoration: none;
+                    
+                    &:hover {
+                        color: $primary-color;
+                    }
+                }
+            }
+            
+            .publication-author {
+                color: $primary-color;
+                font-weight: 500;
+                margin-bottom: 1rem;
+            }
+            
+            .publication-excerpt {
+                color: $text-light;
+                line-height: 1.6;
+                margin-bottom: 1.5rem;
+            }
+            
+            .publication-tags {
+                display: flex;
+                flex-wrap: wrap;
+                gap: 0.5rem;
+                
+                .tag {
+                    background: $background-light;
+                    color: $text-color;
+                    padding: 0.25rem 0.75rem;
+                    border-radius: 16px;
+                    font-size: 0.75rem;
+                    font-weight: 500;
+                    border: 1px solid $border-color;
+                }
+            }
+        }
+    }
+    
+    .industry-leaders {
+        background: $background-light;
+        padding: 4rem 0;
+        
+        .leaders-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .leader-card {
+            background: white;
+            border: 1px solid $border-color;
+            border-radius: 12px;
+            padding: 2rem;
+            transition: all 0.3s ease;
+            
+            &:hover {
+                transform: translateY(-2px);
+                box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+            }
+            
+            .leader-name {
+                font-size: 1.5rem;
+                font-weight: 600;
+                margin-bottom: 0.5rem;
+                color: $text-color;
+            }
+            
+            .leader-title {
+                color: $primary-color;
+                font-weight: 500;
+                margin-bottom: 1rem;
+            }
+            
+            .leader-bio {
+                color: $text-light;
+                line-height: 1.6;
+                margin-bottom: 1.5rem;
+            }
+            
+            .leader-resources {
+                h4 {
+                    font-size: 1rem;
+                    font-weight: 600;
+                    margin-bottom: 0.75rem;
+                    color: $text-color;
+                }
+                
+                ul {
+                    list-style: none;
+                    padding: 0;
+                    margin: 0;
+                    
+                    li {
+                        margin-bottom: 0.5rem;
+                        
+                        a {
+                            color: $primary-color;
+                            text-decoration: none;
+                            font-size: 0.875rem;
+                            
+                            &:hover {
+                                text-decoration: underline;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+    
+    .essential-resources {
+        padding: 4rem 0;
+        
+        .resources-categories {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .resource-category {
+            background: white;
+            border: 1px solid $border-color;
+            border-radius: 12px;
+            padding: 2rem;
+            
+            .category-title {
+                font-size: 1.25rem;
+                font-weight: 600;
+                margin-bottom: 1.5rem;
+                color: $text-color;
+                border-bottom: 2px solid $primary-color;
+                padding-bottom: 0.5rem;
+            }
+            
+            .resource-list {
+                list-style: none;
+                padding: 0;
+                margin: 0;
+                
+                li {
+                    margin-bottom: 1rem;
+                    padding-bottom: 1rem;
+                    border-bottom: 1px solid $border-color;
+                    
+                    &:last-child {
+                        border-bottom: none;
+                        margin-bottom: 0;
+                        padding-bottom: 0;
+                    }
+                    
+                    a {
+                        color: $primary-color;
+                        text-decoration: none;
+                        font-weight: 500;
+                        
+                        &:hover {
+                            text-decoration: underline;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    
+    .newsletter-signup {
+        background: linear-gradient(135deg, $primary-color 0%, darken($primary-color, 10%) 100%);
+        color: white;
+        padding: 4rem 0;
+        text-align: center;
+        
+        .newsletter-content {
+            max-width: 600px;
+            margin: 0 auto;
+            
+            h2 {
+                font-size: 2rem;
+                font-weight: 700;
+                margin-bottom: 1rem;
+            }
+            
+            p {
+                font-size: 1.1rem;
+                opacity: 0.9;
+                margin-bottom: 2rem;
+                line-height: 1.6;
+            }
+            
+            .newsletter-form {
+                p {
+                    background: rgba(255, 255, 255, 0.1);
+                    padding: 1.5rem;
+                    border-radius: 8px;
+                    border: 1px solid rgba(255, 255, 255, 0.2);
+                }
+            }
+        }
     }
 }

@@ -1,4 +1,4 @@
-/* Exact copy of Paul Boag's design system */
+/* Alternative Home Page - Medium-style blog design */
 
 .alternative-home {
   font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
@@ -16,9 +16,53 @@
   padding: 0;
 }
 
-/* Hero Section - Exact copy of Boag's hero */
+/* Header Styles */
+.site-header {
+  padding: 20px 0;
+  background: #ffffff;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.header-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  display: flex;
+  justify-content: center;
+}
+
+.site-logo {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.site-logo:hover {
+  transform: scale(1.05);
+}
+
+.logo-text {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  background: #000000;
+  color: white;
+  font-size: 1.5rem;
+  font-weight: 700;
+  border-radius: 0;
+  transition: all 0.2s ease;
+}
+
+.logo-text:hover {
+  background: #333333;
+}
+
+/* Hero Section */
 .hero {
-  padding: 60px 0;
+  padding: 80px 0 60px 0;
   background: #ffffff;
   text-align: center;
 }
@@ -44,485 +88,151 @@
 }
 
 .hero-description {
-  font-size: 1.1rem;
+  font-size: 1.2rem;
   color: #333333;
-  margin-bottom: 30px;
+  margin-bottom: 0;
   line-height: 1.6;
   max-width: 600px;
   margin-left: auto;
   margin-right: auto;
 }
 
-.hero-actions {
-  display: flex;
-  gap: 15px;
-  justify-content: center;
-  flex-wrap: wrap;
-}
-
-/* Partner Section - Exact copy of Boag's partner section */
-.partner-section {
-  padding: 40px 0;
+/* Blog Feed Section - Medium Style */
+.blog-feed {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  padding: 48px 0 96px 0;
   background: #ffffff;
-  text-align: center;
-}
-
-.partner-content {
-  max-width: 800px;
-  margin: 0 auto;
-  padding: 0 20px;
-}
-
-.partner-title {
-  font-size: 2.2rem;
-  font-weight: 600;
-  margin-bottom: 15px;
-  color: #000000;
-  line-height: 1.2;
-}
-
-.partner-subtitle {
-  font-size: 2.8rem;
-  font-weight: 700;
-  margin-bottom: 20px;
-  color: #000000;
-  line-height: 1.1;
-}
-
-.partner-description {
-  font-size: 1.1rem;
-  color: #333333;
-  margin-bottom: 30px;
-  line-height: 1.6;
-  max-width: 600px;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-.partner-actions {
-  display: flex;
-  gap: 15px;
-  justify-content: center;
-  flex-wrap: wrap;
-}
-
-/* Button Styles - Exact copy of Boag's buttons */
-.btn-primary, .btn-secondary {
-  display: inline-block;
-  padding: 12px 24px;
-  border-radius: 0;
-  font-weight: 600;
-  text-decoration: none;
-  transition: all 0.2s ease;
-  border: 2px solid transparent;
-  font-size: 0.95rem;
-  min-width: 120px;
-  text-align: center;
-}
-
-.btn-primary {
-  background: #000000;
-  color: #ffffff;
-  border-color: #000000;
-}
-
-.btn-primary:hover {
-  background: #333333;
-  border-color: #333333;
-}
-
-.btn-secondary {
-  background: transparent;
-  color: #000000;
-  border-color: #000000;
-}
-
-.btn-secondary:hover {
-  background: #000000;
-  color: #ffffff;
-}
-
-/* Section Styles */
-section {
-  padding: 60px 0;
 }
 
 .container {
-  max-width: 1200px;
+  max-width: 680px;
   margin: 0 auto;
-  padding: 0 20px;
+  padding: 0 24px;
 }
 
-.section-title {
-  font-size: 2.2rem;
+.post-list {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.post-card {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 160px;
+  align-items: center;
+  gap: 32px;
+  padding-bottom: 32px;
+  border-bottom: 1px solid #f2f2f2;
+}
+
+.post-card:last-child {
+  border-bottom: none;
+}
+
+.post-body {
+  max-width: 448px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.post-title {
+  margin: 0;
+}
+
+.post-title a {
+  display: inline-block;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  font-size: 20px;
+  line-height: 30px;
   font-weight: 600;
-  text-align: center;
-  margin-bottom: 50px;
-  color: #000000;
-  text-transform: lowercase;
   letter-spacing: -0.01em;
+  color: #1a1a1a;
+  text-decoration: none;
 }
 
-/* How I Help Section - Exact copy of Boag's 3-column grid */
-.how-i-help {
-  background: #ffffff;
-}
-
-.help-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 40px;
-  max-width: 1000px;
-  margin: 0 auto;
-}
-
-.help-card {
-  text-align: left;
-  padding: 0;
-}
-
-.help-card h3 {
-  font-size: 1.3rem;
-  font-weight: 700;
-  margin-bottom: 15px;
+.post-title a:hover {
   color: #000000;
-  line-height: 1.3;
 }
 
-.help-card p {
-  font-size: 0.95rem;
-  color: #333333;
-  line-height: 1.6;
+.post-description {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  font-size: 16px;
+  line-height: 24px;
+  color: rgba(0, 0, 0, 0.5);
   margin: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
 }
 
-/* Testimonials Section - Exact copy of Boag's testimonial layout */
-.testimonials {
-  background: #f8f9fa;
-}
-
-.testimonial-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 30px;
-  max-width: 1000px;
-  margin: 0 auto;
-}
-
-.testimonial-card {
-  background: #ffffff;
-  padding: 25px;
-  border: 1px solid #e0e0e0;
-  position: relative;
-}
-
-.testimonial-content p {
-  font-size: 0.95rem;
-  line-height: 1.6;
-  color: #333333;
-  margin-bottom: 20px;
-  font-style: italic;
-}
-
-.testimonial-author strong {
+.post-image {
   display: block;
-  font-size: 0.95rem;
-  color: #000000;
-  margin-bottom: 5px;
-  font-weight: 600;
+  width: 160px;
+  height: 107px;
+  overflow: hidden;
+  background: #f4f4f4;
 }
 
-.testimonial-author span {
-  color: #666666;
-  font-size: 0.85rem;
+.post-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
 }
 
-/* Who I Help Section */
-.who-i-help {
-  background: #ffffff;
+.post-image.placeholder img {
+  object-fit: contain;
+  padding: 16px;
+  filter: grayscale(100%);
 }
 
-.audience-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 40px;
-  max-width: 1000px;
-  margin: 0 auto;
-}
-
-.audience-card {
-  text-align: left;
-  padding: 0;
-}
-
-.audience-card h3 {
-  font-size: 1.3rem;
-  font-weight: 700;
-  margin-bottom: 15px;
-  color: #000000;
-  line-height: 1.3;
-}
-
-.audience-card p {
-  font-size: 0.95rem;
-  color: #333333;
-  line-height: 1.6;
-  margin: 0;
-}
-
-/* Where I Help Most Section */
-.where-i-help {
-  background: #f8f9fa;
-}
-
-.services-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 30px;
-  max-width: 800px;
-  margin: 0 auto;
-}
-
-.service-card {
-  background: #ffffff;
-  padding: 25px;
-  border: 1px solid #e0e0e0;
-}
-
-.service-card h3 {
-  font-size: 1.2rem;
-  font-weight: 700;
-  margin-bottom: 15px;
-  color: #000000;
-  line-height: 1.3;
-}
-
-.service-card p {
-  font-size: 0.95rem;
-  color: #333333;
-  line-height: 1.6;
-  margin: 0;
-}
-
-/* About Me Section */
-.about-me {
-  background: #ffffff;
-}
-
-.about-content {
-  display: grid;
-  grid-template-columns: 2fr 1fr;
-  gap: 50px;
-  align-items: start;
-  max-width: 1000px;
-  margin: 0 auto;
-}
-
-.about-text h2 {
-  font-size: 2.2rem;
-  font-weight: 600;
-  margin-bottom: 25px;
-  color: #000000;
-  line-height: 1.2;
-}
-
-.about-text p {
+.empty-state {
+  margin-top: 48px;
   font-size: 1rem;
-  color: #333333;
-  line-height: 1.6;
-  margin-bottom: 30px;
-}
-
-.credentials {
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
-}
-
-.credential {
-  display: flex;
-  flex-direction: column;
-  gap: 5px;
-}
-
-.credential strong {
-  font-size: 0.95rem;
-  color: #000000;
-  font-weight: 600;
-}
-
-.credential span {
-  font-size: 0.85rem;
   color: #666666;
-}
-
-.about-stats {
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
-}
-
-.stat {
-  text-align: center;
-  padding: 20px;
-  background: #f8f9fa;
-  border: 1px solid #e0e0e0;
-}
-
-.stat-number {
-  display: block;
-  font-size: 2.2rem;
-  font-weight: 700;
-  color: #000000;
-  margin-bottom: 8px;
-}
-
-.stat-label {
-  font-size: 0.85rem;
-  color: #666666;
-  font-weight: 500;
-}
-
-/* Contact CTA Section */
-.contact-cta {
-  background: #000000;
-  color: #ffffff;
   text-align: center;
 }
 
-.contact-cta .section-title {
-  color: #ffffff;
-}
-
-.cta-content {
-  max-width: 600px;
-  margin: 0 auto;
-}
-
-.cta-content h2 {
-  font-size: 2.2rem;
-  font-weight: 600;
-  margin-bottom: 25px;
-  color: #ffffff;
-  line-height: 1.2;
-}
-
-.cta-content p {
-  font-size: 1rem;
-  margin-bottom: 30px;
-  color: #cccccc;
-  line-height: 1.6;
-}
-
-.cta-actions {
-  display: flex;
-  gap: 15px;
-  justify-content: center;
-  flex-wrap: wrap;
-}
-
-.contact-cta .btn-primary {
-  background: #ffffff;
-  color: #000000;
-  border-color: #ffffff;
-}
-
-.contact-cta .btn-primary:hover {
-  background: #f0f0f0;
-  border-color: #f0f0f0;
-}
-
-.contact-cta .btn-secondary {
-  background: transparent;
-  color: #ffffff;
-  border-color: #ffffff;
-}
-
-.contact-cta .btn-secondary:hover {
-  background: #ffffff;
-  color: #000000;
-}
 
 /* Responsive Design */
-@media (max-width: 768px) {
-  .hero-title {
-    font-size: 2.5rem;
-  }
-  
-  .partner-subtitle {
-    font-size: 2.2rem;
-  }
-  
-  .hero-description,
-  .partner-description {
-    font-size: 1rem;
-  }
-  
-  .section-title {
-    font-size: 1.8rem;
-  }
-  
-  .help-grid,
-  .testimonial-grid,
-  .audience-grid {
-    grid-template-columns: 1fr;
-    gap: 25px;
-  }
-  
-  .services-grid {
-    grid-template-columns: 1fr;
-  }
-  
-  .about-content {
-    grid-template-columns: 1fr;
-    gap: 30px;
-  }
-  
-  .hero-actions,
-  .partner-actions,
-  .cta-actions {
-    flex-direction: column;
-    align-items: center;
-  }
-  
-  .btn-primary,
-  .btn-secondary {
-    width: 100%;
-    max-width: 250px;
-  }
-  
+@media (max-width: 720px) {
   .container {
-    padding: 0 15px;
+    padding: 0 20px;
   }
-  
-  section {
-    padding: 40px 0;
+
+  .post-card {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 20px;
+  }
+
+  .post-image {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 3 / 2;
+  }
+
+  .post-title a {
+    font-size: 20px;
+    line-height: 30px;
+  }
+
+  .post-description {
+    font-size: 16px;
+    line-height: 24px;
   }
 }
 
 @media (max-width: 480px) {
-  .hero-title {
-    font-size: 2rem;
+  .post-title a {
+    font-size: 20px;
+    line-height: 30px;
   }
-  
-  .partner-subtitle {
-    font-size: 1.8rem;
-  }
-  
-  .hero-description,
-  .partner-description {
-    font-size: 0.95rem;
-  }
-  
-  .section-title {
-    font-size: 1.6rem;
-  }
-  
-  .container {
-    padding: 0 10px;
-  }
-  
-  section {
-    padding: 30px 0;
+
+  .post-description {
+    font-size: 16px;
+    line-height: 24px;
   }
 }
