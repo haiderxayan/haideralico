@@ -90,7 +90,7 @@ def generate_article_content(topic, template):
     content = f"""---
 layout: post
 title: "{title}"
-date: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}
+date: {datetime.now().replace(year=2024).strftime('%Y-%m-%d %H:%M:%S')}
 categories: ["UX Design", "{topic}"]
 tags: ["{topic.lower()}", "ux", "design", "user experience"]
 read_time: 8
@@ -248,8 +248,10 @@ def main():
     # Generate URL (assuming your site is deployed)
     site_url = "https://haiderali.co"
     date_str = datetime.now().strftime('%Y-%m-%d')
+    # Use 2024 for the URL to ensure articles appear on the site
+    url_date = date_str.replace('2025', '2024') if '2025' in date_str else date_str
     clean_filename = filename.replace('.md', '').replace(f'{date_str}-', '')
-    article_url = f"{site_url}/{datetime.now().strftime('%Y/%m/%d')}/{clean_filename}/"
+    article_url = f"{site_url}/{url_date.replace('-', '/')}/{clean_filename}/"
     
     # Send GitHub notification
     print("📱 Sending GitHub notification...")

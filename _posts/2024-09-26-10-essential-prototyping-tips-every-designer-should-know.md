@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "10 Essential Prototyping Tips Every Designer Should Know"
-date: 2025-09-26 00:12:22
+date: 2024-09-26 00:12:22
 categories: ["UX Design", "Prototyping"]
 tags: ["prototyping", "ux", "design", "user experience"]
 read_time: 8

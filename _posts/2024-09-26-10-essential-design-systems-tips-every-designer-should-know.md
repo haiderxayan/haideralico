@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "10 Essential Design Systems Tips Every Designer Should Know"
-date: 2025-09-26 00:20:42
+date: 2024-09-26 00:20:42
 categories: ["UX Design", "Design Systems"]
 tags: ["design systems", "ux", "design", "user experience"]
 read_time: 8
