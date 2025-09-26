@@ -70,6 +70,7 @@ exclude:
   - .sass-cache/
   - .jekyll-cache/
   - .jekyll-metadata
+  - _posts
 
 # Social media
 twitter_username: haiderali_ux
