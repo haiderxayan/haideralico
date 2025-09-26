@@ -217,7 +217,8 @@ h3 { font-size: 1.5rem; }
 }
 
 .hero-title {
-  font-size: clamp(2.5rem, 3vw + 1.5rem, 4rem);
+  /* Use calc() to avoid Sass unit math error (vw + rem) */
+  font-size: clamp(2.5rem, calc(1.5rem + 3vw), 4rem);
   font-weight: 700;
   margin: 0 auto 1.5rem;
   color: $text-color;
