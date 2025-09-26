@@ -70,7 +70,7 @@ exclude:
   - .sass-cache/
   - .jekyll-cache/
   - .jekyll-metadata
-  - _posts
+  # keep posts included in the build
 
 # Social media
 twitter_username: haiderali_ux
