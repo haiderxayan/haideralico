@@ -40,15 +40,4 @@ jobs:
       run: |
         cd scripts
         python daily_article_generator.py
-    
-    - name: Set up Ruby
-      uses: ruby/setup-ruby@v1
-      with:
-        ruby-version: '3.2'
-        bundler-cache: true
-    
-    - name: Build Jekyll site (sanity check)
-      run: |
-        bundle install
-        bundle exec jekyll build
-      # Deployment is handled by .github/workflows/pages.yml on push to main
+      # Site build and deployment are handled by .github/workflows/pages.yml on push to main
