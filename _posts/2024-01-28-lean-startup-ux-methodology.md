@@ -1,6 +1,8 @@
 ---
 layout: post
 title: "The Lean Startup: UX Methodology from Eric Ries"
+image_credit_url: "https://unsplash.com/@matias_north"
+image_credit_text: "Photo by Matias North on Unsplash"
 subtitle: "How validated learning and iterative development apply to user experience design"
 date: 2024-08-22 12:00:00 +0000
 read_time: 5
@@ -11,8 +13,10 @@ redirect_from:
 tags: [book-review, lean-startup, eric-ries, validated-learning, iterative-development, ux-methodology]
 excerpt: "While focused on startups, Ries's methodology has direct applications to UX design and product development processes."
 description: "Exploring how the Lean Startup methodology by Eric Ries can be applied to UX design, focusing on validated learning and iterative development cycles."
-image: https://images.unsplash.com/photo-1559136555-9303baea8ebd?w=1200&h=600&fit=crop&crop=center
-image_alt: "The Lean Startup book cover with iterative development cycle diagrams"
+image: "https://images.unsplash.com/photo-1598024055266-e772a5f8c128?ixid=M3w4MDk1ODZ8MHwxfHNlYXJjaHw0fHxyZWFkaW5nfGVufDF8MHx8fDE3NTg5OTY5MDJ8MA&ixlib=rb-4.1.0&w=1200&h=630&fit=crop&auto=format"
+
+image_alt: "woman in red shirt reading book"
+
 keywords: "Lean Startup, Eric Ries, validated learning, iterative development, UX methodology, build-measure-learn, user-centered design"
 author: "Haider Ali"
 last_modified_at: 2024-01-28 16:45:00 -0800

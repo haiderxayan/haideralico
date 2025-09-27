@@ -1,6 +1,8 @@
 ---
 layout: post
 title: "10 Essential Prototyping Tips Every Designer Should Know"
+image_credit_url: "https://unsplash.com/@amayli"
+image_credit_text: "Photo by Amélie Mourichon on Unsplash"
 date: 2024-10-13 12:00:00 +0000
 categories: ["ux-design", "prototyping"]
 redirect_from:
@@ -10,8 +12,9 @@ redirect_from:
 tags: ["prototyping", "ux", "design", "user experience"]
 read_time: 8
 excerpt: "Mastering Prototyping is key to creating user-centered designs that truly resonate with your audience. Here are 10 essential tips that will elevate yo..."
-image: "https://images.unsplash.com/photo-1551650975-87deedd944c3?w=1200&h=630&fit=crop"
-image_alt: "Prototyping in UX Design"
+image: "https://images.unsplash.com/photo-1576595580361-90a855b84b20?ixid=M3w4MDk1ODZ8MHwxfHNlYXJjaHwyfHxwcm90b3R5cGluZ3xlbnwxfDB8fHwxNzU4OTk2OTA3fDA&ixlib=rb-4.1.0&w=1200&h=630&fit=crop&auto=format"
+
+image_alt: "person writing on printing paper"
 ---
 
 Mastering Prototyping is key to creating user-centered designs that truly resonate with your audience. Here are 10 essential tips that will elevate your Prototyping skills and help you create more effective user experiences.

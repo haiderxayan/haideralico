@@ -1,6 +1,8 @@
 ---
 layout: post
 title: "The Future of User Journey Mapping: Trends Shaping UX in 2024"
+image_credit_url: "https://unsplash.com/@uxindo"
+image_credit_text: "Photo by UX Indonesia on Unsplash"
 date: 2024-12-04 12:00:00 +0000
 categories: ["ux-design", "user-journey-mapping"]
 redirect_from:
@@ -10,8 +12,9 @@ redirect_from:
 tags: ["user journey mapping", "ux", "design", "user experience"]
 read_time: 8
 excerpt: "As we navigate through 2024, User Journey Mapping continues to evolve at a rapid pace. Understanding these emerging trends is crucial for staying ahea..."
-image: "https://images.unsplash.com/photo-1551650975-87deedd944c3?w=1200&h=630&fit=crop"
-image_alt: "User Journey Mapping in UX Design"
+image: "https://images.unsplash.com/photo-1586863065451-6a82fa7e81b9?ixid=M3w4MDk1ODZ8MHwxfHNlYXJjaHwxfHx1c2VyJTIwam91cm5leSUyMG1hcHBpbmd8ZW58MXwwfHx8MTc1ODk5NjkwOXww&ixlib=rb-4.1.0&w=1200&h=630&fit=crop&auto=format"
+
+image_alt: "person holding yellow sticky notes"
 ---
 
 As we navigate through 2024, User Journey Mapping continues to evolve at a rapid pace. Understanding these emerging trends is crucial for staying ahead in the UX field. Let's explore what's shaping the future of User Journey Mapping.

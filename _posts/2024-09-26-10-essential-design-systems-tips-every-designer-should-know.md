@@ -1,6 +1,8 @@
 ---
 layout: post
 title: "10 Essential Design Systems Tips Every Designer Should Know"
+image_credit_url: "https://unsplash.com/@designbyhelios"
+image_credit_text: "Photo by Sunil kumar on Unsplash"
 date: 2024-11-08 12:00:00 +0000
 categories: ["ux-design", "design-systems"]
 redirect_from:
@@ -10,8 +12,9 @@ redirect_from:
 tags: ["design systems", "ux", "design", "user experience"]
 read_time: 8
 excerpt: "Mastering Design Systems is key to creating user-centered designs that truly resonate with your audience. Here are 10 essential tips that will elevate..."
-image: "https://images.unsplash.com/photo-1551650975-87deedd944c3?w=1200&h=630&fit=crop"
-image_alt: "Design Systems in UX Design"
+image: "https://images.unsplash.com/photo-1662652375712-9b877aae658e?ixid=M3w4MDk1ODZ8MHwxfHNlYXJjaHwxfHxkZXNpZ24lMjBzeXN0ZW1zfGVufDF8MHx8fDE3NTg5OTY5MDZ8MA&ixlib=rb-4.1.0&w=1200&h=630&fit=crop&auto=format"
+
+image_alt: "a desk with a computer and a monitor on it"
 ---
 
 Mastering Design Systems is key to creating user-centered designs that truly resonate with your audience. Here are 10 essential tips that will elevate your Design Systems skills and help you create more effective user experiences.

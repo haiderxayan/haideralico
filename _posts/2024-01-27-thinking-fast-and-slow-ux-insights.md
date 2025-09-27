@@ -1,6 +1,8 @@
 ---
 layout: post
 title: "Thinking, Fast and Slow: UX Insights from Daniel Kahneman"
+image_credit_url: "https://unsplash.com/@christinhumephoto"
+image_credit_text: "Photo by Christin Hume on Unsplash"
 subtitle: "How understanding cognitive biases can improve user interface design"
 date: 2024-07-27 12:00:00 +0000
 read_time: 6
@@ -11,8 +13,10 @@ redirect_from:
 tags: [book-review, thinking-fast-and-slow, daniel-kahneman, cognitive-biases, psychology, user-interfaces]
 excerpt: "Kahneman's research on cognitive biases and decision-making processes provides valuable insights for creating more intuitive user interfaces."
 description: "Exploring how insights from Thinking, Fast and Slow by Daniel Kahneman can be applied to UX design, particularly in understanding user behavior and cognitive biases."
-image: https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=1200&h=600&fit=crop&crop=center
-image_alt: "Thinking, Fast and Slow book cover with brain and decision-making diagrams"
+image: "https://images.unsplash.com/photo-1513475382585-d06e58bcb0e0?ixid=M3w4MDk1ODZ8MHwxfHNlYXJjaHwzfHxyZWFkaW5nfGVufDF8MHx8fDE3NTg5OTY5MDJ8MA&ixlib=rb-4.1.0&w=1200&h=630&fit=crop&auto=format"
+
+image_alt: "person picking white and red book on bookshelf"
+
 keywords: "Thinking Fast and Slow, Daniel Kahneman, cognitive biases, UX design, user behavior, decision-making, psychology"
 author: "Haider Ali"
 last_modified_at: 2024-01-27 14:15:00 -0800

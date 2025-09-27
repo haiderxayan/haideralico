@@ -1,6 +1,8 @@
 ---
 layout: post
 title: "Atomic Habits: Design Lessons from James Clear"
+image_credit_url: "https://unsplash.com/@jmuniz"
+image_credit_text: "Photo by Joel Muniz on Unsplash"
 subtitle: "How habit formation principles can transform design processes and team workflows"
 date: 2024-07-01 12:00:00 +0000
 read_time: 5
@@ -11,8 +13,10 @@ redirect_from:
 tags: [book-review, atomic-habits, james-clear, habit-formation, design-process, team-workflows]
 excerpt: "James Clear's approach to habit formation through small, consistent actions has profound implications for design processes and team workflows."
 description: "Exploring how principles from Atomic Habits by James Clear can be applied to design processes, team workflows, and building better design systems."
-image: https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=1200&h=600&fit=crop&crop=center
-image_alt: "Atomic Habits book cover and design process diagrams"
+image: "https://images.unsplash.com/photo-1553729784-e91953dec042?ixid=M3w4MDk1ODZ8MHwxfHNlYXJjaHwyfHxyZWFkaW5nfGVufDF8MHx8fDE3NTg5OTY5MDJ8MA&ixlib=rb-4.1.0&w=1200&h=630&fit=crop&auto=format"
+
+image_alt: "girl reading book"
+
 keywords: "Atomic Habits, James Clear, habit formation, design process, team workflows, systems thinking, design methodology"
 author: "Haider Ali"
 last_modified_at: 2024-01-26 11:30:00 -0800

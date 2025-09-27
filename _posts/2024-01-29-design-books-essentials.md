@@ -1,6 +1,8 @@
 ---
 layout: post
 title: "Essential Design Books Every UX Designer Should Read"
+image_credit_url: "https://unsplash.com/@karlsolano"
+image_credit_text: "Photo by Karl Solano on Unsplash"
 subtitle: "A curated collection of foundational texts that shape design thinking"
 date: 2024-09-17 12:00:00 +0000
 read_time: 4
@@ -11,8 +13,10 @@ redirect_from:
 tags: [book-recommendations, design-books, ux-essentials, design-foundations, reading-list]
 excerpt: "A curated collection of essential design books that every UX designer should read, from classic usability guides to modern design methodologies."
 description: "Essential design books for UX designers including Don't Make Me Think, The Elements of User Experience, About Face, and Hooked - foundational texts that shape design thinking."
-image: https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?w=1200&h=600&fit=crop&crop=center
-image_alt: "Collection of essential UX design books on a desk"
+image: "https://images.unsplash.com/photo-1630852722046-d1c0606aefa5?ixid=M3w4MDk1ODZ8MHwxfHNlYXJjaHwyfHxFc3NlbnRpYWwlMjBEZXNpZ24lMjBCb29rcyUyMEV2ZXJ5JTIwVVglMjBEZXNpZ25lciUyMFNob3VsZCUyMFJlYWR8ZW58MXwwfHx8MTc1ODk5NjkwNXww&ixlib=rb-4.1.0&w=1200&h=630&fit=crop&auto=format"
+
+image_alt: "stack of books on table"
+
 keywords: "UX design books, design reading list, essential design books, Don't Make Me Think, The Elements of User Experience, About Face, Hooked"
 author: "Haider Ali"
 last_modified_at: 2024-01-29 12:00:00 -0800

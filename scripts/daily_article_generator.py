@@ -362,7 +362,7 @@ Here are some essential tools for {topic}:
 
 ## Related Articles
 
-{chr(10).join(_related_links(categories, site_url, exclude_filename='', limit=3))}
+{chr(10).join(_related_links(categories, site_url, exclude_filename='', limit=4))}
 
 ## Conclusion
 
@@ -374,7 +374,7 @@ Here are some essential tools for {topic}:
 """
 
     # Simple uniqueness guard: if content too similar to recent posts, re-roll
-    if _too_similar(content, _load_existing_bodies(), threshold=0.62):
+    if _too_similar(content, _load_existing_bodies(), threshold=0.6):
         raise ValueError("Generated content too similar to recent posts; retry with different topic/template")
     return content, title, categories
 

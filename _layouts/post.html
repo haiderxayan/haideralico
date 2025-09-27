@@ -108,7 +108,7 @@ layout: default
                 <figcaption class="image-credit">
                     Image: 
                     {%- if page.image_credit_url -%}
-                        <a href="{{ page.image_credit_url }}" target="_blank" rel="noopener nofollow">{{ page.image_credit_text }}</a>
+                        <a href="{{ page.image_credit_url }}" target="_blank" rel="noopener noreferrer">{{ page.image_credit_text }}</a>
                     {%- else -%}
                         {{ page.image_credit_text }}
                     {%- endif -%}

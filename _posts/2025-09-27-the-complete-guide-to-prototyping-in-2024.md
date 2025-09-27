@@ -1,6 +1,8 @@
 ---
 layout: post
 title: "The Complete Guide to Prototyping in 2024"
+image_credit_url: "https://unsplash.com/@amayli"
+image_credit_text: "Photo by Amélie Mourichon on Unsplash"
 date: 2025-09-27 09:21:23 +0000
 redirect_from:
   - /ux%20design/prototyping/2024/09/27/the-complete-guide-to-prototyping-in-2024/
@@ -10,8 +12,9 @@ categories: ["ux-design", "prototyping"]
 tags: ["prototyping", "ux", "design", "user experience"]
 read_time: 8
 excerpt: "In today's digital landscape, Prototyping has become more crucial than ever for creating exceptional user experiences. This comprehensive guide will w..."
-image: "https://images.unsplash.com/photo-1551650975-87deedd944c3?w=1200&h=630&fit=crop"
-image_alt: "Prototyping in UX Design"
+image: "https://images.unsplash.com/photo-1576153192621-7a3be10b356e?ixid=M3w4MDk1ODZ8MHwxfHNlYXJjaHwzfHxwcm90b3R5cGluZ3xlbnwxfDB8fHwxNzU4OTk2OTA3fDA&ixlib=rb-4.1.0&w=1200&h=630&fit=crop&auto=format"
+
+image_alt: "black Android smartphone and pink case"
 ---
 
 In today's digital landscape, Prototyping has become more crucial than ever for creating exceptional user experiences. This comprehensive guide will walk you through everything you need to know about Prototyping and how to implement it effectively in your projects.
