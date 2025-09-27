@@ -1,0 +1,70 @@
+---
+layout: default
+title: Search
+permalink: /search/
+---
+
+<section class="page-wrapper">
+  <div class="page-header">
+    <h1>Search</h1>
+    <p class="text-muted">Find articles, topics, and resources across haiderali.co</p>
+  </div>
+
+  <div class="container" style="max-width: 880px; margin: 0 auto;">
+    <form id="site-search-form" action="" onsubmit="return false;" style="display:flex; gap:0.75rem;">
+      <input id="site-search-input" type="search" placeholder="Type to search…" aria-label="Search" style="flex:1; padding:0.75rem 1rem; border:1px solid #e0e0e0;">
+      <button id="fallback-btn" class="btn btn-secondary" type="button">Web Search</button>
+    </form>
+
+    <div id="site-search-results" style="margin-top:2rem; display:grid; grid-template-columns: 1fr; gap:1rem;"></div>
+  </div>
+</section>
+
+<script>
+(function(){
+  function escapeHtml(s){return s.replace(/[&<>"']/g,function(c){return ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;','\'':'&#39;'}[c]);});}
+  var input = document.getElementById('site-search-input');
+  var results = document.getElementById('site-search-results');
+  var fallback = document.getElementById('fallback-btn');
+  var data = [];
+  fetch('/search.json', {credentials:'same-origin'})
+    .then(function(r){return r.json()})
+    .then(function(j){
+      // sort newest -> oldest by date
+      data = (j||[]).slice().sort(function(a,b){
+        return (b.date||'').localeCompare(a.date||'');
+      });
+      render();
+    })
+    .catch(function(){ /* ignore */ });
+
+  function render(){
+    var q = (input.value||'').toLowerCase().trim();
+    var items = (!q ? data : data.filter(function(p){
+      return (p.title||'').toLowerCase().indexOf(q) !== -1 || (p.excerpt||'').toLowerCase().indexOf(q) !== -1 || (p.categories||[]).join(' ').toLowerCase().indexOf(q) !== -1;
+    })).slice(0,200);
+    results.innerHTML = items.map(function(p){
+      var img = p.image || '{{ site.fallback_image | default: site.logo_path | relative_url }}';
+      return '<article class="post-card">\
+        <div class="post-card-inner" style="display:flex; gap:1rem; align-items:flex-start; border:1px solid #e0e0e0; padding:1rem;">\
+          <div style="width:160px; height:100px; overflow:hidden; border-radius:6px; background:#f5f5f5">\
+            <img src="'+img+'" alt="'+escapeHtml(p.title||'')+'" style="width:100%;height:100%;object-fit:cover">\
+          </div>\
+          <div style="flex:1;">\
+            <h3 style="margin:0 0 .25rem 0; font-size:1.1rem;"><a href="'+p.url+'">'+escapeHtml(p.title||'')+'</a></h3>\
+            <div style="color:#666;font-size:.85rem;margin-bottom:.35rem;">'+(p.date||'').slice(0,10)+'</div>\
+            <p style="margin:0;color:#666;">'+escapeHtml((p.excerpt||'').slice(0,160))+'</p>\
+          </div>\
+        </div>\
+      </article>';
+    }).join('');
+  }
+  input.addEventListener('input', render);
+  fallback.addEventListener('click', function(){
+    var q = encodeURIComponent((input.value||'').trim());
+    if(!q) return;
+    var url = 'https://duckduckgo.com/?q=site%3Ahaiderali.co+'+q;
+    window.open(url, '_blank', 'noopener');
+  });
+})();
+</script>

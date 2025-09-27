@@ -139,11 +139,12 @@ layout: default
         <h2 class="related-posts-title">Related Articles</h2>
         <div class="related-posts-grid">
             {% assign primary_cat = page.categories | first %}
-            {% assign related_posts = site.posts | where_exp: "p", "p.url != page.url and p.categories contains primary_cat" | limit: 4 %}
+            {% assign rp = site.posts | where_exp: "p", "p.url != page.url" %}
+            {% assign related_posts = rp | where_exp: "p", "p.categories contains primary_cat" %}
             {% if related_posts.size == 0 %}
-                {% assign related_posts = site.posts | where_exp: "p", "p.url != page.url" | limit: 4 %}
+                {% assign related_posts = rp %}
             {% endif %}
-            {% for latest_post in related_posts %}
+            {% for latest_post in related_posts limit:4 %}
             <article class="related-post-card">
                 {% if latest_post.image %}
                 <div class="related-post-image">

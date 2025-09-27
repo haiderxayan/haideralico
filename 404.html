@@ -1,0 +1,69 @@
+---
+layout: default
+title: Page Not Found
+permalink: /404.html
+sitemap: false
+robots: noindex
+---
+
+<section class="page-wrapper">
+  <div class="page-header">
+    <h1>Page not found</h1>
+    <p class="text-muted">The page you’re looking for doesn’t exist or has moved.</p>
+  </div>
+
+  <div class="container" style="max-width: 840px; margin: 0 auto;">
+    <div style="display:flex; gap:1.5rem; flex-wrap:wrap; justify-content:center; margin-bottom:2rem;">
+      <a class="btn btn-primary" href="/">Go to Homepage</a>
+      <a class="btn btn-outline" href="/insights/">Browse Insights</a>
+    </div>
+
+    <div class="search-block" style="margin:2rem 0;">
+      <h2 class="section-title" style="margin-bottom:1.25rem;">Search this site</h2>
+      <form action="/search/" method="get" style="display:flex; gap:0.75rem; justify-content:center;">
+        <input type="search" name="q" placeholder="Search articles, topics…" aria-label="Search" style="flex:1; max-width:520px; padding:0.75rem 1rem; border:1px solid #e0e0e0;">
+        <button type="submit" class="btn btn-secondary">Search</button>
+      </form>
+    </div>
+
+    <h2 class="section-title">Recent articles</h2>
+    <div class="favorites-grid" style="margin-top:1rem;">
+      {% assign recent = site.posts | slice: 0, 6 %}
+      {% for post in recent %}
+      <article class="article-card-vertical">
+        <div class="article-image">
+          {% if post.image %}
+          <img src="{{ post.image }}?w=400&h=200&fit=crop" alt="{{ post.image_alt | default: post.title | escape }}">
+          {% else %}
+          <img src="{{ site.fallback_image | default: site.logo_path | relative_url }}" alt="{{ post.title | escape }}">
+          {% endif %}
+        </div>
+        <div class="article-content">
+          <span class="unified-tag">{{ post.categories | first | replace: '-', ' ' | upcase }}</span>
+          <h3 class="card-element-spacing"><a href="{{ post.url }}">{{ post.title }}</a></h3>
+          <div class="article-meta card-element-spacing">
+            <span class="publish-date">{{ post.date | date: "%b %d, %Y" }}</span>
+            {% if post.read_time %}<span class="read-time">{{ post.read_time }} min read</span>{% endif %}
+          </div>
+        </div>
+      </article>
+      {% endfor %}
+    </div>
+
+    <div style="margin-top:2rem; text-align:center;">
+      <a id="report-broken" class="btn btn-outline" target="_blank" rel="noopener noreferrer">Report a broken link</a>
+    </div>
+  </div>
+</section>
+
+<script>
+(function(){
+  var a = document.getElementById('report-broken');
+  if(a){
+    var here = encodeURIComponent(window.location.href);
+    var body = encodeURIComponent('Broken URL: ' + window.location.href + '\nReferrer: ' + (document.referrer||'n/a'));
+    a.href = 'https://github.com/haiderxayan/haideralico/issues/new?title=Broken%20link%20report&body=' + body;
+  }
+})();
+</script>
+

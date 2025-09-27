@@ -1,0 +1,18 @@
+---
+layout: null
+permalink: /search.json
+---
+[
+{% assign posts = site.posts %}
+{% for post in posts %}
+  {
+    "title": {{ post.title | jsonify }},
+    "url": "{{ post.url | relative_url }}",
+    "date": "{{ post.date | date_to_xmlschema }}",
+    "excerpt": {{ post.excerpt | strip_html | jsonify }},
+    "categories": [{% for c in post.categories %}{{ c | jsonify }}{% if forloop.last == false %}, {% endif %}{% endfor %}],
+    "image": {{ post.image | default: site.fallback_image | jsonify }}
+  }{% if forloop.last == false %},{% endif %}
+{% endfor %}
+]
+

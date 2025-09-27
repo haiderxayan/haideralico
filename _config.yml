@@ -7,13 +7,16 @@ lang: "en"
 locale: "en_US"
 keywords: "UX Designer, User Experience Design, UI Design, Product Design, User Research, Design Systems, Mobile UX, Web Design, Haider Ali"
 author: "Haider Ali"
-logo_path: "/assets/images/logo-h.png"
+logo_path: "/assets/images/haider-logo.jpg"
 fallback_image: "/assets/images/haider-logo.jpg"
 
 # Build settings
 markdown: kramdown
 highlighter: rouge
 permalink: /:categories/:year/:month/:day/:title/
+sass:
+  sass_dir: assets/css
+  style: compressed
 
 # Collections
 collections:
@@ -89,6 +92,8 @@ navigation:
     url: /work/
   - title: Insights
     url: /insights/
+  - title: Search
+    url: /search/
   - title: Reading
     url: /reading/
   - title: Resume
