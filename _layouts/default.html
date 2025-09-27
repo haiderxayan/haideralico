@@ -48,7 +48,8 @@
     {% endif %}
     
     <!-- Additional Meta Tags -->
-    <link rel="canonical" href="{{ page.url | replace:'index.html','' | absolute_url }}">
+    {% assign computed_canonical = page.url | replace:'index.html','' | absolute_url %}
+    <link rel="canonical" href="{{ page.canonical_url | default: computed_canonical }}">
     {% if page.layout == 'post' %}
     <link rel="syndication-source" href="{{ page.url | absolute_url }}">
     <link rel="original-source" href="{{ page.url | absolute_url }}">

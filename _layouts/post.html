@@ -9,7 +9,23 @@ layout: default
   "@type": "BlogPosting",
   "headline": "{{ page.title | escape }}",
   "description": "{{ page.excerpt | default: page.description | strip_html | escape }}",
-  "image": "{{ page.image | default: '/assets/images/haider-logo.jpg' | absolute_url }}",
+  {% if page.image %}
+  "image": {
+    "@type": "ImageObject",
+    "url": "{{ page.image | absolute_url }}",
+    {% if page.image_credit_text %}
+    "author": {
+      "@type": "Person",
+      "name": "{{ page.image_credit_text | replace: 'Photo by ', '' | replace: ' on Unsplash', '' | escape }}"{% if page.image_credit_url %},
+      "url": "{{ page.image_credit_url }}"{% endif %}
+    },
+    {% endif %}
+    "height": 630,
+    "width": 1200
+  },
+  {% else %}
+  "image": "{{ '/assets/images/haider-logo.jpg' | absolute_url }}",
+  {% endif %}
   "author": {
     "@type": "Person",
     "name": "{{ page.author | default: site.author | default: site.title }}",
@@ -33,9 +49,9 @@ layout: default
   "dateModified": "{{ page.last_modified_at | default: page.date | date_to_xmlschema }}",
   "mainEntityOfPage": {
     "@type": "WebPage",
-    "@id": "{{ page.url | absolute_url }}"
+    "@id": "{{ page.canonical_url | default: page.url | absolute_url }}"
   },
-  "url": "{{ page.url | absolute_url }}",
+  "url": "{{ page.canonical_url | default: page.url | absolute_url }}",
   "keywords": "{{ page.tags | join: ', ' | escape }}",
   "articleSection": "{{ page.categories | first | escape }}",
   "wordCount": "{{ content | number_of_words }}",
