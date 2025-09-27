@@ -42,7 +42,7 @@ layout: default
     "url": "{{ site.url }}",
     "logo": {
       "@type": "ImageObject",
-      "url": "{{ '/assets/images/haider-logo.jpg' | absolute_url }}"
+      "url": "{{ site.logo_path | default: '/assets/images/haider-logo.jpg' | absolute_url }}"
     }
   },
   "datePublished": "{{ page.date | date_to_xmlschema }}",
@@ -127,15 +127,16 @@ layout: default
         {{ content }}
     </div>
 
-    <!-- Latest Articles Section -->
+    <!-- Related Articles Section -->
     <section class="related-posts">
-        <h2 class="related-posts-title">Latest Articles</h2>
+        <h2 class="related-posts-title">Related Articles</h2>
         <div class="related-posts-grid">
-            {% assign latest_posts = site.posts | where_exp: "post", "post.url != page.url" | limit: 2 %}
-            {% if latest_posts.size == 0 %}
-                {% assign latest_posts = site.posts | limit: 2 %}
+            {% assign primary_cat = page.categories | first %}
+            {% assign related_posts = site.posts | where_exp: "p", "p.url != page.url and p.categories contains primary_cat" | limit: 4 %}
+            {% if related_posts.size == 0 %}
+                {% assign related_posts = site.posts | where_exp: "p", "p.url != page.url" | limit: 4 %}
             {% endif %}
-            {% for latest_post in latest_posts %}
+            {% for latest_post in related_posts %}
             <article class="related-post-card">
                 {% if latest_post.image %}
                 <div class="related-post-image">
