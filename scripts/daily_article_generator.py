@@ -8,7 +8,7 @@ import os
 import sys
 import json
 import requests
-from datetime import datetime, timedelta
+from datetime import datetime, timezone
 from pathlib import Path
 import subprocess
 import random
@@ -26,6 +26,9 @@ EMAIL_CONFIG = {
     "sender_password": os.getenv("EMAIL_PASSWORD"),  # Set this as environment variable
     "recipient_email": "haiderxayan@gmail.com"
 }
+
+# Optional APIs / Integrations
+UNSPLASH_ACCESS_KEY = os.getenv("UNSPLASH_ACCESS_KEY")
 
 # UX Topics for article generation
 UX_TOPICS = [
@@ -75,28 +78,108 @@ ARTICLE_TEMPLATES = [
     }
 ]
 
-def generate_article_content(topic, template):
-    """Generate article content using AI or template-based approach"""
-    
-    # For now, we'll use a template-based approach
-    # You can integrate with OpenAI API later for more dynamic content
-    
+def slugify(text: str) -> str:
+    """Create a URL-friendly slug similar to Jekyll's default."""
+    allowed = "abcdefghijklmnopqrstuvwxyz0123456789-"
+    text = (text or "").strip().lower()
+    # Replace separators with hyphens
+    for ch in [" ", "_", "/", "\\", ":", ";", ",", ".", "|", "(", ")", "[", "]", "{" ,"}"]:
+        text = text.replace(ch, "-")
+    # Collapse multiple hyphens
+    while "--" in text:
+        text = text.replace("--", "-")
+    # Keep only allowed
+    return "".join(c for c in text if c in allowed).strip("-")
+
+def sanitize_categories(categories):
+    """Ensure categories are SEO-friendly (hyphenated, lowercase)."""
+    return [slugify(c) for c in categories if c]
+
+def fetch_unsplash_image(topic: str):
+    """Fetch an Unsplash image for the topic.
+    Returns (image_url, image_alt, credit_text, credit_url).
+    Requires UNSPLASH_ACCESS_KEY for author credits. Fallback to source.unsplash.com without author.
+    """
+    topic_query = slugify(topic) or "ux"
+    if UNSPLASH_ACCESS_KEY:
+        try:
+            api_url = "https://api.unsplash.com/search/photos"
+            params = {
+                "query": topic,
+                "orientation": "landscape",
+                "per_page": 1,
+                "order_by": "relevant",
+                "content_filter": "high",
+            }
+            headers = {
+                "Authorization": f"Client-ID {UNSPLASH_ACCESS_KEY}",
+                "Accept-Version": "v1",
+                "User-Agent": "Daily-Article-Generator"
+            }
+            r = requests.get(api_url, params=params, headers=headers, timeout=12)
+            if r.status_code == 200:
+                data = r.json()
+                if data.get("results"):
+                    photo = data["results"][0]
+                    # Use raw URL with explicit transform for social-friendly size
+                    base = photo["urls"].get("raw") or photo["urls"].get("regular")
+                    if base:
+                        img_url = f"{base}&w=1200&h=630&fit=crop&auto=format"
+                    else:
+                        img_url = photo["urls"].get("regular")
+                    alt = photo.get("alt_description") or f"{topic} illustration"
+                    user = photo.get("user", {})
+                    author = user.get("name") or user.get("username") or "Unsplash contributor"
+                    author_url = user.get("links", {}).get("html") or "https://unsplash.com/"
+                    credit_text = f"Photo by {author} on Unsplash"
+                    credit_url = author_url
+                    return img_url, alt, credit_text, credit_url
+        except Exception:
+            pass
+    # Fallback: random featured image (no author credit available)
+    img_url = f"https://source.unsplash.com/featured/1200x630/?{topic_query}"
+    alt = f"{topic} in UX Design"
+    credit_text = "Image via Unsplash"
+    credit_url = "https://unsplash.com/"
+    return img_url, alt, credit_text, credit_url
+
+def generate_article_content(topic, template, site_url: str):
+    """Generate article content with strong SEO and interlinking."""
+    # Titles and intro
     title = template["title_template"].format(topic=topic)
     intro = template["intro_template"].format(topic=topic)
-    
-    # Generate article sections based on topic and type
-    sections = generate_article_sections(topic, template["type"])
-    
+
+    # SEO image + credit
+    image_url, image_alt, credit_text, credit_url = fetch_unsplash_image(topic)
+
+    # SEO description
+    description = (intro[:155] + "...") if len(intro) > 158 else intro
+
+    # Categories and tags (SEO-friendly, hyphenated)
+    primary_category = "ux-design"
+    secondary_category = slugify(topic)
+    categories = sanitize_categories([primary_category, secondary_category])
+    tags = [secondary_category, "ux", "design", "user-experience"]
+
+    now = datetime.now(timezone.utc)
+
+    # Body with interlinking anchors
+    more_on_topic_link = f"{site_url}/insights/#" + secondary_category
+    writing_link = f"{site_url}/writing/"
+    contact_link = f"{site_url}/contact/"
+
     content = f"""---
 layout: post
 title: "{title}"
-date: {datetime.now().replace(year=2024).strftime('%Y-%m-%d %H:%M:%S')}
-categories: ["UX Design", "{topic}"]
-tags: ["{topic.lower()}", "ux", "design", "user experience"]
+date: {now.strftime('%Y-%m-%d %H:%M:%S %z')}
+categories: ["{categories[0]}", "{categories[1]}"]
+tags: [{', '.join(f'"{t}"' for t in tags)}]
 read_time: 8
-excerpt: "{intro[:150]}..."
-image: "https://images.unsplash.com/photo-1551650975-87deedd944c3?w=1200&h=630&fit=crop"
-image_alt: "{topic} in UX Design"
+excerpt: "{description}"
+image: "{image_url}"
+image_alt: "{image_alt}"
+image_credit_text: "{credit_text}"
+image_credit_url: "{credit_url}"
 ---
 
 {intro}
@@ -148,25 +231,22 @@ Here are some essential tools for {topic}:
 - **Prototyping**: InVision, Principle, Framer
 - **Analytics**: Google Analytics, Mixpanel, Amplitude
 
+## Further Reading
+
+- Explore more on this topic: [{topic} insights]({more_on_topic_link})
+- See all writing: [Writing hub]({writing_link})
+- Work with me: [Contact]({contact_link})
+
 ## Conclusion
 
 {topic} is an essential component of modern UX design. By following the principles and best practices outlined in this article, you can create more effective and user-centered experiences. Remember to stay updated with the latest trends and continuously refine your approach based on user feedback and data.
 
-## Next Steps
-
-Ready to implement {topic} in your projects? Start by:
-
-1. Conducting user research to understand your audience
-2. Creating a {topic} strategy that aligns with your business goals
-3. Building prototypes and testing with real users
-4. Iterating based on feedback and data
-
 ---
 
-*This article was automatically generated as part of our daily UX insights series. For more personalized content and consulting services, [contact us](/contact/).*
+*This article was automatically generated as part of our daily UX insights series. For tailored help, [contact us]({contact_link}).*
 """
-    
-    return content, title
+
+    return content, title, categories
 
 def generate_article_sections(topic, article_type):
     """Generate article sections based on topic and type"""
@@ -176,8 +256,7 @@ def generate_article_sections(topic, article_type):
 def create_blog_post(content, title):
     """Create a new blog post file"""
     # Generate filename from title
-    safe_title = "".join(c for c in title if c.isalnum() or c in (' ', '-', '_')).rstrip()
-    safe_title = safe_title.replace(' ', '-').lower()
+    safe_title = slugify(title)
     
     # Create filename with date
     date_str = datetime.now().strftime('%Y-%m-%d')
@@ -231,27 +310,57 @@ def main():
     # Ensure posts directory exists
     POSTS_DIR.mkdir(exist_ok=True)
     
-    # Select random topic and template
-    topic = random.choice(UX_TOPICS)
-    template = random.choice(ARTICLE_TEMPLATES)
+    # Select random topic and template with simple de-duplication by title slug
+    existing_slugs = set()
+    for p in POSTS_DIR.glob('*.md'):
+        try:
+            base = p.name.split('-', 3)[-1].rsplit('.', 1)[0]
+            existing_slugs.add(base)
+        except Exception:
+            pass
+
+    attempts = 0
+    topic = None
+    template = None
+    title_slug = None
+    while attempts < 10:
+        t = random.choice(UX_TOPICS)
+        temp = random.choice(ARTICLE_TEMPLATES)
+        candidate_title = temp["title_template"].format(topic=t)
+        candidate_slug = slugify(candidate_title)
+        if candidate_slug not in existing_slugs:
+            topic = t
+            template = temp
+            title_slug = candidate_slug
+            break
+        attempts += 1
+    if topic is None:
+        # fall back to any combination
+        topic = random.choice(UX_TOPICS)
+        template = random.choice(ARTICLE_TEMPLATES)
     
     print(f"📝 Generating article about: {topic}")
     print(f"📋 Using template: {template['type']}")
     
+    # Site URL from config/env
+    site_url = os.getenv("SITE_URL", "https://haiderali.co")
+
     # Generate article content
-    content, title = generate_article_content(topic, template)
+    content, title, categories = generate_article_content(topic, template, site_url)
     
     # Create blog post file
     filepath, filename = create_blog_post(content, title)
     print(f"✅ Created blog post: {filename}")
     
-    # Generate URL (assuming your site is deployed)
-    site_url = "https://haiderali.co"
-    date_str = datetime.now().strftime('%Y-%m-%d')
-    # Use 2024 for the URL to ensure articles appear on the site
-    url_date = date_str.replace('2025', '2024') if '2025' in date_str else date_str
-    clean_filename = filename.replace('.md', '').replace(f'{date_str}-', '')
-    article_url = f"{site_url}/{url_date.replace('-', '/')}/{clean_filename}/"
+    # Generate canonical URL consistent with permalink: /:categories/:year/:month/:day/:title/
+    now = datetime.now(timezone.utc)
+    y = now.strftime('%Y')
+    m = now.strftime('%m')
+    d = now.strftime('%d')
+    slug = filename.replace('.md', '').split('-', 3)[-1]
+    # Join categories as path segments
+    cat_path = '/'.join(categories)
+    article_url = f"{site_url}/{cat_path}/{y}/{m}/{d}/{slug}/"
     
     # Send GitHub notification
     print("📱 Sending GitHub notification...")

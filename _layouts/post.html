@@ -68,11 +68,17 @@ layout: default
         <h1 class="post-title p-name" itemprop="name headline">{{ page.title | escape }}</h1>
         <p class="post-meta">
             <time class="dt-published" datetime="{{ page.date | date_to_xmlschema }}" itemprop="datePublished">
-                {%- assign date_format = site.minima.date_format | default: "%b %-d, %Y" -%}
-                {{ page.date | date: date_format }}
+                {{ page.date | date: "%b %-d, %Y %H:%M %Z" }}
             </time>
             {%- if page.read_time -%}
                 • <span class="read-time">{{ page.read_time }} min read</span>
+            {%- endif -%}
+            {%- if page.categories and page.categories.size > 0 -%}
+                • <span class="post-category">in
+                    <a href="{{ '/insights/' | relative_url }}#{{ page.categories.first | slugify }}">
+                        {{ page.categories.first | replace: '-', ' ' | capitalize }}
+                    </a>
+                </span>
             {%- endif -%}
             {%- if page.author -%}
                 • <span itemprop="author" itemscope itemtype="http://schema.org/Person"><span class="p-author h-card" itemprop="name">{{ page.author }}</span></span>
@@ -80,9 +86,19 @@ layout: default
         </p>
         
         {%- if page.image -%}
-            <div class="post-featured-image">
+            <figure class="post-featured-image">
                 <img src="{{ page.image | relative_url }}" alt="{{ page.image_alt | default: page.title | escape }}" itemprop="image" loading="lazy" width="1200" height="630">
-            </div>
+                {%- if page.image_credit_text -%}
+                <figcaption class="image-credit">
+                    Image: 
+                    {%- if page.image_credit_url -%}
+                        <a href="{{ page.image_credit_url }}" target="_blank" rel="noopener nofollow">{{ page.image_credit_text }}</a>
+                    {%- else -%}
+                        {{ page.image_credit_text }}
+                    {%- endif -%}
+                </figcaption>
+                {%- endif -%}
+            </figure>
         {%- endif -%}
     </header>
 
