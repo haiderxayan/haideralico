@@ -37,6 +37,8 @@ jobs:
     - name: Generate and publish daily article
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        SITE_URL: https://haiderali.co
+        UNSPLASH_ACCESS_KEY: ${{ secrets.UNSPLASH_ACCESS_KEY }}
       run: |
         cd scripts
         python daily_article_generator.py
