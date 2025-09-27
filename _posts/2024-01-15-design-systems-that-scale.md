@@ -4,11 +4,13 @@ title: "Design Systems That Scale: Beyond Components"
 subtitle: "Building living systems that evolve with your product and team"
 date: 2024-01-15 14:30:00 -0800
 read_time: 5
-categories: [Design Systems, UX Design]
+categories: ["design-systems", "ux-design"]
+redirect_from:
+  - /design%20systems/ux%20design/2024/01/15/design-systems-that-scale/
+
 tags: [design-systems, scalability, ux]
 excerpt: "A design system is more than just a collection of components. Here's how to build systems that truly scale and evolve with your product."
-image: https://images.unsplash.com/photo-1558655146-9f40138edfeb?w=1200&h=600&fit=crop&crop=center
----
+image: https://images.unsplash.com/photo-1558655146-9f40138edfeb?w=1200&h=600&fit=crop&crop=center---
 
 Design systems have become the backbone of modern product development, but too many teams treat them as static component libraries. The most successful design systems are living, breathing organisms that evolve with your product and team. Here's how to build systems that truly scale.
 

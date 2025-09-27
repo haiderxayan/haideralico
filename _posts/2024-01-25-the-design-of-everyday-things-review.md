@@ -4,7 +4,8 @@ title: "The Design of Everyday Things: Essential Reading for UX Designers"
 subtitle: "A deep dive into Don Norman's foundational text on design psychology"
 date: 2024-01-25 10:00:00 -0800
 read_time: 4
-categories: [Reading]
+categories: ["reading"]
+
 tags: [book-review, design-psychology, don-norman, ux-foundations, affordances, signifiers]
 excerpt: "Don Norman's 'The Design of Everyday Things' provides the theoretical foundation for understanding how people interact with designed objects and systems."
 description: "Book review and insights from Don Norman's classic 'The Design of Everyday Things' - essential reading for understanding design psychology and user interactions."
@@ -12,8 +13,7 @@ image: https://images.unsplash.com/photo-1481627834876-b7833e8f5570?w=1200&h=600
 image_alt: "Book cover of The Design of Everyday Things by Don Norman"
 keywords: "Don Norman, The Design of Everyday Things, design psychology, UX foundations, affordances, signifiers, human-centered design"
 author: "Haider Ali"
-last_modified_at: 2024-01-25 10:00:00 -0800
----
+last_modified_at: 2024-01-25 10:00:00 -0800---
 
 Essential reading for understanding the psychology of design and how users interact with products.
 

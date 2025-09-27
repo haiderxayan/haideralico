@@ -4,11 +4,13 @@ title: "The Art of User Interviews: Beyond the Questions"
 subtitle: "Uncovering deep insights through thoughtful conversation and observation"
 date: 2024-01-20 10:00:00 -0800
 read_time: 6
-categories: [User Research, UX Design]
+categories: ["user-research", "ux-design"]
+redirect_from:
+  - /user%20research/ux%20design/2024/01/20/the-art-of-user-interviews/
+
 tags: [user-interviews, research, ux]
 excerpt: "User interviews are more than just asking questions. Here's how to conduct interviews that reveal deep insights about user behavior and motivations."
-image: https://images.unsplash.com/photo-1552664730-d307ca884978?w=1200&h=600&fit=crop&crop=center
----
+image: https://images.unsplash.com/photo-1552664730-d307ca884978?w=1200&h=600&fit=crop&crop=center---
 
 User interviews are one of the most powerful tools in a UX designer's toolkit, but they're also one of the most misunderstood. Too often, I see teams treating interviews like surveys—asking direct questions and expecting direct answers. The real magic happens when you go beyond the surface and uncover the underlying motivations, emotions, and context that drive user behavior.
 

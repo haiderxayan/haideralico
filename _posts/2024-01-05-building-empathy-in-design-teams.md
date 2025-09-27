@@ -4,11 +4,13 @@ title: "Building Empathy in Design Teams: Beyond User Personas"
 subtitle: "Creating a culture of understanding that leads to better design outcomes"
 date: 2024-01-05 16:45:00 -0800
 read_time: 6
-categories: [Team Collaboration, UX Design]
+categories: ["team-collaboration", "ux-design"]
+redirect_from:
+  - /team%20collaboration/ux%20design/2024/01/05/building-empathy-in-design-teams/
+
 tags: [empathy, team-building, collaboration, ux]
 excerpt: "Empathy is the foundation of great design, but it's not just about understanding users. Here's how to build empathy within your design team and create a culture of understanding."
-image: https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=1200&h=600&fit=crop&crop=center
----
+image: https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=1200&h=600&fit=crop&crop=center---
 
 Empathy is often touted as the key to great UX design, but it's not just about understanding users—it's about understanding each other. The most successful design teams are built on a foundation of empathy, both for users and for teammates. Here's how to cultivate empathy in your design team and create a culture that leads to better outcomes.
 
