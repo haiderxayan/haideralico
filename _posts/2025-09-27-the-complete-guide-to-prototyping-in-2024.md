@@ -1,7 +1,9 @@
 ---
 layout: post
 title: "The Complete Guide to Prototyping in 2024"
-date: 2024-09-27 09:21:23
+date: 2025-09-27 09:21:23 +0000
+redirect_from:
+  - /ux%20design/prototyping/2024/09/27/the-complete-guide-to-prototyping-in-2024/
 categories: ["UX Design", "Prototyping"]
 tags: ["prototyping", "ux", "design", "user experience"]
 read_time: 8
