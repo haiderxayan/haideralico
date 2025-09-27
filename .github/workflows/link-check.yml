@@ -1,0 +1,17 @@
+name: Link Check
+
+on:
+  schedule:
+    - cron: '0 4 * * 1' # Mondays 04:00 UTC
+  workflow_dispatch:
+
+jobs:
+  lychee:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check links on live site
+        uses: lycheeverse/lychee-action@v2
+        with:
+          args: --verbose --accept 200,206 --timeout 15 --no-progress https://haiderali.co/
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

@@ -103,7 +103,12 @@ layout: default
         
         {%- if page.image -%}
             <figure class="post-featured-image">
-                <img src="{{ page.image | relative_url }}" alt="{{ page.image_alt | default: page.title | escape }}" itemprop="image" loading="lazy" width="1200" height="630">
+                {% assign img = page.image %}
+                {% assign webp = img | replace: '.jpg', '.webp' | replace: '.jpeg', '.webp' | replace: '.png', '.webp' %}
+                <picture>
+                    <source type="image/webp" srcset="{{ webp | relative_url }}">
+                    <img src="{{ img | relative_url }}" alt="{{ page.image_alt | default: page.title | escape }}" itemprop="image" loading="lazy" width="1200" height="630">
+                </picture>
                 {%- if page.image_credit_text -%}
                 <figcaption class="image-credit">
                     Image: 

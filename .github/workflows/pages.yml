@@ -47,3 +47,8 @@ jobs:
         uses: actions/deploy-pages@v4
         with:
           cname: haiderali.co
+      - name: Ping search engines with sitemap
+        if: always()
+        run: |
+          curl -s -o /dev/null "https://www.google.com/ping?sitemap=https://haiderali.co/sitemap.xml" || true
+          curl -s -o /dev/null "https://www.bing.com/ping?sitemap=https://haiderali.co/sitemap.xml" || true
