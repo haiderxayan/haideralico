@@ -9,9 +9,9 @@ read_time: 12
 excerpt: "When optimism becomes dangerous and only brutal honesty can save us from civilizational collapse."
 image: "/assets/images/posts/2025/09/why-i-embraced-ethical-pessimism-after-reading-roy-scrantons-climate-philosophy.jpg"
 
-image_alt: "An open book sitting on top of a rock"
-image_credit_text: "Photo by Joonas Sild on Unsplash"
-image_credit_url: "https://unsplash.com/@joonas1233"
+image_alt: "Climate change protest in Paris, France"
+image_credit_text: "Photo by Harrison Moore on Unsplash"
+image_credit_url: "https://unsplash.com/@moorecreative"
 ---
 
 # Why I Embraced Ethical Pessimism After Reading Roy Scranton's Climate Philosophy
