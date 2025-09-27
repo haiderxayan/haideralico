@@ -13,7 +13,8 @@ redirect_from:
 tags: [book-review, lean-startup, eric-ries, validated-learning, iterative-development, ux-methodology]
 excerpt: "While focused on startups, Ries's methodology has direct applications to UX design and product development processes."
 description: "Exploring how the Lean Startup methodology by Eric Ries can be applied to UX design, focusing on validated learning and iterative development cycles."
-image: "https://images.unsplash.com/photo-1598024055266-e772a5f8c128?ixid=M3w4MDk1ODZ8MHwxfHNlYXJjaHw0fHxyZWFkaW5nfGVufDF8MHx8fDE3NTg5OTY5MDJ8MA&ixlib=rb-4.1.0&w=1200&h=630&fit=crop&auto=format"
+image: "/assets/images/posts/2024/08/lean-startup-ux-methodology.jpg"
+
 
 image_alt: "woman in red shirt reading book"
 

@@ -12,7 +12,8 @@ redirect_from:
 tags: ["design systems", "ux", "design", "user experience"]
 read_time: 8
 excerpt: "Mastering Design Systems is key to creating user-centered designs that truly resonate with your audience. Here are 10 essential tips that will elevate..."
-image: "https://images.unsplash.com/photo-1662652375712-9b877aae658e?ixid=M3w4MDk1ODZ8MHwxfHNlYXJjaHwxfHxkZXNpZ24lMjBzeXN0ZW1zfGVufDF8MHx8fDE3NTg5OTY5MDZ8MA&ixlib=rb-4.1.0&w=1200&h=630&fit=crop&auto=format"
+image: "/assets/images/posts/2024/11/10-essential-design-systems-tips-every-designer-should-know.jpg"
+
 
 image_alt: "a desk with a computer and a monitor on it"
 ---

@@ -12,7 +12,8 @@ categories: ["ux-design", "prototyping"]
 tags: ["prototyping", "ux", "design", "user experience"]
 read_time: 8
 excerpt: "In today's digital landscape, Prototyping has become more crucial than ever for creating exceptional user experiences. This comprehensive guide will w..."
-image: "https://images.unsplash.com/photo-1576153192621-7a3be10b356e?ixid=M3w4MDk1ODZ8MHwxfHNlYXJjaHwzfHxwcm90b3R5cGluZ3xlbnwxfDB8fHwxNzU4OTk2OTA3fDA&ixlib=rb-4.1.0&w=1200&h=630&fit=crop&auto=format"
+image: "/assets/images/posts/2025/09/the-complete-guide-to-prototyping-in-2024.jpg"
+
 
 image_alt: "black Android smartphone and pink case"
 ---

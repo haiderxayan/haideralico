@@ -13,7 +13,8 @@ redirect_from:
 tags: [future, trends, ux-design, 2024, artificial intelligence, accessibility, voice interfaces, sustainability, personalization, design systems, mental health]
 excerpt: "As we enter 2024, the landscape of UX design is evolving rapidly. Here are the key trends and predictions that will shape the future of user experience design."
 description: "Discover the latest UX design trends for 2024 including AI integration, accessibility-first design, voice interfaces, sustainability, and the future of design systems. Expert insights from UX designer Haider Ali."
-image: "https://images.unsplash.com/photo-1758526213704-00abd491c31b?ixid=M3w4MDk1ODZ8MHwxfHNlYXJjaHwxfHxmdXR1cmUlMjB0cmVuZHN8ZW58MXwwfHx8MTc1ODk5Njg5OHww&ixlib=rb-4.1.0&w=1200&h=630&fit=crop&auto=format"
+image: "/assets/images/posts/2024/01/the-future-of-ux-design.jpg"
+
 
 image_alt: "Young woman wearing vr headset, hands raised."
 

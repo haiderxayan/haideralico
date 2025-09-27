@@ -13,7 +13,8 @@ redirect_from:
 tags: [book-review, design-psychology, don-norman, ux-foundations, affordances, signifiers]
 excerpt: "Don Norman's 'The Design of Everyday Things' provides the theoretical foundation for understanding how people interact with designed objects and systems."
 description: "Book review and insights from Don Norman's classic 'The Design of Everyday Things' - essential reading for understanding design psychology and user interactions."
-image: "https://images.unsplash.com/photo-1506880018603-83d5b814b5a6?ixid=M3w4MDk1ODZ8MHwxfHNlYXJjaHwxfHxyZWFkaW5nfGVufDF8MHx8fDE3NTg5OTY5MDJ8MA&ixlib=rb-4.1.0&w=1200&h=630&fit=crop&auto=format"
+image: "/assets/images/posts/2024/06/the-design-of-everyday-things-review.jpg"
+
 
 image_alt: "person holding book sitting on brown surface"
 

@@ -10,7 +10,7 @@ redirect_from:
   - //2024/01/15/welcome-to-jekyll/
 subtitle: "Understanding the core principles that guide every successful design decision"
 read_time: 4
-image: "https://images.unsplash.com/photo-1598668724808-d08ede183e5d?ixid=M3w4MDk1ODZ8MHwxfHNlYXJjaHwxfHxUaGUlMjBGb3VuZGF0aW9uJTIwb2YlMjBVc2VyLUNlbnRlcmVkJTIwRGVzaWdufGVufDF8MHx8fDE3NTg5OTY5MDF8MA&ixlib=rb-4.1.0&w=1200&h=630&fit=crop&auto=format"
+image: "/assets/images/posts/2024/04/welcome-to-jekyll.jpg"
 ---
 
 Every great design begins with a simple question: **"Who are we designing for?"** This fundamental inquiry lies at the heart of user-centered design, a philosophy that has transformed how we approach digital experiences.

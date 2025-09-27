@@ -11,6 +11,8 @@ import re
 import requests
 from datetime import datetime, timezone
 from pathlib import Path
+from typing import Optional
+import mimetypes
 import subprocess
 import random
 
@@ -168,6 +170,46 @@ def fetch_unsplash_image(topic: str):
     credit_url = "https://unsplash.com/"
     return img_url, alt, credit_text, credit_url
 
+
+def _ext_from_content_type(ct: str) -> str:
+    ct = (ct or '').lower()
+    if 'image/webp' in ct:
+        return 'webp'
+    if 'image/png' in ct:
+        return 'png'
+    if 'image/jpeg' in ct or 'image/jpg' in ct:
+        return 'jpg'
+    if 'image/svg' in ct:
+        return 'svg'
+    return 'jpg'
+
+
+def cache_image_locally(image_url: str, now: datetime, title_slug: str) -> Optional[str]:
+    """Download and cache the image into assets/images/posts/YYYY/MM/slug.ext.
+    Returns site-relative path (starting with /assets/...) or None on failure.
+    """
+    try:
+        y = now.strftime('%Y')
+        m = now.strftime('%m')
+        out_dir = BLOG_ROOT / 'assets' / 'images' / 'posts' / y / m
+        out_dir.mkdir(parents=True, exist_ok=True)
+        # Download
+        headers = {"User-Agent": "Daily-Article-Generator"}
+        resp = requests.get(image_url, headers=headers, timeout=20, stream=True)
+        if resp.status_code != 200:
+            return None
+        ext = _ext_from_content_type(resp.headers.get('Content-Type', ''))
+        out_path = out_dir / f"{title_slug}.{ext}"
+        with open(out_path, 'wb') as f:
+            for chunk in resp.iter_content(chunk_size=65536):
+                if chunk:
+                    f.write(chunk)
+        # Return site-relative path
+        rel = out_path.relative_to(BLOG_ROOT)
+        return f"/{rel.as_posix()}"
+    except Exception:
+        return None
+
 def _tokenize(text: str):
     words = re.findall(r"[a-zA-Z]{4,}", (text or "").lower())
     return set(words)
@@ -290,6 +332,11 @@ def generate_article_content(topic, template, site_url: str):
     writing_link = f"{site_url}/writing/"
     contact_link = f"{site_url}/contact/"
 
+    # Try to cache image locally for performance/stability
+    title_slug = slugify(title)
+    local_image = cache_image_locally(image_url, now, title_slug)
+    image_path_for_frontmatter = local_image or image_url
+
     content = f"""---
 layout: post
 title: "{title}"
@@ -298,7 +345,7 @@ categories: ["{categories[0]}", "{categories[1]}"]
 tags: [{', '.join(f'"{t}"' for t in tags)}]
 read_time: 8
 excerpt: "{description}"
-image: "{image_url}"
+image: "{image_path_for_frontmatter}"
 image_alt: "{image_alt}"
 image_credit_text: "{credit_text}"
 image_credit_url: "{credit_url}"

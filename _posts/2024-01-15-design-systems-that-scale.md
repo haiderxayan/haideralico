@@ -14,7 +14,7 @@ redirect_from:
 
 tags: [design-systems, scalability, ux]
 excerpt: "A design system is more than just a collection of components. Here's how to build systems that truly scale and evolve with your product."
-image: "https://images.unsplash.com/photo-1587440871875-191322ee64b0?ixid=M3w4MDk1ODZ8MHwxfHNlYXJjaHwzfHx1eCUyMGRlc2lnbnxlbnwxfDB8fHwxNzU4OTk2ODk5fDA&ixlib=rb-4.1.0&w=1200&h=630&fit=crop&auto=format"
+image: "/assets/images/posts/2024/03/design-systems-that-scale.jpg"
 ---
 
 Design systems have become the backbone of modern product development, but too many teams treat them as static component libraries. The most successful design systems are living, breathing organisms that evolve with your product and team. Here's how to build systems that truly scale.

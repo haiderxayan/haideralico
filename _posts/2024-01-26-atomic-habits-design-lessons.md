@@ -13,7 +13,8 @@ redirect_from:
 tags: [book-review, atomic-habits, james-clear, habit-formation, design-process, team-workflows]
 excerpt: "James Clear's approach to habit formation through small, consistent actions has profound implications for design processes and team workflows."
 description: "Exploring how principles from Atomic Habits by James Clear can be applied to design processes, team workflows, and building better design systems."
-image: "https://images.unsplash.com/photo-1553729784-e91953dec042?ixid=M3w4MDk1ODZ8MHwxfHNlYXJjaHwyfHxyZWFkaW5nfGVufDF8MHx8fDE3NTg5OTY5MDJ8MA&ixlib=rb-4.1.0&w=1200&h=630&fit=crop&auto=format"
+image: "/assets/images/posts/2024/07/atomic-habits-design-lessons.jpg"
+
 
 image_alt: "girl reading book"
 

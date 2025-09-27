@@ -13,7 +13,8 @@ redirect_from:
 tags: [book-recommendations, design-books, ux-essentials, design-foundations, reading-list]
 excerpt: "A curated collection of essential design books that every UX designer should read, from classic usability guides to modern design methodologies."
 description: "Essential design books for UX designers including Don't Make Me Think, The Elements of User Experience, About Face, and Hooked - foundational texts that shape design thinking."
-image: "https://images.unsplash.com/photo-1630852722046-d1c0606aefa5?ixid=M3w4MDk1ODZ8MHwxfHNlYXJjaHwyfHxFc3NlbnRpYWwlMjBEZXNpZ24lMjBCb29rcyUyMEV2ZXJ5JTIwVVglMjBEZXNpZ25lciUyMFNob3VsZCUyMFJlYWR8ZW58MXwwfHx8MTc1ODk5NjkwNXww&ixlib=rb-4.1.0&w=1200&h=630&fit=crop&auto=format"
+image: "/assets/images/posts/2024/09/design-books-essentials.jpg"
+
 
 image_alt: "stack of books on table"
 

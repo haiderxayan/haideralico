@@ -13,7 +13,8 @@ redirect_from:
 tags: [book-review, thinking-fast-and-slow, daniel-kahneman, cognitive-biases, psychology, user-interfaces]
 excerpt: "Kahneman's research on cognitive biases and decision-making processes provides valuable insights for creating more intuitive user interfaces."
 description: "Exploring how insights from Thinking, Fast and Slow by Daniel Kahneman can be applied to UX design, particularly in understanding user behavior and cognitive biases."
-image: "https://images.unsplash.com/photo-1513475382585-d06e58bcb0e0?ixid=M3w4MDk1ODZ8MHwxfHNlYXJjaHwzfHxyZWFkaW5nfGVufDF8MHx8fDE3NTg5OTY5MDJ8MA&ixlib=rb-4.1.0&w=1200&h=630&fit=crop&auto=format"
+image: "/assets/images/posts/2024/07/thinking-fast-and-slow-ux-insights.jpg"
+
 
 image_alt: "person picking white and red book on bookshelf"
 

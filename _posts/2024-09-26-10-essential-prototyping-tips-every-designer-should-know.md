@@ -12,7 +12,8 @@ redirect_from:
 tags: ["prototyping", "ux", "design", "user experience"]
 read_time: 8
 excerpt: "Mastering Prototyping is key to creating user-centered designs that truly resonate with your audience. Here are 10 essential tips that will elevate yo..."
-image: "https://images.unsplash.com/photo-1576595580361-90a855b84b20?ixid=M3w4MDk1ODZ8MHwxfHNlYXJjaHwyfHxwcm90b3R5cGluZ3xlbnwxfDB8fHwxNzU4OTk2OTA3fDA&ixlib=rb-4.1.0&w=1200&h=630&fit=crop&auto=format"
+image: "/assets/images/posts/2024/10/10-essential-prototyping-tips-every-designer-should-know.jpg"
+
 
 image_alt: "person writing on printing paper"
 ---

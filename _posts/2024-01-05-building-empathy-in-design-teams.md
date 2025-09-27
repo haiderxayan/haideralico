@@ -14,7 +14,7 @@ redirect_from:
 
 tags: [empathy, team-building, collaboration, ux]
 excerpt: "Empathy is the foundation of great design, but it's not just about understanding users. Here's how to build empathy within your design team and create a culture of understanding."
-image: "https://images.unsplash.com/photo-1602576666092-bf6447a729fc?ixid=M3w4MDk1ODZ8MHwxfHNlYXJjaHwxfHx1eCUyMGRlc2lnbnxlbnwxfDB8fHwxNzU4OTk2ODk5fDA&ixlib=rb-4.1.0&w=1200&h=630&fit=crop&auto=format"
+image: "/assets/images/posts/2024/01/building-empathy-in-design-teams.jpg"
 ---
 
 Empathy is often touted as the key to great UX design, but it's not just about understanding users—it's about understanding each other. The most successful design teams are built on a foundation of empathy, both for users and for teammates. Here's how to cultivate empathy in your design team and create a culture that leads to better outcomes.
