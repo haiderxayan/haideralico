@@ -7,6 +7,7 @@ Generates a new blog post every day and sends email notification
 import os
 import sys
 import json
+import re
 import requests
 from datetime import datetime, timezone
 from pathlib import Path
@@ -29,6 +30,19 @@ EMAIL_CONFIG = {
 
 # Optional APIs / Integrations
 UNSPLASH_ACCESS_KEY = os.getenv("UNSPLASH_ACCESS_KEY")
+USED_IMG_STORE = BLOG_ROOT / "assets" / "data" / "used_unsplash.json"
+
+def _load_used_image_ids():
+    try:
+        if USED_IMG_STORE.exists():
+            return set(json.loads(USED_IMG_STORE.read_text(encoding='utf-8')))
+    except Exception:
+        pass
+    return set()
+
+def _save_used_image_ids(ids: set):
+    USED_IMG_STORE.parent.mkdir(parents=True, exist_ok=True)
+    USED_IMG_STORE.write_text(json.dumps(sorted(list(ids))), encoding='utf-8')
 
 # UX Topics for article generation
 UX_TOPICS = [
@@ -107,7 +121,7 @@ def fetch_unsplash_image(topic: str):
             params = {
                 "query": topic,
                 "orientation": "landscape",
-                "per_page": 1,
+                "per_page": 10,
                 "order_by": "relevant",
                 "content_filter": "high",
             }
@@ -119,16 +133,27 @@ def fetch_unsplash_image(topic: str):
             r = requests.get(api_url, params=params, headers=headers, timeout=12)
             if r.status_code == 200:
                 data = r.json()
-                if data.get("results"):
-                    photo = data["results"][0]
-                    # Use raw URL with explicit transform for social-friendly size
-                    base = photo["urls"].get("raw") or photo["urls"].get("regular")
+                results = data.get("results") or []
+                used_ids = _load_used_image_ids()
+                chosen = None
+                for photo in results:
+                    pid = photo.get("id")
+                    if pid and pid not in used_ids:
+                        chosen = photo
+                        used_ids.add(pid)
+                        _save_used_image_ids(used_ids)
+                        break
+                if not chosen and results:
+                    chosen = results[0]
+                if chosen:
+                    base = chosen["urls"].get("raw") or chosen["urls"].get("regular")
                     if base:
-                        img_url = f"{base}&w=1200&h=630&fit=crop&auto=format"
+                        sep = '&' if '?' in base else '?'
+                        img_url = f"{base}{sep}w=1200&h=630&fit=crop&auto=format"
                     else:
-                        img_url = photo["urls"].get("regular")
-                    alt = photo.get("alt_description") or f"{topic} illustration"
-                    user = photo.get("user", {})
+                        img_url = chosen["urls"].get("regular")
+                    alt = chosen.get("alt_description") or f"{topic} illustration"
+                    user = chosen.get("user", {})
                     author = user.get("name") or user.get("username") or "Unsplash contributor"
                     author_url = user.get("links", {}).get("html") or "https://unsplash.com/"
                     credit_text = f"Photo by {author} on Unsplash"
@@ -142,6 +167,103 @@ def fetch_unsplash_image(topic: str):
     credit_text = "Image via Unsplash"
     credit_url = "https://unsplash.com/"
     return img_url, alt, credit_text, credit_url
+
+def _tokenize(text: str):
+    words = re.findall(r"[a-zA-Z]{4,}", (text or "").lower())
+    return set(words)
+
+def _load_existing_bodies(limit=12):
+    bodies = []
+    try:
+        posts = sorted(POSTS_DIR.glob('*.md'), key=lambda p: p.stat().st_mtime, reverse=True)
+        for p in posts[:limit]:
+            txt = p.read_text(encoding='utf-8')
+            if txt.startswith('---'):
+                parts = txt.split('\n---\n', 1)
+                if len(parts) == 2:
+                    bodies.append(parts[1])
+    except Exception:
+        pass
+    return bodies
+
+def _too_similar(new_text: str, existing_texts: list[str], threshold=0.6):
+    new_tokens = _tokenize(new_text)
+    if not new_tokens:
+        return False
+    for body in existing_texts:
+        tokens = _tokenize(body)
+        if not tokens:
+            continue
+        inter = len(new_tokens & tokens)
+        union = len(new_tokens | tokens)
+        if union and (inter / union) >= threshold:
+            return True
+    return False
+
+def _parse_front_matter(text: str):
+    if not text.startswith('---\n'):
+        return None, text
+    parts = text.split('\n---\n', 1)
+    if len(parts) != 2:
+        return None, text
+    return parts[0][4:], parts[1]
+
+def _extract_meta(fm: str):
+    meta = {"categories": [], "title": None, "date": None}
+    m = re.search(r"^title:\s*(.+)$", fm, re.MULTILINE)
+    if m:
+        meta["title"] = m.group(1).strip().strip('"')
+    m = re.search(r"^date:\s*(.+)$", fm, re.MULTILINE)
+    if m:
+        meta["date"] = m.group(1).strip()
+    m = re.search(r"^categories:\s*\[(.*?)\]\s*$", fm, re.MULTILINE)
+    if m:
+        cats = [c.strip().strip('"\'') for c in m.group(1).split(',') if c.strip()]
+        meta["categories"] = cats
+    return meta
+
+def _compute_url(categories, date_str, filename, site_url):
+    segs = [s for s in categories if s]
+    y = m = d = None
+    try:
+        dt = datetime.fromisoformat(date_str.split()[0])
+        y, m, d = dt.strftime('%Y'), dt.strftime('%m'), dt.strftime('%d')
+    except Exception:
+        parts = filename.split('-', 3)
+        if len(parts) >= 3:
+            y, m, d = parts[0], parts[1], parts[2]
+    slug = filename.replace('.md', '').split('-', 3)[-1]
+    cat_path = '/'.join(segs)
+    return f"{site_url}/{cat_path}/{y}/{m}/{d}/{slug}/"
+
+def _related_links(categories, site_url, exclude_filename, limit=3):
+    links = []
+    if not categories:
+        return links
+    catset = set(categories)
+    try:
+        posts = sorted(POSTS_DIR.glob('*.md'), key=lambda p: p.stat().st_mtime, reverse=True)
+        scored = []
+        for p in posts:
+            if p.name == exclude_filename:
+                continue
+            txt = p.read_text(encoding='utf-8')
+            fm, body = _parse_front_matter(txt)
+            if not fm:
+                continue
+            meta = _extract_meta(fm)
+            overlap = len(catset & set(meta.get('categories') or []))
+            if overlap == 0:
+                continue
+            url = _compute_url(meta.get('categories') or [], meta.get('date') or '', p.name, site_url)
+            title = meta.get('title') or p.name
+            scored.append((overlap, url, title))
+        scored.sort(key=lambda x: (-x[0], x[2]))
+        for s in scored[:limit]:
+            links.append(f"- [{s[2]}]({s[1]})")
+    except Exception:
+        pass
+    return links
 
 def generate_article_content(topic, template, site_url: str):
     """Generate article content with strong SEO and interlinking."""
@@ -238,6 +360,10 @@ Here are some essential tools for {topic}:
 - See all writing: [Writing hub]({writing_link})
 - Work with me: [Contact]({contact_link})
 
+## Related Articles
+
+{chr(10).join(_related_links(categories, site_url, exclude_filename='', limit=3))}
+
 ## Conclusion
 
 {topic} is an essential component of modern UX design. By following the principles and best practices outlined in this article, you can create more effective and user-centered experiences. Remember to stay updated with the latest trends and continuously refine your approach based on user feedback and data.
@@ -247,6 +373,9 @@ Here are some essential tools for {topic}:
 *This article was automatically generated as part of our daily UX insights series. For tailored help, [contact us]({contact_link}).*
 """
 
+    # Simple uniqueness guard: if content too similar to recent posts, re-roll
+    if _too_similar(content, _load_existing_bodies(), threshold=0.62):
+        raise ValueError("Generated content too similar to recent posts; retry with different topic/template")
     return content, title, categories
 
 def generate_article_sections(topic, article_type):
@@ -289,6 +418,10 @@ def commit_and_push_changes(filename):
     try:
         # Add the new file
         subprocess.run(['git', 'add', f'_posts/{filename}'], cwd=BLOG_ROOT, check=True)
+        # Track used Unsplash image IDs for uniqueness across posts
+        used_store_rel = Path('assets/data/used_unsplash.json')
+        if (BLOG_ROOT / used_store_rel).exists():
+            subprocess.run(['git', 'add', str(used_store_rel)], cwd=BLOG_ROOT, check=True)
         
         # Commit with a descriptive message
         commit_message = f"Add daily article: {filename}"
@@ -346,8 +479,14 @@ def main():
     # Site URL from config/env
     site_url = os.getenv("SITE_URL", "https://haiderali.co")
 
-    # Generate article content
-    content, title, categories = generate_article_content(topic, template, site_url)
+    # Generate article content, retry up to 3 times for uniqueness
+    for _ in range(3):
+        try:
+            content, title, categories = generate_article_content(topic, template, site_url)
+            break
+        except ValueError:
+            topic = random.choice(UX_TOPICS)
+            template = random.choice(ARTICLE_TEMPLATES)
     
     # Create blog post file
     filepath, filename = create_blog_post(content, title)

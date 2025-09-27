@@ -9,6 +9,8 @@ read_time: 12
 excerpt: "When optimism becomes dangerous and only brutal honesty can save us from civilizational collapse."
 image: "https://images.unsplash.com/photo-1502303756782-2119f3f44a5d?w=1200&h=630&fit=crop"
 image_alt: "Ethical pessimism and climate philosophy"
+image_credit_text: "Image via Unsplash"
+image_credit_url: "https://unsplash.com/"
 ---
 
 # Why I Embraced Ethical Pessimism After Reading Roy Scranton's Climate Philosophy
@@ -159,4 +161,3 @@ If you found this exploration of ethical pessimism compelling, these works will 
 [24](https://graham.uchicago.edu/event/book-discussion-roy-scranton-on-impasse/)
 [25](https://atkinson.cornell.edu/blog/climate-optimist-or-pessimist/)
 [26](https://kellogg.nd.edu/ethical-pessimism-climate-change-and-limits-narrative)
-

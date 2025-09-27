@@ -208,5 +208,26 @@
             </div>
         </div>
     </footer>
+
+    <script>
+    (function() {
+      var site = '{{ site.url }}';
+      document.addEventListener('DOMContentLoaded', function() {
+        var anchors = document.querySelectorAll('a[href]');
+        anchors.forEach(function(a) {
+          var href = a.getAttribute('href');
+          if (!href || href[0] === '#') return;
+          var isExternal = /^https?:\/\//i.test(href) && (!site || href.indexOf(site) !== 0);
+          if (isExternal) {
+            a.setAttribute('target', '_blank');
+            var rel = (a.getAttribute('rel') || '').split(/\s+/).filter(Boolean);
+            if (rel.indexOf('noopener') === -1) rel.push('noopener');
+            if (rel.indexOf('noreferrer') === -1) rel.push('noreferrer');
+            a.setAttribute('rel', rel.join(' '));
+          }
+        });
+      });
+    })();
+    </script>
 </body>
 </html>
