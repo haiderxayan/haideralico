@@ -84,7 +84,7 @@ In addition to writing, I also speak at conferences and workshops about UX desig
                 {% assign category_tag = latest_post.categories | first | replace: '-', ' ' | upcase %}
                 {% if category_tag contains 'UX DESIGN' or category_tag contains 'DESIGN' or category_tag contains 'MOBILE UX' or category_tag contains 'PSYCHOLOGY' or category_tag contains 'DESIGN SYSTEMS' %}
                     {% assign display_tag = 'DESIGN' %}
-                {% elsif category_tag contains 'USER RESEARCH' or category_tag contains 'TEAM COLLABORATION' %}
+                {% elsif category_tag contains 'USER RESEARCH' or category_tag contains 'TEAM COLLABORATION' or category_tag contains 'RESEARCH STRATEGY' %}
                     {% assign display_tag = 'RESEARCH & STRATEGY' %}
                 {% elsif category_tag contains 'AI' %}
                     {% assign display_tag = 'AI' %}

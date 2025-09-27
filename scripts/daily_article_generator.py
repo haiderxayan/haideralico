@@ -33,6 +33,49 @@ EMAIL_CONFIG = {
 # Optional APIs / Integrations
 UNSPLASH_ACCESS_KEY = os.getenv("UNSPLASH_ACCESS_KEY")
 USED_IMG_STORE = BLOG_ROOT / "assets" / "data" / "used_unsplash.json"
+CATEGORY_STATE_STORE = BLOG_ROOT / "assets" / "data" / "category_cycle.json"
+
+# Category rotation config (first category only)
+# Matches site tags: Research & Strategy, Design, AI, Data Analytics, Content, Career, Development, News & Culture
+CYCLE_CATEGORIES = [
+    "research-strategy",
+    "design",
+    "ai",
+    "data-analytics",
+    "content",
+    "career",
+    "development",
+    "news-culture",
+]
+NON_AI_CATEGORIES = [c for c in CYCLE_CATEGORIES if c != "ai"]
+
+# Map categories to topic pools to keep content relevant
+CATEGORY_TOPIC_POOL = {
+    "research-strategy": [
+        "User Research", "Design Thinking", "Usability Testing", "Information Architecture", "User Psychology"
+    ],
+    "design": [
+        "Design Systems", "Interaction Design", "Prototyping", "Wireframing", "Visual Design", "Micro-interactions"
+    ],
+    "ai": [
+        "AI in UX", "Voice Interface Design", "AR/VR UX"
+    ],
+    "data-analytics": [
+        "Conversion Optimization", "Data Analytics"
+    ],
+    "content": [
+        "Content Strategy"
+    ],
+    "career": [
+        "Design Ethics"
+    ],
+    "development": [
+        "Prototyping", "Interaction Design"
+    ],
+    "news-culture": [
+        "Design Ethics", "Design Systems"
+    ],
+}
 
 def _load_used_image_ids():
     try:
@@ -45,6 +88,18 @@ def _load_used_image_ids():
 def _save_used_image_ids(ids: set):
     USED_IMG_STORE.parent.mkdir(parents=True, exist_ok=True)
     USED_IMG_STORE.write_text(json.dumps(sorted(list(ids))), encoding='utf-8')
+
+def _load_category_state():
+    try:
+        if CATEGORY_STATE_STORE.exists():
+            return json.loads(CATEGORY_STATE_STORE.read_text(encoding='utf-8'))
+    except Exception:
+        pass
+    return {"index": -1, "last_date": "", "last_primary": ""}
+
+def _save_category_state(state: dict):
+    CATEGORY_STATE_STORE.parent.mkdir(parents=True, exist_ok=True)
+    CATEGORY_STATE_STORE.write_text(json.dumps(state), encoding='utf-8')
 
 # UX Topics for article generation
 UX_TOPICS = [
@@ -210,6 +265,29 @@ def cache_image_locally(image_url: str, now: datetime, title_slug: str) -> Optio
     except Exception:
         return None
 
+def _next_primary_category(now: datetime) -> str:
+    """Cycle primary categories with special rule: AI every alternate day.
+    Non-AI days rotate through NON_AI_CATEGORIES and persist state.
+    """
+    today_key = now.strftime('%Y-%m-%d')
+    # Even ordinal -> AI day
+    ai_today = (now.toordinal() % 2 == 0)
+    state = _load_category_state()
+    if ai_today:
+        state.update({"last_date": today_key, "last_primary": "ai"})
+        _save_category_state(state)
+        return "ai"
+    # Non-AI: keep same within the same day; otherwise advance
+    last_date = state.get("last_date")
+    last_primary = state.get("last_primary")
+    if last_date == today_key and last_primary and last_primary != "ai":
+        return last_primary
+    idx = (int(state.get("index", -1)) + 1) % len(NON_AI_CATEGORIES)
+    primary = NON_AI_CATEGORIES[idx]
+    state.update({"index": idx, "last_date": today_key, "last_primary": primary})
+    _save_category_state(state)
+    return primary
+
 def _tokenize(text: str):
     words = re.findall(r"[a-zA-Z]{4,}", (text or "").lower())
     return set(words)
@@ -319,8 +397,12 @@ def generate_article_content(topic, template, site_url: str):
     # SEO description
     description = (intro[:155] + "...") if len(intro) > 158 else intro
 
-    # Categories and tags (SEO-friendly, hyphenated)
-    primary_category = "ux-design"
+    # Categories and tags (SEO-friendly, hyphenated) with rotation rules
+    primary_category = _next_primary_category(now)
+    # Choose a topic relevant to the chosen category when possible
+    topic_pool = CATEGORY_TOPIC_POOL.get(primary_category) or UX_TOPICS
+    if topic not in topic_pool:
+        topic = random.choice(topic_pool)
     secondary_category = slugify(topic)
     categories = sanitize_categories([primary_category, secondary_category])
     tags = [secondary_category, "ux", "design", "user-experience"]
@@ -328,7 +410,7 @@ def generate_article_content(topic, template, site_url: str):
     now = datetime.now(timezone.utc)
 
     # Body with interlinking anchors
-    more_on_topic_link = f"{site_url}/insights/#" + secondary_category
+    more_on_topic_link = f"{site_url}/insights/#" + primary_category
     writing_link = f"{site_url}/writing/"
     contact_link = f"{site_url}/contact/"
 
@@ -469,6 +551,10 @@ def commit_and_push_changes(filename):
         used_store_rel = Path('assets/data/used_unsplash.json')
         if (BLOG_ROOT / used_store_rel).exists():
             subprocess.run(['git', 'add', str(used_store_rel)], cwd=BLOG_ROOT, check=True)
+        # Track category rotation state (so reruns don't advance)
+        cat_store_rel = Path('assets/data/category_cycle.json')
+        if (BLOG_ROOT / cat_store_rel).exists():
+            subprocess.run(['git', 'add', str(cat_store_rel)], cwd=BLOG_ROOT, check=True)
         
         # Commit with a descriptive message
         commit_message = f"Add daily article: {filename}"

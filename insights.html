@@ -44,7 +44,7 @@ description: UX Design insights, research findings, and industry trends from Hai
                             {% assign category_tag = post.categories | first | replace: '-', ' ' | upcase %}
                             {% if category_tag contains 'UX DESIGN' or category_tag contains 'DESIGN' or category_tag contains 'MOBILE UX' or category_tag contains 'PSYCHOLOGY' or category_tag contains 'DESIGN SYSTEMS' %}
                                 {% assign display_tag = 'DESIGN' %}
-                            {% elsif category_tag contains 'USER RESEARCH' or category_tag contains 'TEAM COLLABORATION' %}
+                            {% elsif category_tag contains 'USER RESEARCH' or category_tag contains 'TEAM COLLABORATION' or category_tag contains 'RESEARCH STRATEGY' %}
                                 {% assign display_tag = 'RESEARCH & STRATEGY' %}
                             {% elsif category_tag contains 'AI' %}
                                 {% assign display_tag = 'AI' %}
@@ -87,7 +87,7 @@ description: UX Design insights, research findings, and industry trends from Hai
                     {% assign category_tag = featured_post.categories | first | replace: '-', ' ' | upcase %}
                             {% if category_tag contains 'UX DESIGN' or category_tag contains 'DESIGN' or category_tag contains 'MOBILE UX' or category_tag contains 'PSYCHOLOGY' or category_tag contains 'DESIGN SYSTEMS' %}
                                 {% assign display_tag = 'DESIGN' %}
-                            {% elsif category_tag contains 'USER RESEARCH' or category_tag contains 'TEAM COLLABORATION' %}
+                            {% elsif category_tag contains 'USER RESEARCH' or category_tag contains 'TEAM COLLABORATION' or category_tag contains 'RESEARCH STRATEGY' %}
                                 {% assign display_tag = 'RESEARCH & STRATEGY' %}
                             {% elsif category_tag contains 'AI' %}
                                 {% assign display_tag = 'AI' %}
@@ -180,7 +180,7 @@ description: UX Design insights, research findings, and industry trends from Hai
             <!-- Articles List -->
             <div class="articles-list">
                 {% for post in recent_posts %}
-                <article class="article-item" data-topic="{% assign category_tag = post.categories | first | replace: '-', ' ' | upcase %}{% if category_tag contains 'USER RESEARCH' or category_tag contains 'TEAM COLLABORATION' %}research{% elsif category_tag contains 'UX DESIGN' or category_tag contains 'DESIGN' or category_tag contains 'MOBILE UX' or category_tag contains 'PSYCHOLOGY' or category_tag contains 'DESIGN SYSTEMS' %}design{% elsif category_tag contains 'AI' %}ai{% elsif category_tag contains 'DATA ANALYTICS' or category_tag contains 'DATA' %}data{% elsif category_tag contains 'CONTENT' %}content{% elsif category_tag contains 'CAREER' %}career{% elsif category_tag contains 'DEVELOPMENT' %}development{% elsif category_tag contains 'NEWS' or category_tag contains 'CULTURE' %}news{% else %}design{% endif %}">
+                <article class="article-item" data-topic="{% assign category_tag = post.categories | first | replace: '-', ' ' | upcase %}{% if category_tag contains 'USER RESEARCH' or category_tag contains 'TEAM COLLABORATION' or category_tag contains 'RESEARCH STRATEGY' %}research{% elsif category_tag contains 'UX DESIGN' or category_tag contains 'DESIGN' or category_tag contains 'MOBILE UX' or category_tag contains 'PSYCHOLOGY' or category_tag contains 'DESIGN SYSTEMS' %}design{% elsif category_tag contains 'AI' %}ai{% elsif category_tag contains 'DATA ANALYTICS' or category_tag contains 'DATA' %}data{% elsif category_tag contains 'CONTENT' %}content{% elsif category_tag contains 'CAREER' %}career{% elsif category_tag contains 'DEVELOPMENT' %}development{% elsif category_tag contains 'NEWS' or category_tag contains 'CULTURE' %}news{% else %}design{% endif %}">
                     <div class="article-image">
                         {% if post.image %}
                             <img src="{{ post.image }}?w=300&h=200&fit=crop" alt="{{ post.image_alt | default: post.title | escape }}">
@@ -192,7 +192,7 @@ description: UX Design insights, research findings, and industry trends from Hai
                         {% assign category_tag = post.categories | first | replace: '-', ' ' | upcase %}
                         {% if category_tag contains 'UX DESIGN' or category_tag contains 'DESIGN' or category_tag contains 'MOBILE UX' or category_tag contains 'PSYCHOLOGY' or category_tag contains 'DESIGN SYSTEMS' %}
                             {% assign display_tag = 'DESIGN' %}
-                        {% elsif category_tag contains 'USER RESEARCH' or category_tag contains 'TEAM COLLABORATION' %}
+                        {% elsif category_tag contains 'USER RESEARCH' or category_tag contains 'TEAM COLLABORATION' or category_tag contains 'RESEARCH STRATEGY' %}
                             {% assign display_tag = 'RESEARCH & STRATEGY' %}
                         {% elsif category_tag contains 'AI' %}
                             {% assign display_tag = 'AI' %}
