@@ -2,9 +2,11 @@
 layout: post
 title: "Atomic Habits: Design Lessons from James Clear"
 subtitle: "How habit formation principles can transform design processes and team workflows"
-date: 2024-01-26 11:30:00 -0800
+date: 2024-07-01 12:00:00 +0000
 read_time: 5
 categories: ["reading"]
+redirect_from:
+  - /reading/2024/01/26/atomic-habits-design-lessons/
 
 tags: [book-review, atomic-habits, james-clear, habit-formation, design-process, team-workflows]
 excerpt: "James Clear's approach to habit formation through small, consistent actions has profound implications for design processes and team workflows."

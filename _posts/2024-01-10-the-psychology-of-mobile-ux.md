@@ -2,11 +2,12 @@
 layout: post
 title: "The Psychology of Mobile UX: Understanding Touch and Gesture"
 subtitle: "How understanding human behavior can transform mobile user experiences"
-date: 2024-01-10 09:15:00 -0800
+date: 2024-02-22 12:00:00 +0000
 read_time: 7
 categories: ["mobile-ux", "psychology", "ux-design"]
 redirect_from:
   - /mobile%20ux/psychology/ux%20design/2024/01/10/the-psychology-of-mobile-ux/
+  - /mobile-ux/psychology/ux-design/2024/01/10/the-psychology-of-mobile-ux/
 
 tags: [mobile-ux, psychology, gestures, touch]
 excerpt: "Mobile interfaces aren't just smaller versions of desktop designs. Understanding the psychology of touch and gesture can transform your mobile user experience."

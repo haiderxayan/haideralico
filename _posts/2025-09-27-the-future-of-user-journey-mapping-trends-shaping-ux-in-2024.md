@@ -1,10 +1,11 @@
 ---
 layout: post
 title: "The Future of User Journey Mapping: Trends Shaping UX in 2024"
-date: 2024-09-27 17:12:17
+date: 2024-12-04 12:00:00 +0000
 categories: ["ux-design", "user-journey-mapping"]
 redirect_from:
   - /ux%20design/user%20journey%20mapping/2024/09/27/the-future-of-user-journey-mapping-trends-shaping-ux-in-2024/
+  - /ux-design/user-journey-mapping/2024/09/27/the-future-of-user-journey-mapping-trends-shaping-ux-in-2024/
 
 tags: ["user journey mapping", "ux", "design", "user experience"]
 read_time: 8

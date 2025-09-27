@@ -2,9 +2,11 @@
 layout: post
 title: "Essential Design Books Every UX Designer Should Read"
 subtitle: "A curated collection of foundational texts that shape design thinking"
-date: 2024-01-29 12:00:00 -0800
+date: 2024-09-17 12:00:00 +0000
 read_time: 4
 categories: ["reading"]
+redirect_from:
+  - /reading/2024/01/29/design-books-essentials/
 
 tags: [book-recommendations, design-books, ux-essentials, design-foundations, reading-list]
 excerpt: "A curated collection of essential design books that every UX designer should read, from classic usability guides to modern design methodologies."

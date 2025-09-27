@@ -2,9 +2,11 @@
 layout: post
 title: "The Lean Startup: UX Methodology from Eric Ries"
 subtitle: "How validated learning and iterative development apply to user experience design"
-date: 2024-01-28 16:45:00 -0800
+date: 2024-08-22 12:00:00 +0000
 read_time: 5
 categories: ["reading"]
+redirect_from:
+  - /reading/2024/01/28/lean-startup-ux-methodology/
 
 tags: [book-review, lean-startup, eric-ries, validated-learning, iterative-development, ux-methodology]
 excerpt: "While focused on startups, Ries's methodology has direct applications to UX design and product development processes."

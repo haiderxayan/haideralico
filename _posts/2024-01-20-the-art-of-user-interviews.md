@@ -2,11 +2,12 @@
 layout: post
 title: "The Art of User Interviews: Beyond the Questions"
 subtitle: "Uncovering deep insights through thoughtful conversation and observation"
-date: 2024-01-20 10:00:00 -0800
+date: 2024-05-10 12:00:00 +0000
 read_time: 6
 categories: ["user-research", "ux-design"]
 redirect_from:
   - /user%20research/ux%20design/2024/01/20/the-art-of-user-interviews/
+  - /user-research/ux-design/2024/01/20/the-art-of-user-interviews/
 
 tags: [user-interviews, research, ux]
 excerpt: "User interviews are more than just asking questions. Here's how to conduct interviews that reveal deep insights about user behavior and motivations."

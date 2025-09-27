@@ -2,11 +2,12 @@
 layout: post
 title: "Design Systems That Scale: Beyond Components"
 subtitle: "Building living systems that evolve with your product and team"
-date: 2024-01-15 14:30:00 -0800
+date: 2024-03-19 12:00:00 +0000
 read_time: 5
 categories: ["design-systems", "ux-design"]
 redirect_from:
   - /design%20systems/ux%20design/2024/01/15/design-systems-that-scale/
+  - /design-systems/ux-design/2024/01/15/design-systems-that-scale/
 
 tags: [design-systems, scalability, ux]
 excerpt: "A design system is more than just a collection of components. Here's how to build systems that truly scale and evolve with your product."

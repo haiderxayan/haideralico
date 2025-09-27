@@ -2,7 +2,7 @@
 layout: post
 title: "The Future of UX Design: Trends and Predictions for 2024"
 subtitle: "Exploring emerging technologies and design principles that will shape digital experiences"
-date: 2024-01-01 12:00:00 -0800
+date: 2024-01-01 12:00:00 +0000
 read_time: 8
 categories: ["ux-design", "future-trends"]
 redirect_from:

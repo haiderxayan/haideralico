@@ -1,8 +1,10 @@
 ---
 layout: post
 title: "The Foundation of User-Centered Design"
-date: 2024-01-15 10:00:00 -0000
+date: 2024-04-14 12:00:00 +0000
 categories: UX Design
+redirect_from:
+  - //2024/01/15/welcome-to-jekyll/
 subtitle: "Understanding the core principles that guide every successful design decision"
 read_time: 4
 image: https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=600&fit=crop&crop=center
