@@ -1,9 +1,12 @@
 ---
+canonical_url: "https://haiderali.co/ux-design/prototyping/2024/10/13/10-essential-prototyping-tips-every-designer-should-know/"
 layout: post
 title: "10 Essential Prototyping Tips Every Designer Should Know"
 image_credit_url: "https://unsplash.com/@amayli"
 image_credit_text: "Photo by Amélie Mourichon on Unsplash"
 date: 2024-10-13 12:00:00 +0000
+last_modified_at: 2024-10-13 12:00:00 +0000
+
 categories: ["ux-design", "prototyping"]
 redirect_from:
   - /ux%20design/prototyping/2024/09/26/10-essential-prototyping-tips-every-designer-should-know/

@@ -1,13 +1,17 @@
 ---
+canonical_url: "https://haiderali.co/research-strategy/prototyping/2025/09/27/the-complete-guide-to-prototyping-in-2024/"
 layout: post
 title: "The Complete Guide to Prototyping in 2024"
 image_credit_url: "https://unsplash.com/@amayli"
 image_credit_text: "Photo by Amélie Mourichon on Unsplash"
 date: 2025-09-27 09:21:23 +0000
+last_modified_at: 2025-09-27 09:21:23 +0000
+
 redirect_from:
   - /ux%20design/prototyping/2024/09/27/the-complete-guide-to-prototyping-in-2024/
   - /ux%20design/prototyping/2025/09/27/the-complete-guide-to-prototyping-in-2024/
-categories: ["ux-design", "prototyping"]
+  - /ux-design/prototyping/2025/09/27/the-complete-guide-to-prototyping-in-2024/
+categories: ["research-strategy", "prototyping"]
 
 tags: ["prototyping", "ux", "design", "user experience"]
 read_time: 8

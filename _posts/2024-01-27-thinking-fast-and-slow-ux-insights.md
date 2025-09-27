@@ -1,4 +1,5 @@
 ---
+canonical_url: "https://haiderali.co/reading/2024/07/27/thinking-fast-and-slow-ux-insights/"
 layout: post
 title: "Thinking, Fast and Slow: UX Insights from Daniel Kahneman"
 image_credit_url: "https://unsplash.com/@christinhumephoto"

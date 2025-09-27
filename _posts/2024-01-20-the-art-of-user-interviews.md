@@ -1,4 +1,5 @@
 ---
+canonical_url: "https://haiderali.co/user-research/ux-design/2024/05/10/the-art-of-user-interviews/"
 layout: post
 title: "The Art of User Interviews: Beyond the Questions"
 image_credit_url: "https://unsplash.com/@alvarordesign"
@@ -6,6 +7,8 @@ image_credit_text: "Photo by Alvaro Reyes on Unsplash"
 image_alt: "person writing on white paper"
 subtitle: "Uncovering deep insights through thoughtful conversation and observation"
 date: 2024-05-10 12:00:00 +0000
+last_modified_at: 2024-05-10 12:00:00 +0000
+
 read_time: 6
 categories: ["user-research", "ux-design"]
 redirect_from:

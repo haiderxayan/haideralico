@@ -1,4 +1,5 @@
 ---
+canonical_url: "https://haiderali.co/team-collaboration/ux-design/2024/01/27/building-empathy-in-design-teams/"
 layout: post
 title: "Building Empathy in Design Teams: Beyond User Personas"
 image_credit_url: "https://unsplash.com/@tirzavandijk"
@@ -6,6 +7,8 @@ image_credit_text: "Photo by Tirza van Dijk on Unsplash"
 image_alt: "macbook pro displaying computer icons"
 subtitle: "Creating a culture of understanding that leads to better design outcomes"
 date: 2024-01-27 12:00:00 +0000
+last_modified_at: 2024-01-27 12:00:00 +0000
+
 read_time: 6
 categories: ["team-collaboration", "ux-design"]
 redirect_from:

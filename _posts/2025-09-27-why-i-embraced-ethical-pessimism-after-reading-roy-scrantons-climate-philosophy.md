@@ -1,8 +1,11 @@
 ---
+canonical_url: "https://haiderali.co/research-strategy/2025/09/27/why-i-embraced-ethical-pessimism-after-reading-roy-scrantons-climate-philosophy/"
 layout: post
 title: "Why I Embraced Ethical Pessimism After Reading Roy Scranton's Climate Philosophy"
 date: 2025-09-27 00:10:00 +0000
-categories: ["books"]
+last_modified_at: 2025-09-27 00:10:00 +0000
+
+categories: ["research-strategy"]
 
 tags: ["books", "climate", "philosophy", "ethical pessimism", "roy scranton", "ecology"]
 read_time: 12
@@ -12,6 +15,8 @@ image: "/assets/images/posts/2025/09/why-i-embraced-ethical-pessimism-after-read
 image_alt: "Climate change protest in Paris, France"
 image_credit_text: "Photo by Harrison Moore on Unsplash"
 image_credit_url: "https://unsplash.com/@moorecreative"
+redirect_from:
+  - /books/2025/09/27/why-i-embraced-ethical-pessimism-after-reading-roy-scrantons-climate-philosophy/
 ---
 
 # Why I Embraced Ethical Pessimism After Reading Roy Scranton's Climate Philosophy

@@ -1,4 +1,5 @@
 ---
+canonical_url: "https://haiderali.co/reading/2024/06/05/the-design-of-everyday-things-review/"
 layout: post
 title: "The Design of Everyday Things: Essential Reading for UX Designers"
 image_credit_url: "https://unsplash.com/@blazphoto"

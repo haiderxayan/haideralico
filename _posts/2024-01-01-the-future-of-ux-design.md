@@ -1,4 +1,5 @@
 ---
+canonical_url: "https://haiderali.co/ux-design/future-trends/2024/01/01/the-future-of-ux-design/"
 layout: post
 title: "The Future of UX Design: Trends and Predictions for 2024"
 image_credit_url: "https://unsplash.com/@silverkblack"

@@ -1,4 +1,5 @@
 ---
+canonical_url: "https://haiderali.co/design-systems/ux-design/2024/03/19/design-systems-that-scale/"
 layout: post
 title: "Design Systems That Scale: Beyond Components"
 image_credit_url: "https://unsplash.com/@uxindo"
@@ -6,6 +7,8 @@ image_credit_text: "Photo by UX Indonesia on Unsplash"
 image_alt: "person writing on white paper"
 subtitle: "Building living systems that evolve with your product and team"
 date: 2024-03-19 12:00:00 +0000
+last_modified_at: 2024-03-19 12:00:00 +0000
+
 read_time: 5
 categories: ["design-systems", "ux-design"]
 redirect_from:

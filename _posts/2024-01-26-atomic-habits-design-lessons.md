@@ -1,4 +1,5 @@
 ---
+canonical_url: "https://haiderali.co/reading/2024/07/01/atomic-habits-design-lessons/"
 layout: post
 title: "Atomic Habits: Design Lessons from James Clear"
 image_credit_url: "https://unsplash.com/@jmuniz"

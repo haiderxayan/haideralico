@@ -1,9 +1,12 @@
 ---
+canonical_url: "https://haiderali.co/ux-design/design-systems/2024/11/08/10-essential-design-systems-tips-every-designer-should-know/"
 layout: post
 title: "10 Essential Design Systems Tips Every Designer Should Know"
 image_credit_url: "https://unsplash.com/@designbyhelios"
 image_credit_text: "Photo by Sunil kumar on Unsplash"
 date: 2024-11-08 12:00:00 +0000
+last_modified_at: 2024-11-08 12:00:00 +0000
+
 categories: ["ux-design", "design-systems"]
 redirect_from:
   - /ux%20design/design%20systems/2024/09/26/10-essential-design-systems-tips-every-designer-should-know/

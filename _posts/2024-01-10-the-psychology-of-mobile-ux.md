@@ -1,4 +1,5 @@
 ---
+canonical_url: "https://haiderali.co/mobile-ux/psychology/ux-design/2024/02/22/the-psychology-of-mobile-ux/"
 layout: post
 title: "The Psychology of Mobile UX: Understanding Touch and Gesture"
 image_credit_url: "https://unsplash.com/@amayli"
@@ -6,6 +7,8 @@ image_credit_text: "Photo by Amélie Mourichon on Unsplash"
 image_alt: "person holding pen near paper"
 subtitle: "How understanding human behavior can transform mobile user experiences"
 date: 2024-02-22 12:00:00 +0000
+last_modified_at: 2024-02-22 12:00:00 +0000
+
 read_time: 7
 categories: ["mobile-ux", "psychology", "ux-design"]
 redirect_from:

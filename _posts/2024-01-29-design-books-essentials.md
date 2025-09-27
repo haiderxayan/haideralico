@@ -1,4 +1,5 @@
 ---
+canonical_url: "https://haiderali.co/reading/2024/09/17/design-books-essentials/"
 layout: post
 title: "Essential Design Books Every UX Designer Should Read"
 image_credit_url: "https://unsplash.com/@karlsolano"

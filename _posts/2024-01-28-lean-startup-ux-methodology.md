@@ -1,4 +1,5 @@
 ---
+canonical_url: "https://haiderali.co/reading/2024/08/22/lean-startup-ux-methodology/"
 layout: post
 title: "The Lean Startup: UX Methodology from Eric Ries"
 image_credit_url: "https://unsplash.com/@matias_north"
