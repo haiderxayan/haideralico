@@ -101,14 +101,21 @@ layout: default
             {%- endif -%}
         </p>
         
-        {%- if page.image -%}
+        {%- if page.image or site.fallback_image or site.logo_path -%}
             <figure class="post-featured-image">
-                {% assign img = page.image %}
-                {% assign webp = img | replace: '.jpg', '.webp' | replace: '.jpeg', '.webp' | replace: '.png', '.webp' %}
-                <picture>
-                    <source type="image/webp" srcset="{{ webp | relative_url }}">
-                    <img src="{{ img | relative_url }}" alt="{{ page.image_alt | default: page.title | escape }}" itemprop="image" loading="lazy" width="1200" height="630">
-                </picture>
+                {% assign img = page.image | default: site.fallback_image | default: site.logo_path | default: '/assets/images/haider-logo.jpg' %}
+                {% assign fallback = site.fallback_image | default: site.logo_path | default: '/assets/images/haider-logo.jpg' %}
+                {% assign is_external = false %}
+                {% if img contains '://' %}{% assign is_external = true %}{% endif %}
+                {% if is_external %}
+                    <img src="{{ img }}" alt="{{ page.image_alt | default: page.title | escape }}" itemprop="image" loading="lazy" width="1200" height="630" onerror="this.onerror=null;this.src='{{ fallback | relative_url }}'">
+                {% else %}
+                    {% assign webp = img | replace: '.jpg', '.webp' | replace: '.jpeg', '.webp' | replace: '.png', '.webp' %}
+                    <picture>
+                        <source type="image/webp" srcset="{{ webp | relative_url }}">
+                        <img src="{{ img | relative_url }}" alt="{{ page.image_alt | default: page.title | escape }}" itemprop="image" loading="lazy" width="1200" height="630" onerror="this.onerror=null;this.src='{{ fallback | relative_url }}'">
+                    </picture>
+                {% endif %}
                 {%- if page.image_credit_text -%}
                 <figcaption class="image-credit">
                     Image: 

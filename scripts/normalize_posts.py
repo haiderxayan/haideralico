@@ -24,6 +24,7 @@ from datetime import datetime, timezone
 ROOT = Path(__file__).resolve().parents[1]
 POSTS = ROOT / "_posts"
 STATE = ROOT / "assets" / "data" / "category_cycle.json"
+FALLBACK_IMG = "/assets/images/haider-logo.jpg"
 
 CYCLE_CATEGORIES = [
     "research-strategy",
@@ -193,6 +194,27 @@ def normalize():
             fm = re.sub(r"^canonical_url:\s*.+$", f"canonical_url: \"{canonical}\"", fm, flags=re.MULTILINE)
         else:
             fm = f"canonical_url: \"{canonical}\"\n" + fm
+
+        # Ensure image exists or set fallback
+        img_match = re.search(r"^image:\s*\"(.+?)\"\s*$", fm, re.MULTILINE)
+        img = img_match.group(1) if img_match else ''
+        set_fallback = False
+        if not img:
+            set_fallback = True
+        elif img.startswith('http://') or img.startswith('https://'):
+            # external is acceptable; cache step runs earlier, keep as-is
+            set_fallback = False
+        else:
+            # local path: verify file exists
+            p = ROOT / img.lstrip('/')
+            if not p.exists():
+                set_fallback = True
+        if set_fallback:
+            fm = replace_or_insert_after(fm, 'image', '"' + FALLBACK_IMG + '"', 'title')
+            alt = extract_scalar(fm, 'image_alt')
+            if not alt:
+                safe_title = (extract_scalar(fm, 'title') or post.stem).replace('"', '')
+                fm = replace_or_insert_after(fm, 'image_alt', '"' + safe_title + '"', 'image')
 
         # Write back if changed
         if fm != parse_fm(text)[0]:
