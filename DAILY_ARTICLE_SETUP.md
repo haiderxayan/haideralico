@@ -34,6 +34,14 @@ The workflow is already configured to run daily at 9:00 AM UTC. It will:
 - Commit and push changes
 - Send you an email with the URL
 
+## 🔎 SEO and Syndication Rules
+
+- Canonical first: The site emits rel=canonical, JSON‑LD, and OpenGraph pointing to haiderali.co. Always publish here first, then syndicate.
+- Cross‑posting: When republishing on Medium/DEV/Substack/LinkedIn, set the canonical URL to the original post so SEO accrues to your site. See SYNDICATION.md for platform steps.
+- Featured image + credit: The generator fetches an Unsplash image and displays author credit on the post page. Add `UNSPLASH_ACCESS_KEY` in repo Secrets for photographer attribution.
+- Clean URLs: Categories are normalized to hyphenated slugs (e.g., `ux-design/prototyping`) to avoid encoded spaces like `%20`.
+- Redirects: If a post’s URL changes (e.g., category normalization), the repo uses jekyll-redirect-from to add 301 redirects automatically.
+
 ### 3. Test It Now
 
 You can test the system immediately:

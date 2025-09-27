@@ -49,6 +49,10 @@
     
     <!-- Additional Meta Tags -->
     <link rel="canonical" href="{{ page.url | replace:'index.html','' | absolute_url }}">
+    {% if page.layout == 'post' %}
+    <link rel="syndication-source" href="{{ page.url | absolute_url }}">
+    <link rel="original-source" href="{{ page.url | absolute_url }}">
+    {% endif %}
     <link rel="alternate" type="application/rss+xml" title="{{ site.title | escape }}" href="{{ '/feed.xml' | relative_url }}">
     <link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}">
     <!-- Google Fonts: load via link (faster than @import) -->
