@@ -13,7 +13,8 @@ image: https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?w=1200&h=600
 image_alt: "Collection of essential UX design books on a desk"
 keywords: "UX design books, design reading list, essential design books, Don't Make Me Think, The Elements of User Experience, About Face, Hooked"
 author: "Haider Ali"
-last_modified_at: 2024-01-29 12:00:00 -0800---
+last_modified_at: 2024-01-29 12:00:00 -0800
+---
 
 A curated collection of books, articles, and resources that inspire my design thinking and professional growth.
 

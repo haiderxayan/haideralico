@@ -13,7 +13,8 @@ image: https://images.unsplash.com/photo-1559136555-9303baea8ebd?w=1200&h=600&fi
 image_alt: "The Lean Startup book cover with iterative development cycle diagrams"
 keywords: "Lean Startup, Eric Ries, validated learning, iterative development, UX methodology, build-measure-learn, user-centered design"
 author: "Haider Ali"
-last_modified_at: 2024-01-28 16:45:00 -0800---
+last_modified_at: 2024-01-28 16:45:00 -0800
+---
 
 How to build a sustainable business through validated learning and iterative development.
 

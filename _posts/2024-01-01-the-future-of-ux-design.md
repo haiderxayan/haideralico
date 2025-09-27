@@ -15,7 +15,8 @@ image: https://images.unsplash.com/photo-1551650975-87deedd944c3?w=1200&h=600&fi
 image_alt: "Futuristic UX design interface showing emerging technologies and design trends for 2024"
 keywords: "UX design trends 2024, future of UX design, AI in design, accessibility design, voice interfaces, sustainable UX, design systems, UX predictions"
 author: "Haider Ali"
-last_modified_at: 2024-01-01 12:00:00 -0800---
+last_modified_at: 2024-01-01 12:00:00 -0800
+---
 
 As we step into 2024, the field of UX design is at an inflection point. The rapid advancement of AI, the growing importance of accessibility, and the shift toward more human-centered design approaches are reshaping how we think about user experience. Here are the key trends and predictions that will define the future of UX design.
 

@@ -13,7 +13,8 @@ image: https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=1200&h=600&fi
 image_alt: "Thinking, Fast and Slow book cover with brain and decision-making diagrams"
 keywords: "Thinking Fast and Slow, Daniel Kahneman, cognitive biases, UX design, user behavior, decision-making, psychology"
 author: "Haider Ali"
-last_modified_at: 2024-01-27 14:15:00 -0800---
+last_modified_at: 2024-01-27 14:15:00 -0800
+---
 
 A deep dive into the two systems of thinking and how they influence decision-making.
 

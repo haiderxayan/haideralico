@@ -13,7 +13,8 @@ image: https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=1200&h=600
 image_alt: "Atomic Habits book cover and design process diagrams"
 keywords: "Atomic Habits, James Clear, habit formation, design process, team workflows, systems thinking, design methodology"
 author: "Haider Ali"
-last_modified_at: 2024-01-26 11:30:00 -0800---
+last_modified_at: 2024-01-26 11:30:00 -0800
+---
 
 An excellent guide to building good habits and breaking bad ones through small, incremental changes.
 

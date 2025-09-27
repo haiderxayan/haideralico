@@ -8,7 +8,8 @@ tags: ["books", "climate", "philosophy", "ethical pessimism", "roy scranton", "e
 read_time: 12
 excerpt: "When optimism becomes dangerous and only brutal honesty can save us from civilizational collapse."
 image: "https://images.unsplash.com/photo-1502303756782-2119f3f44a5d?w=1200&h=630&fit=crop"
-image_alt: "Ethical pessimism and climate philosophy"---
+image_alt: "Ethical pessimism and climate philosophy"
+---
 
 # Why I Embraced Ethical Pessimism After Reading Roy Scranton's Climate Philosophy
 

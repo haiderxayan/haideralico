@@ -10,7 +10,8 @@ redirect_from:
 
 tags: [user-interviews, research, ux]
 excerpt: "User interviews are more than just asking questions. Here's how to conduct interviews that reveal deep insights about user behavior and motivations."
-image: https://images.unsplash.com/photo-1552664730-d307ca884978?w=1200&h=600&fit=crop&crop=center---
+image: https://images.unsplash.com/photo-1552664730-d307ca884978?w=1200&h=600&fit=crop&crop=center
+---
 
 User interviews are one of the most powerful tools in a UX designer's toolkit, but they're also one of the most misunderstood. Too often, I see teams treating interviews like surveys—asking direct questions and expecting direct answers. The real magic happens when you go beyond the surface and uncover the underlying motivations, emotions, and context that drive user behavior.
 
