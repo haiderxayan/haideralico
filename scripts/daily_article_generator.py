@@ -180,6 +180,7 @@ image: "{image_url}"
 image_alt: "{image_alt}"
 image_credit_text: "{credit_text}"
 image_credit_url: "{credit_url}"
+canonical_url: "{site_url}/{"/".join(categories)}/{now.strftime('%Y/%m/%d')}/{slugify(title)}/"
 ---
 
 {intro}
