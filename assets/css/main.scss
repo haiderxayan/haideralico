@@ -628,7 +628,7 @@ section {
     margin-top: 0.25rem;
     font-size: 0.85rem;
     font-weight: 600;
-    color: $accent-dark;
+    color: $primary-color;
   }
 
   .article-card-vertical {
@@ -2058,28 +2058,14 @@ section {
             margin: 0 auto;
         }
         
-        .userfirst-logo {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
+        .hero-brand {
+            display: inline-block;
+            font-size: 1.2rem;
+            font-weight: 600;
+            letter-spacing: 0.1rem;
+            text-transform: uppercase;
+            color: $text-light;
             margin-bottom: 1.5rem;
-            
-            .logo-image {
-                width: 60px;
-                height: 60px;
-                border-radius: 50%;
-                margin-bottom: 0.5rem;
-                object-fit: cover;
-            }
-            
-            .logo-text {
-                display: block;
-                font-size: 1.5rem;
-                font-weight: 600;
-                color: $text-color;
-                letter-spacing: 0.5px;
-                text-align: center;
-            }
         }
         
         .hero-title {
@@ -2089,9 +2075,11 @@ section {
             margin-bottom: 1.5rem !important;
             text-align: center;
             line-height: 1.2 !important;
+            white-space: nowrap;
             
             @include media-query($on-palm) {
                 font-size: 2.5rem !important;
+                white-space: normal;
             }
         }
         
