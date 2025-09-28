@@ -397,6 +397,9 @@ def generate_article_content(topic, template, site_url: str):
     # SEO description
     description = (intro[:155] + "...") if len(intro) > 158 else intro
 
+    # Establish timestamp once so categories, front matter, and canonical stay aligned
+    now = datetime.now(timezone.utc)
+
     # Categories and tags (SEO-friendly, hyphenated) with rotation rules
     primary_category = _next_primary_category(now)
     # Choose a topic relevant to the chosen category when possible
@@ -406,8 +409,6 @@ def generate_article_content(topic, template, site_url: str):
     secondary_category = slugify(topic)
     categories = sanitize_categories([primary_category, secondary_category])
     tags = [secondary_category, "ux", "design", "user-experience"]
-
-    now = datetime.now(timezone.utc)
 
     # Body with interlinking anchors
     more_on_topic_link = f"{site_url}/insights/#" + primary_category

@@ -5,7 +5,32 @@ description: UX Design insights, research findings, and industry trends from Hai
 ---
 
 {% assign all_posts = site.posts | sort: 'date' | reverse %}
-{% assign featured_posts = all_posts | slice: 0, 6 %}
+{% assign display_posts = '' | split: '' %}
+{% assign using_popular = false %}
+{% if site.data.popular_posts and site.data.popular_posts.size > 0 %}
+    {% for item in site.data.popular_posts %}
+        {% assign matched_post = site.posts | where: 'url', item.url | first %}
+        {% if matched_post %}
+            {% assign display_posts = display_posts | push: matched_post %}
+        {% endif %}
+    {% endfor %}
+{% endif %}
+{% if display_posts.size == 0 %}
+    {% assign display_posts = all_posts | slice: 0, 6 %}
+{% else %}
+    {% assign using_popular = true %}
+    {% if display_posts.size < 6 %}
+        {% assign fallback_posts = all_posts | slice: 0, 6 %}
+        {% for post in fallback_posts %}
+            {% unless display_posts contains post %}
+                {% assign display_posts = display_posts | push: post %}
+            {% endunless %}
+            {% if display_posts.size == 6 %}
+                {% break %}
+            {% endif %}
+        {% endfor %}
+    {% endif %}
+{% endif %}
 {% assign recent_posts = all_posts %}
 
 <div class="insights-page">
@@ -28,10 +53,14 @@ description: UX Design insights, research findings, and industry trends from Hai
     <!-- All Time Favorites -->
     <section class="favorites-section">
         <div class="container">
+            <div class="section-heading">
+                <h2 class="section-title">{% if using_popular %}Popular right now{% else %}Latest writing & resources{% endif %}</h2>
+                <p class="section-subtitle">{% if using_popular %}Most-viewed articles based on analytics. When no popularity data exists, the newest pieces fill this grid so it never goes stale.{% else %}Newest posts across the blog. Add entries to _data/popular_posts.yml to pin favourites here.{% endif %}</p>
+            </div>
             <div class="favorites-grid">
                 <!-- Column 1: 2 posts (vertical layout) -->
                 <div class="favorites-column">
-                    {% for post in featured_posts limit:2 %}
+                    {% for post in display_posts limit:2 %}
                     <article class="article-card-vertical">
                         <div class="article-image">
                             {% if post.image %}
@@ -67,6 +96,12 @@ description: UX Design insights, research findings, and industry trends from Hai
                                 <span class="publish-date">{{ post.date | date: "%b %d, %Y" }}</span>
                                 <span class="read-time">{{ post.read_time }} min read</span>
                             </div>
+                            {% assign popularity = site.data.popular_posts | where: 'url', post.url | first %}
+                            {% if popularity and popularity.views %}
+                                <span class="popular-indicator card-element-spacing">{{ popularity.views }} views</span>
+                            {% elsif using_popular %}
+                                <span class="popular-indicator card-element-spacing">Popular pick</span>
+                            {% endif %}
                         </div>
                     </article>
                     {% endfor %}
@@ -74,7 +109,7 @@ description: UX Design insights, research findings, and industry trends from Hai
 
                 <!-- Column 2: 1 featured post with larger image -->
                 <div class="favorites-column featured-column">
-                    {% assign featured_post = featured_posts[2] %}
+                    {% assign featured_post = display_posts[2] %}
                     <article class="article-card-featured">
                         <div class="article-image-large">
                             {% if featured_post.image %}
@@ -113,13 +148,19 @@ description: UX Design insights, research findings, and industry trends from Hai
                                 <span class="publish-date">{{ featured_post.date | date: "%b %d, %Y" }}</span>
                                 <span class="read-time">{{ featured_post.read_time }} min read</span>
                             </div>
+                            {% assign popularity = site.data.popular_posts | where: 'url', featured_post.url | first %}
+                            {% if popularity and popularity.views %}
+                                <span class="popular-indicator card-element-spacing">{{ popularity.views }} views</span>
+                            {% elsif using_popular %}
+                                <span class="popular-indicator card-element-spacing">Popular pick</span>
+                            {% endif %}
                         </div>
                     </article>
                 </div>
 
                 <!-- Column 3: 3 posts (text only) -->
                 <div class="favorites-column">
-                    {% for post in featured_posts limit:3 offset:3 %}
+                    {% for post in display_posts limit:3 offset:3 %}
                     <article class="article-card-text">
                         <div class="article-content">
                             {% assign category_tag = post.categories | first | upcase %}
@@ -151,6 +192,12 @@ description: UX Design insights, research findings, and industry trends from Hai
                                 <span class="publish-date">{{ post.date | date: "%b %d, %Y" }}</span>
                                 <span class="read-time">{{ post.read_time }} min read</span>
                             </div>
+                            {% assign popularity = site.data.popular_posts | where: 'url', post.url | first %}
+                            {% if popularity and popularity.views %}
+                                <span class="popular-indicator card-element-spacing">{{ popularity.views }} views</span>
+                            {% elsif using_popular %}
+                                <span class="popular-indicator card-element-spacing">Popular pick</span>
+                            {% endif %}
                         </div>
                     </article>
                     {% endfor %}

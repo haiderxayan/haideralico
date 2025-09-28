@@ -1,0 +1,27 @@
+Blog Content & SEO Rulebook
+Objective: Quick-reference playbook for daily generator outputs, manual posts, images, and syndication so improvements are easy to track.
+
+Blog Publishing
+- Primary categories must be lowercase hyphenated slugs; if a slug changes, add redirect_from for the previous path.
+- Alternate AI coverage every other day; on AI days force the primary category to ai, otherwise rotate through the saved non-ai categories.
+- Front matter must include canonical_url that matches the site URL pattern plus category/date/slug.
+- Generator posts default to read_time 8 and include standard tag set (topic slug, ux, design, user-experience).
+
+Images
+- Featured images come from Unsplash; supply UNSPLASH_ACCESS_KEY so credit text and author URL are embedded.
+- Track used Unsplash IDs to avoid repeats; store metadata in assets/data/used_unsplash.json.
+- Cache downloaded images under assets/images/posts/YYYY/MM/slug.ext; fall back to /assets/images/haider-logo.jpg if missing.
+
+SEO & Syndication
+- Publish on haiderali.co first; canonical, JSON-LD, OpenGraph, and microformats already point to the source.
+- When cross-posting, set the platform’s canonical URL to the original; if unsupported, add an attribution line and link.
+- Keep slugs/titles consistent across platforms; maintain hyphenated category paths and rely on jekyll-redirect-from for 301s.
+- Submit sitemap to Google/Bing; use Search Console Inspect URL to speed up indexing for new articles.
+
+Content Depth
+- Current automation does not enforce a minimum word count; recent posts range ~350–500+ words. Add a rule or validator if we want a hard floor for SEO strength.
+
+Outstanding Improvements
+- Decide on a minimum article length (e.g., 600 words) and enforce it in generator/test suite.
+- Integrate analytics-driven popularity data so Favorites can surface actual top-viewed posts.
+- Add automated checks that confirm canonical_url, image_alt, and redirect_from before merging new posts.

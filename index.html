@@ -22,15 +22,41 @@ permalink: "/"
 
     
 
-    {% assign all_posts = site.posts | sort: 'date' | reverse %}
-    {% assign featured_posts = all_posts | slice: 0, 6 %}
+{% assign all_posts = site.posts | sort: 'date' | reverse %}
+{% assign display_posts = '' | split: '' %}
+{% assign using_popular = false %}
+{% if site.data.popular_posts and site.data.popular_posts.size > 0 %}
+    {% for item in site.data.popular_posts %}
+        {% assign matched_post = site.posts | where: 'url', item.url | first %}
+        {% if matched_post %}
+            {% assign display_posts = display_posts | push: matched_post %}
+        {% endif %}
+    {% endfor %}
+{% endif %}
+{% if display_posts.size == 0 %}
+    {% assign display_posts = all_posts | slice: 0, 6 %}
+{% else %}
+    {% assign using_popular = true %}
+    {% if display_posts.size < 6 %}
+        {% assign fallback_posts = all_posts | slice: 0, 6 %}
+        {% for post in fallback_posts %}
+            {% unless display_posts contains post %}
+                {% assign display_posts = display_posts | push: post %}
+            {% endunless %}
+            {% if display_posts.size == 6 %}
+                {% break %}
+            {% endif %}
+        {% endfor %}
+    {% endif %}
+{% endif %}
     <section class="favorites-section" id="insights">
         <div class="container">
-            <h2 class="section-title">Latest writing & resources</h2>
+            <h2 class="section-title">{% if using_popular %}Popular on UserFirst{% else %}Latest writing & resources{% endif %}</h2>
+            <p class="section-subtitle">{% if using_popular %}Most-viewed posts highlighted first; newest articles backfill when analytics data is missing.{% else %}Newest additions to the blog. Add entries to _data/popular_posts.yml to feature specific favourites here.{% endif %}</p>
             <div class="favorites-grid">
                 <!-- Column 1: 2 posts (vertical layout) -->
                 <div class="favorites-column">
-                    {% for post in featured_posts limit:2 %}
+                    {% for post in display_posts limit:2 %}
                     <article class="article-card-vertical">
                         <div class="article-image">
                             {% if post.image %}
@@ -66,6 +92,12 @@ permalink: "/"
                                 <span class="publish-date">{{ post.date | date: "%b %d, %Y" }}</span>
                                 <span class="read-time">{{ post.read_time }} min read</span>
                             </div>
+                            {% assign popularity = site.data.popular_posts | where: 'url', post.url | first %}
+                            {% if popularity and popularity.views %}
+                                <span class="popular-indicator card-element-spacing">{{ popularity.views }} views</span>
+                            {% elsif using_popular %}
+                                <span class="popular-indicator card-element-spacing">Popular pick</span>
+                            {% endif %}
                         </div>
                     </article>
                     {% endfor %}
@@ -73,7 +105,7 @@ permalink: "/"
 
                 <!-- Column 2: 1 featured post with larger image -->
                 <div class="favorites-column featured-column">
-                    {% assign featured_post = featured_posts[2] %}
+                    {% assign featured_post = display_posts[2] %}
                     {% if featured_post %}
                     <article class="article-card-featured">
                         <div class="article-image-large">
@@ -113,6 +145,12 @@ permalink: "/"
                                 <span class="publish-date">{{ featured_post.date | date: "%b %d, %Y" }}</span>
                                 <span class="read-time">{{ featured_post.read_time }} min read</span>
                             </div>
+                            {% assign popularity = site.data.popular_posts | where: 'url', featured_post.url | first %}
+                            {% if popularity and popularity.views %}
+                                <span class="popular-indicator card-element-spacing">{{ popularity.views }} views</span>
+                            {% elsif using_popular %}
+                                <span class="popular-indicator card-element-spacing">Popular pick</span>
+                            {% endif %}
                         </div>
                     </article>
                     {% endif %}
@@ -120,7 +158,7 @@ permalink: "/"
 
                 <!-- Column 3: 3 posts (text only) -->
                 <div class="favorites-column">
-                    {% for post in featured_posts limit:3 offset:3 %}
+                    {% for post in display_posts limit:3 offset:3 %}
                     <article class="article-card-text">
                         <div class="article-content">
                             {% assign category_tag = post.categories | first | replace: '-', ' ' | upcase %}
@@ -152,6 +190,12 @@ permalink: "/"
                                 <span class="publish-date">{{ post.date | date: "%b %d, %Y" }}</span>
                                 <span class="read-time">{{ post.read_time }} min read</span>
                             </div>
+                            {% assign popularity = site.data.popular_posts | where: 'url', post.url | first %}
+                            {% if popularity and popularity.views %}
+                                <span class="popular-indicator card-element-spacing">{{ popularity.views }} views</span>
+                            {% elsif using_popular %}
+                                <span class="popular-indicator card-element-spacing">Popular pick</span>
+                            {% endif %}
                         </div>
                     </article>
                     {% endfor %}

@@ -592,6 +592,12 @@ section {
     padding: 0;
   }
 
+  .section-subtitle {
+    margin: 0 0 2rem;
+    color: $text-light;
+    font-size: 0.95rem;
+  }
+
   .favorites-grid {
     display: grid;
     grid-template-columns: 1fr 1.5fr 1fr;
@@ -615,6 +621,14 @@ section {
         height: 100%;
       }
     }
+  }
+
+  .popular-indicator {
+    display: inline-block;
+    margin-top: 0.25rem;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: $accent-dark;
   }
 
   .article-card-vertical {
