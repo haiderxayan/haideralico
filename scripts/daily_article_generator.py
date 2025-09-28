@@ -385,8 +385,12 @@ def _related_links(categories, site_url, exclude_filename, limit=3):
         pass
     return links
 
-def generate_article_content(topic, template, site_url: str):
-    """Generate article content with strong SEO and interlinking."""
+def generate_article_content(topic, template, site_url: str, enforce_uniqueness: bool = True):
+    """Generate article content with strong SEO and interlinking.
+
+    When enforce_uniqueness is False, similarity checks are skipped so the
+    caller can fall back to generating content even after repeated collisions.
+    """
     # Titles and intro
     title = template["title_template"].format(topic=topic)
     intro = template["intro_template"].format(topic=topic)
@@ -504,7 +508,7 @@ Here are some essential tools for {topic}:
 """
 
     # Simple uniqueness guard: if content too similar to recent posts, re-roll
-    if _too_similar(content, _load_existing_bodies(), threshold=0.6):
+    if enforce_uniqueness and _too_similar(content, _load_existing_bodies(), threshold=0.6):
         raise ValueError("Generated content too similar to recent posts; retry with different topic/template")
     return content, title, categories
 
@@ -613,15 +617,34 @@ def main():
     # Site URL from config/env
     site_url = os.getenv("SITE_URL", "https://haiderali.co")
 
-    # Generate article content, retry up to 3 times for uniqueness
-    for _ in range(3):
+    content = None
+    title = None
+    categories = None
+
+    # Generate article content, retry up to 5 times for uniqueness
+    for _ in range(5):
         try:
-            content, title, categories = generate_article_content(topic, template, site_url)
+            content, title, categories = generate_article_content(topic, template, site_url, enforce_uniqueness=True)
             break
         except ValueError:
             topic = random.choice(UX_TOPICS)
             template = random.choice(ARTICLE_TEMPLATES)
-    
+    # Fallback: skip uniqueness guard so the run still produces an article
+    if content is None or title is None or categories is None:
+        print("⚠️  Could not generate a unique article after retries; creating fallback content.")
+        last_error = None
+        for _ in range(5):
+            topic = random.choice(UX_TOPICS)
+            template = random.choice(ARTICLE_TEMPLATES)
+            try:
+                content, title, categories = generate_article_content(topic, template, site_url, enforce_uniqueness=False)
+                break
+            except Exception as err:
+                last_error = err
+                continue
+        else:
+            raise RuntimeError("Failed to generate article content even after fallback attempts") from last_error
+
     # Create blog post file
     filepath, filename = create_blog_post(content, title)
     print(f"✅ Created blog post: {filename}")

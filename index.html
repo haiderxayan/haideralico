@@ -25,30 +25,20 @@ permalink: "/"
 {% assign all_posts = site.posts | sort: 'date' | reverse %}
 {% assign display_posts = '' | split: '' %}
 {% assign using_popular = false %}
-{% if site.data.popular_posts and site.data.popular_posts.size > 0 %}
-    {% for item in site.data.popular_posts %}
-        {% assign matched_post = site.posts | where: 'url', item.url | first %}
-        {% if matched_post %}
-            {% assign display_posts = display_posts | push: matched_post %}
-        {% endif %}
+{% assign popular_entries = site.data.popular_posts %}
+{% if popular_entries == nil %}
+    {% assign popular_entries = '' | split: '' %}
+{% endif %}
+{% if popular_entries.size > 0 %}
+    {% assign using_popular = true %}
+    {% for item in popular_entries %}
+        {% assign matched_posts = site.posts | where: 'url', item.url %}
+        {% assign display_posts = display_posts | concat: matched_posts %}
     {% endfor %}
 {% endif %}
-{% if display_posts.size == 0 %}
-    {% assign display_posts = all_posts | slice: 0, 6 %}
-{% else %}
-    {% assign using_popular = true %}
-    {% if display_posts.size < 6 %}
-        {% assign fallback_posts = all_posts | slice: 0, 6 %}
-        {% for post in fallback_posts %}
-            {% unless display_posts contains post %}
-                {% assign display_posts = display_posts | push: post %}
-            {% endunless %}
-            {% if display_posts.size == 6 %}
-                {% break %}
-            {% endif %}
-        {% endfor %}
-    {% endif %}
-{% endif %}
+{% assign fallback_posts = all_posts | slice: 0, 6 %}
+{% assign combined_posts = display_posts | concat: fallback_posts %}
+{% assign display_posts = combined_posts | uniq | slice: 0, 6 %}
     <section class="favorites-section" id="insights">
         <div class="container">
             <h2 class="section-title">{% if using_popular %}Popular on UserFirst{% else %}Latest writing & resources{% endif %}</h2>
