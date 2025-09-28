@@ -27,7 +27,7 @@
     <meta property="og:image:height" content="630">
     <meta property="og:image:alt" content="{{ page.title | escape }}">
     {% else %}
-    <meta property="og:image" content="{{ '/assets/images/haider-logo.jpg' | absolute_url }}">
+    <meta property="og:image" content="{{ site.fallback_image | default: '/assets/images/haider-logo.jpg' | absolute_url }}">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
     <meta property="og:image:alt" content="{{ site.title | escape }} - UX Designer">
@@ -43,7 +43,7 @@
     <meta name="twitter:image" content="{{ page.image | absolute_url }}">
     <meta name="twitter:image:alt" content="{{ page.title | escape }}">
     {% else %}
-    <meta name="twitter:image" content="{{ '/assets/images/haider-logo.jpg' | absolute_url }}">
+    <meta name="twitter:image" content="{{ site.fallback_image | default: '/assets/images/haider-logo.jpg' | absolute_url }}">
     <meta name="twitter:image:alt" content="{{ site.title | escape }} - UX Designer">
     {% endif %}
     
@@ -70,8 +70,9 @@
     <meta name="apple-mobile-web-app-status-bar-style" content="default">
     
     <!-- Favicon and App Icons -->
-    <link rel="icon" type="image/x-icon" href="{{ '/assets/images/haider-logo.jpg' | relative_url }}">
-    <link rel="apple-touch-icon" href="{{ '/assets/images/haider-logo.jpg' | relative_url }}">
+    <link rel="icon" type="image/svg+xml" href="{{ site.logo_path | default: '/assets/images/haider-logo.svg' | relative_url }}">
+    <link rel="alternate icon" type="image/jpeg" href="{{ site.fallback_image | default: '/assets/images/haider-logo.jpg' | relative_url }}">
+    <link rel="apple-touch-icon" href="{{ site.fallback_image | default: '/assets/images/haider-logo.jpg' | relative_url }}">
     <link rel="manifest" href="{{ '/manifest.json' | relative_url }}">
     
     <!-- JSON-LD Structured Data -->
@@ -86,7 +87,7 @@
       "name": "{{ site.title }}",
       "description": "{{ site.description }}",
       "url": "{{ site.url }}",
-      "image": "{{ '/assets/images/haider-logo.jpg' | absolute_url }}",
+      "image": "{{ site.fallback_image | default: '/assets/images/haider-logo.jpg' | absolute_url }}",
       "jobTitle": "UX Designer",
       "worksFor": {
         "@type": "Organization",

@@ -24,7 +24,7 @@ layout: default
     "width": 1200
   },
   {% else %}
-  "image": "{{ '/assets/images/haider-logo.jpg' | absolute_url }}",
+  "image": "{{ site.fallback_image | default: '/assets/images/haider-logo.jpg' | absolute_url }}",
   {% endif %}
   "author": {
     "@type": "Person",
@@ -42,7 +42,7 @@ layout: default
     "url": "{{ site.url }}",
     "logo": {
       "@type": "ImageObject",
-      "url": "{{ site.logo_path | default: '/assets/images/haider-logo.jpg' | absolute_url }}"
+      "url": "{{ site.fallback_image | default: '/assets/images/haider-logo.jpg' | absolute_url }}"
     }
   },
   "datePublished": "{{ page.date | date_to_xmlschema }}",
