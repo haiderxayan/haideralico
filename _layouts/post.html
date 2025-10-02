@@ -111,10 +111,15 @@ layout: default
                     <img src="{{ img }}" alt="{{ page.image_alt | default: page.title | escape }}" itemprop="image" loading="lazy" width="1200" height="630" onerror="this.onerror=null;this.src='{{ fallback | relative_url }}'">
                 {% else %}
                     {% assign webp = img | replace: '.jpg', '.webp' | replace: '.jpeg', '.webp' | replace: '.png', '.webp' %}
+                    {% assign has_webp = site.static_files | where: 'path', webp %}
+                    {% if has_webp and has_webp.size > 0 %}
                     <picture>
                         <source type="image/webp" srcset="{{ webp | relative_url }}">
                         <img src="{{ img | relative_url }}" alt="{{ page.image_alt | default: page.title | escape }}" itemprop="image" loading="lazy" width="1200" height="630" onerror="this.onerror=null;this.src='{{ fallback | relative_url }}'">
                     </picture>
+                    {% else %}
+                    <img src="{{ img | relative_url }}" alt="{{ page.image_alt | default: page.title | escape }}" itemprop="image" loading="lazy" width="1200" height="630" onerror="this.onerror=null;this.src='{{ fallback | relative_url }}'">
+                    {% endif %}
                 {% endif %}
                 {%- if page.image_credit_text -%}
                 <figcaption class="image-credit">

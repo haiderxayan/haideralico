@@ -1,16 +1,23 @@
 ---
 layout: post
-title: "The Future of Information Architecture: Trends Shaping UX in 2024"
+title: 'The Future of Information Architecture: Trends Shaping UX in 2024'
 date: 2025-10-01 09:27:30 +0000
-categories: ["design", "interaction-design"]
-tags: ["interaction-design", "ux", "design", "user-experience"]
+categories:
+- design
+- interaction-design
+tags:
+- interaction-design
+- ux
+- design
+- user-experience
 read_time: 8
-excerpt: "As we navigate through 2024, Information Architecture continues to evolve at a rapid pace. Understanding these emerging trends is crucial for staying ahead..."
-image: "https://source.unsplash.com/featured/1200x630/?information-architecture"
-image_alt: "Information Architecture in UX Design"
-image_credit_text: "Image via Unsplash"
-image_credit_url: "https://unsplash.com/"
-canonical_url: "https://haiderali.co/design/interaction-design/2025/10/01/the-future-of-information-architecture-trends-shaping-ux-in-2024/"
+excerpt: As we navigate through 2024, Information Architecture continues to evolve
+  at a rapid pace. Understanding these emerging trends is crucial for staying ahead...
+image: /assets/images/posts/2025/10/the-future-of-information-architecture-trends-shaping-ux-in-2024.jpg
+image_alt: a book with a drawing of a person sitting at a table
+image_credit_text: Photo by Nasim Keshmiri on Unsplash
+image_credit_url: https://unsplash.com/@nasimkeshmiri
+canonical_url: https://haiderali.co/design/interaction-design/2025/10/01/the-future-of-information-architecture-trends-shaping-ux-in-2024/
 ---
 
 As we navigate through 2024, Information Architecture continues to evolve at a rapid pace. Understanding these emerging trends is crucial for staying ahead in the UX field. Let's explore what's shaping the future of Information Architecture.

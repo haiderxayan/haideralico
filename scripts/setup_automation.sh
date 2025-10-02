@@ -1,5 +1,12 @@
 #!/bin/bash
 
+# Load local environment overrides if present
+if [ -f ".env" ]; then
+    set -a
+    export $(grep -v '^#' .env | xargs)
+    set +a
+fi
+
 echo "🚀 Setting up Daily Article Automation for Haider Ali's Blog"
 echo "=========================================================="
 
@@ -41,6 +48,16 @@ if [ -z "$EMAIL_PASSWORD" ]; then
     echo "   4. Use that password as EMAIL_PASSWORD"
 else
     echo "✅ EMAIL_PASSWORD is configured"
+fi
+
+# Check for Unsplash access key
+echo "🖼️ Unsplash Integration:"
+if [ -z "$UNSPLASH_ACCESS_KEY" ]; then
+    echo "⚠️  UNSPLASH_ACCESS_KEY not set."
+    echo "   Daily posts will fall back to a generic image until you export it:"
+    echo "   export UNSPLASH_ACCESS_KEY='your-unsplash-access-key'"
+else
+    echo "✅ UNSPLASH_ACCESS_KEY detected"
 fi
 
 # Test the script

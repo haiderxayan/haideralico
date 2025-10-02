@@ -1,16 +1,23 @@
 ---
 layout: post
-title: "10 Essential Visual Design Tips Every Designer Should Know"
+title: 10 Essential Visual Design Tips Every Designer Should Know
 date: 2025-09-28 11:57:58 +0000
-categories: ["ai", "ar-vr-ux"]
-tags: ["ar-vr-ux", "ux", "design", "user-experience"]
+categories:
+- ai
+- ar-vr-ux
+tags:
+- ar-vr-ux
+- ux
+- design
+- user-experience
 read_time: 8
-excerpt: "Mastering Visual Design is key to creating user-centered designs that truly resonate with your audience. Here are 10 essential tips that will elevate your ..."
-image: "https://source.unsplash.com/featured/1200x630/?visual-design"
-image_alt: "Visual Design in UX Design"
-image_credit_text: "Image via Unsplash"
-image_credit_url: "https://unsplash.com/"
-canonical_url: "https://haiderali.co/ai/ar-vr-ux/2025/09/28/10-essential-visual-design-tips-every-designer-should-know/"
+excerpt: Mastering Visual Design is key to creating user-centered designs that truly
+  resonate with your audience. Here are 10 essential tips that will elevate your ...
+image: /assets/images/posts/2025/09/10-essential-visual-design-tips-every-designer-should-know.jpg
+image_alt: Images paint stroke
+image_credit_text: Photo by Andrew Ebrahim on Unsplash
+image_credit_url: https://unsplash.com/@sdb_sjbc
+canonical_url: https://haiderali.co/ai/ar-vr-ux/2025/09/28/10-essential-visual-design-tips-every-designer-should-know/
 ---
 
 Mastering Visual Design is key to creating user-centered designs that truly resonate with your audience. Here are 10 essential tips that will elevate your Visual Design skills and help you create more effective user experiences.

@@ -74,6 +74,21 @@ Edit `config.json` to customize email settings:
 }
 ```
 
+### Unsplash Access Key
+
+To fetch topic-specific hero images, set your Unsplash access key before running the generator. You can either export it manually or create a `.env` file based on `.env.example`:
+
+```bash
+# Option 1: export for this shell
+export UNSPLASH_ACCESS_KEY="your-unsplash-access-key"
+
+# Option 2: copy the example and edit
+cp .env.example .env
+# update UNSPLASH_ACCESS_KEY (and EMAIL_PASSWORD if desired) in .env
+```
+
+In GitHub Actions, add the same value as the `UNSPLASH_ACCESS_KEY` repository secret so scheduled runs can fetch credited images instead of the generic fallback.
+
 ### Topics and Templates
 
 The system includes 20 UX topics and 4 article templates:

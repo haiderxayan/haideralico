@@ -35,6 +35,16 @@ UNSPLASH_ACCESS_KEY = os.getenv("UNSPLASH_ACCESS_KEY")
 USED_IMG_STORE = BLOG_ROOT / "assets" / "data" / "used_unsplash.json"
 CATEGORY_STATE_STORE = BLOG_ROOT / "assets" / "data" / "category_cycle.json"
 
+
+CONFIG_PATH = Path(__file__).with_name("config.json")
+try:
+    _RAW_CONFIG = json.loads(CONFIG_PATH.read_text(encoding="utf-8"))
+except FileNotFoundError:
+    _RAW_CONFIG = {}
+BLOG_CONFIG = _RAW_CONFIG.get("blog", {})
+DEFAULT_IMAGE_URL = BLOG_CONFIG.get("default_image")
+DEFAULT_IMAGE_CREDIT_TEXT = BLOG_CONFIG.get("default_image_credit_text", "Image via Unsplash")
+DEFAULT_IMAGE_CREDIT_URL = BLOG_CONFIG.get("default_image_credit_url", "https://unsplash.com/")
 # Category rotation config (first category only)
 # Matches site tags: Research & Strategy, Design, AI, Data Analytics, Content, Career, Development, News & Culture
 CYCLE_CATEGORIES = [
@@ -169,7 +179,7 @@ def sanitize_categories(categories):
 def fetch_unsplash_image(topic: str):
     """Fetch an Unsplash image for the topic.
     Returns (image_url, image_alt, credit_text, credit_url).
-    Requires UNSPLASH_ACCESS_KEY for author credits. Fallback to source.unsplash.com without author.
+    Requires UNSPLASH_ACCESS_KEY for author credits. Falls back to configured default image.
     """
     topic_query = slugify(topic) or "ux"
     if UNSPLASH_ACCESS_KEY:
@@ -187,42 +197,56 @@ def fetch_unsplash_image(topic: str):
                 "Accept-Version": "v1",
                 "User-Agent": "Daily-Article-Generator"
             }
-            r = requests.get(api_url, params=params, headers=headers, timeout=12)
-            if r.status_code == 200:
-                data = r.json()
+            response = requests.get(api_url, params=params, headers=headers, timeout=12)
+            if response.status_code == 200:
+                data = response.json()
                 results = data.get("results") or []
-                used_ids = _load_used_image_ids()
-                chosen = None
-                for photo in results:
-                    pid = photo.get("id")
-                    if pid and pid not in used_ids:
-                        chosen = photo
-                        used_ids.add(pid)
-                        _save_used_image_ids(used_ids)
-                        break
-                if not chosen and results:
-                    chosen = results[0]
-                if chosen:
-                    base = chosen["urls"].get("raw") or chosen["urls"].get("regular")
+                if results:
+                    used_ids = _load_used_image_ids()
+                    chosen = None
+                    for photo in results:
+                        pid = photo.get("id")
+                        if pid and pid not in used_ids:
+                            chosen = photo
+                            used_ids.add(pid)
+                            _save_used_image_ids(used_ids)
+                            break
+                    if not chosen:
+                        chosen = results[0]
+                        pid = chosen.get("id")
+                        if pid:
+                            print(f"Reusing Unsplash image {pid} for topic '{topic_query}'", file=sys.stderr)
+                    urls = (chosen or {}).get("urls", {})
+                    base = urls.get("raw") or urls.get("full") or urls.get("regular")
                     if base:
                         sep = '&' if '?' in base else '?'
                         img_url = f"{base}{sep}w=1200&h=630&fit=crop&auto=format"
                     else:
-                        img_url = chosen["urls"].get("regular")
-                    alt = chosen.get("alt_description") or f"{topic} illustration"
-                    user = chosen.get("user", {})
-                    author = user.get("name") or user.get("username") or "Unsplash contributor"
-                    author_url = user.get("links", {}).get("html") or "https://unsplash.com/"
-                    credit_text = f"Photo by {author} on Unsplash"
-                    credit_url = author_url
-                    return img_url, alt, credit_text, credit_url
-        except Exception:
-            pass
-    # Fallback: random featured image (no author credit available)
-    img_url = f"https://source.unsplash.com/featured/1200x630/?{topic_query}"
+                        img_url = urls.get("regular") or urls.get("small")
+                    if img_url:
+                        alt = (chosen or {}).get("alt_description") or f"{topic} illustration"
+                        user = (chosen or {}).get("user", {})
+                        author = user.get("name") or user.get("username") or "Unsplash contributor"
+                        author_url = user.get("links", {}).get("html") or "https://unsplash.com/"
+                        credit_text = f"Photo by {author} on Unsplash"
+                        credit_url = author_url
+                        return img_url, alt, credit_text, credit_url
+                else:
+                    print(f"Unsplash search returned no results for topic '{topic_query}'", file=sys.stderr)
+            else:
+                snippet = response.text[:200] if hasattr(response, 'text') else ''
+                print(f"Unsplash API error {response.status_code} for topic '{topic_query}': {snippet}", file=sys.stderr)
+        except Exception as exc:
+            print(f"Unsplash request failed for topic '{topic_query}': {exc}", file=sys.stderr)
+    # Fallback to configured default image or generic Unsplash lookup
+    img_url = DEFAULT_IMAGE_URL or f"https://source.unsplash.com/featured/1200x630/?{topic_query}"
     alt = f"{topic} in UX Design"
-    credit_text = "Image via Unsplash"
-    credit_url = "https://unsplash.com/"
+    credit_text = DEFAULT_IMAGE_CREDIT_TEXT
+    credit_url = DEFAULT_IMAGE_CREDIT_URL
+    if not UNSPLASH_ACCESS_KEY:
+        print(f"UNSPLASH_ACCESS_KEY not set; using fallback image for '{topic_query}'", file=sys.stderr)
+    else:
+        print(f"Using fallback image for '{topic_query}' after Unsplash API failure or empty results", file=sys.stderr)
     return img_url, alt, credit_text, credit_url
 
 
@@ -504,7 +528,6 @@ Here are some essential tools for {topic}:
 
 ---
 
-*This article was automatically generated as part of our daily UX insights series. For tailored help, [contact us]({contact_link}).*
 """
 
     # Simple uniqueness guard: if content too similar to recent posts, re-roll

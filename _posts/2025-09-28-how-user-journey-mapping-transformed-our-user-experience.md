@@ -1,16 +1,23 @@
 ---
 layout: post
-title: "How User Journey Mapping Transformed Our User Experience"
+title: How User Journey Mapping Transformed Our User Experience
 date: 2025-09-28 12:16:32 +0000
-categories: ["ai", "ai-in-ux"]
-tags: ["ai-in-ux", "ux", "design", "user-experience"]
+categories:
+- ai
+- ai-in-ux
+tags:
+- ai-in-ux
+- ux
+- design
+- user-experience
 read_time: 8
-excerpt: "In this case study, we'll explore how implementing User Journey Mapping led to significant improvements in user satisfaction and business metrics. Discover..."
-image: "https://source.unsplash.com/featured/1200x630/?user-journey-mapping"
-image_alt: "User Journey Mapping in UX Design"
-image_credit_text: "Image via Unsplash"
-image_credit_url: "https://unsplash.com/"
-canonical_url: "https://haiderali.co/ai/ai-in-ux/2025/09/28/how-user-journey-mapping-transformed-our-user-experience/"
+excerpt: In this case study, we'll explore how implementing User Journey Mapping led
+  to significant improvements in user satisfaction and business metrics. Discover...
+image: /assets/images/posts/2025/09/how-user-journey-mapping-transformed-our-user-experience.jpg
+image_alt: Person holding a smartphone with a logo on screen.
+image_credit_text: Photo by Jo Lin on Unsplash
+image_credit_url: https://unsplash.com/@jolin974658
+canonical_url: https://haiderali.co/ai/ai-in-ux/2025/09/28/how-user-journey-mapping-transformed-our-user-experience/
 ---
 
 In this case study, we'll explore how implementing User Journey Mapping led to significant improvements in user satisfaction and business metrics. Discover the strategies, challenges, and results from this real-world implementation.

@@ -1,16 +1,24 @@
 ---
 layout: post
-title: "The Future of Design Ethics: Trends Shaping UX in 2024"
+title: 'The Future of Design Ethics: Trends Shaping UX in 2024'
 date: 2025-09-29 09:29:45 +0000
-categories: ["research-strategy", "design-thinking"]
-tags: ["design-thinking", "ux", "design", "user-experience"]
+categories:
+- research-strategy
+- design-thinking
+tags:
+- design-thinking
+- ux
+- design
+- user-experience
 read_time: 8
-excerpt: "As we navigate through 2024, Design Ethics continues to evolve at a rapid pace. Understanding these emerging trends is crucial for staying ahead in the UX ..."
-image: "https://source.unsplash.com/featured/1200x630/?design-ethics"
-image_alt: "Design Ethics in UX Design"
-image_credit_text: "Image via Unsplash"
-image_credit_url: "https://unsplash.com/"
-canonical_url: "https://haiderali.co/research-strategy/design-thinking/2025/09/29/the-future-of-design-ethics-trends-shaping-ux-in-2024/"
+excerpt: As we navigate through 2024, Design Ethics continues to evolve at a rapid
+  pace. Understanding these emerging trends is crucial for staying ahead in the UX
+  ...
+image: /assets/images/posts/2025/09/the-future-of-design-ethics-trends-shaping-ux-in-2024.jpg
+image_alt: printed sticky notes glued on board
+image_credit_text: "Photo by Daria Nepriakhina \U0001F1FA\U0001F1E6 on Unsplash"
+image_credit_url: https://unsplash.com/@epicantus
+canonical_url: https://haiderali.co/research-strategy/design-thinking/2025/09/29/the-future-of-design-ethics-trends-shaping-ux-in-2024/
 ---
 
 As we navigate through 2024, Design Ethics continues to evolve at a rapid pace. Understanding these emerging trends is crucial for staying ahead in the UX field. Let's explore what's shaping the future of Design Ethics.

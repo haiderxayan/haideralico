@@ -1,16 +1,23 @@
 ---
 layout: post
-title: "10 Essential Design Systems Tips Every Designer Should Know"
+title: 10 Essential Design Systems Tips Every Designer Should Know
 date: 2025-09-30 09:26:47 +0000
-categories: ["ai", "ai-in-ux"]
-tags: ["ai-in-ux", "ux", "design", "user-experience"]
+categories:
+- ai
+- ai-in-ux
+tags:
+- ai-in-ux
+- ux
+- design
+- user-experience
 read_time: 8
-excerpt: "Mastering Design Systems is key to creating user-centered designs that truly resonate with your audience. Here are 10 essential tips that will elevate your..."
-image: "https://source.unsplash.com/featured/1200x630/?design-systems"
-image_alt: "Design Systems in UX Design"
-image_credit_text: "Image via Unsplash"
-image_credit_url: "https://unsplash.com/"
-canonical_url: "https://haiderali.co/ai/ai-in-ux/2025/09/30/10-essential-design-systems-tips-every-designer-should-know/"
+excerpt: Mastering Design Systems is key to creating user-centered designs that truly
+  resonate with your audience. Here are 10 essential tips that will elevate your...
+image: /assets/images/posts/2025/09/10-essential-design-systems-tips-every-designer-should-know.jpg
+image_alt: Hands holding a tablet displaying ai logo
+image_credit_text: Photo by Jo Lin on Unsplash
+image_credit_url: https://unsplash.com/@jolin974658
+canonical_url: https://haiderali.co/ai/ai-in-ux/2025/09/30/10-essential-design-systems-tips-every-designer-should-know/
 ---
 
 Mastering Design Systems is key to creating user-centered designs that truly resonate with your audience. Here are 10 essential tips that will elevate your Design Systems skills and help you create more effective user experiences.
