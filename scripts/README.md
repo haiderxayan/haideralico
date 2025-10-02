@@ -101,6 +101,10 @@ The system includes 20 UX topics and 4 article templates:
 - **Trends**: "The Future of {topic}: Trends Shaping UX in 2024"
 - **Case Study**: "How {topic} Transformed Our User Experience"
 
+### Branch Workflow
+
+All automation work happens on the `pre-production` branch. The daily article workflow checks out that branch and the generator refuses to commit from `main`. After reviewing the generated posts, create a pull request from `pre-production` to `main` to publish them.
+
 ## 🤖 Automation
 
 ### GitHub Actions

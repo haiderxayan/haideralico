@@ -18,6 +18,8 @@ jobs:
       uses: actions/checkout@v4
       with:
         token: ${{ secrets.GITHUB_TOKEN }}
+        ref: pre-production
+        fetch-depth: 0
     
     - name: Set up Python
       uses: actions/setup-python@v4
@@ -42,4 +44,4 @@ jobs:
       run: |
         cd scripts
         python daily_article_generator.py
-      # Site build and deployment are handled by .github/workflows/pages.yml on push to main
+      # Site build and deployment happen after merging pre-production into main

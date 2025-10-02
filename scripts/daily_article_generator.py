@@ -573,6 +573,12 @@ def send_github_notification(title, url, filename, topic, template_type):
 def commit_and_push_changes(filename):
     """Commit the new blog post to git"""
     try:
+        # Ensure we are not writing directly to the protected main branch
+        branch = subprocess.check_output(['git', 'rev-parse', '--abbrev-ref', 'HEAD'], cwd=BLOG_ROOT).decode().strip()
+        if branch == 'main':
+            raise RuntimeError('Daily article generator is configured to run only on the pre-production branch.
+Please switch to pre-production before generating an article.')
+
         # Add the new file
         subprocess.run(['git', 'add', f'_posts/{filename}'], cwd=BLOG_ROOT, check=True)
         # Track used Unsplash image IDs for uniqueness across posts
@@ -589,9 +595,9 @@ def commit_and_push_changes(filename):
         subprocess.run(['git', 'commit', '-m', commit_message], cwd=BLOG_ROOT, check=True)
         
         # Push to remote repository
-        subprocess.run(['git', 'push'], cwd=BLOG_ROOT, check=True)
+        subprocess.run(['git', 'push', 'origin', branch], cwd=BLOG_ROOT, check=True)
         
-        print(f"Successfully committed and pushed {filename}")
+        print(f"Successfully committed and pushed {filename} to {branch}")
         return True
         
     except subprocess.CalledProcessError as e:

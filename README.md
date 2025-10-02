@@ -2,6 +2,10 @@
 
 A modern Jekyll-based portfolio website showcasing UX design work, writing, and professional experience.
 
+## Branch Workflow
+
+All changes now flow through the `pre-production` branch. Run local work and automation there, then open a pull request into `main` once the updates are reviewed. The daily article workflow also writes to `pre-production`, so nothing publishes to `main` until you merge it yourself.
+
 ## Getting Started
 
 ### Prerequisites

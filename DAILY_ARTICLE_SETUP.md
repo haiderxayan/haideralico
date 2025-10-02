@@ -10,6 +10,10 @@ Your automated daily blog article system is ready! Here's how to get it running:
 - ✅ Test system verified working
 - ✅ 20 UX topics and 4 article templates ready
 
+## 🔀 Branch Strategy
+
+The generator now commits to the `pre-production` branch only. Review the changes there and merge into `main` when you’re ready to publish. Running the generator on `main` will exit with an error.
+
 ## 🔧 Quick Setup (5 minutes)
 
 ### 1. Set Up Email Notifications

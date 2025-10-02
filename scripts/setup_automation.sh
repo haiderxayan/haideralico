@@ -8,6 +8,13 @@ if [ -f ".env" ]; then
 fi
 
 echo "🚀 Setting up Daily Article Automation for Haider Ali's Blog"
+
+# Guard against running on main
+current_branch=$(git -C .. rev-parse --abbrev-ref HEAD 2>/dev/null)
+if [ "$current_branch" = "main" ]; then
+    echo "⚠️  You're on the main branch. Switch to pre-production before running automation."
+    exit 1
+fi
 echo "=========================================================="
 
 # Check if we're in the right directory
