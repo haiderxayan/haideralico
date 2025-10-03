@@ -1,0 +1,486 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Logo Design — Haider Ali</title>
+    <meta name="description" content="Logo explorations and concepts for Haider Ali." />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+      .logo-gallery { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+      .logo-card { background: #fff; border: 1px solid var(--border); border-radius: 12px; overflow: hidden; }
+      .logo-card .preview { display:flex; align-items:center; justify-content:center; padding: 28px; background: #f7f9fc; }
+      .logo-card .meta { padding: 12px 14px; display:flex; justify-content: space-between; align-items:center; }
+      .logo-swatch { width: 56px; height: 56px; border-radius: 12px; display:grid; place-items:center; }
+      .logo-name { font-weight: 600; }
+      .logo-actions a { font-size: 14px; }
+      @media (max-width: 900px) { .logo-gallery { grid-template-columns: repeat(2, 1fr); } }
+      @media (max-width: 600px) { .logo-gallery { grid-template-columns: 1fr; } }
+    </style>
+  </head>
+  <body>
+    <header class="site-header site-header--scrolled">
+      <div class="container nav">
+        <div class="brand" style="display:flex; align-items:center; gap:10px; font-size:18px; line-height:1;">
+          <a href="index.html" style="display:flex; align-items:center; gap:10px; color:inherit; text-decoration:none;">
+            <img src="ha-logo-circle-notch.svg" alt="Haider Ali logo" width="24" height="24" style="display:block;" />
+            <span>Haider Ali</span>
+          </a>
+        </div>
+        <nav class="primary-nav" aria-label="Primary">
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="design-system.html">Design System</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <main style="padding-top:96px;">
+      <section>
+        <div class="container">
+          <h1 class="section-title">Logo Design Explorations</h1>
+          <p class="muted">Pick a direction you like; we can iterate on colors, shapes, and weight.</p>
+          <div class="logo-gallery" style="margin-top:16px;">
+            <!-- Site Candidate Comparison: Circle Notch vs Current -->
+            <article class="logo-card" style="grid-column: span 2;">
+              <div class="preview" style="display:grid; grid-template-columns: 1fr 1fr; gap: 16px;">
+                <!-- Current (Abstract Geometric) -->
+                <div style="display:flex; flex-direction:column; align-items:center; gap:8px;">
+                  <div class="logo-swatch" style="width:80px; height:80px; border-radius:16px; background:#f7f9fc; display:grid; place-items:center;">
+                    <img src="ha-logo.svg" alt="Current abstract logo" width="56" height="56" />
+                  </div>
+                  <div style="font-size:14px; color:#6b7280;">Current</div>
+                </div>
+                <!-- Candidate (Circle Notch) -->
+                <div style="display:flex; flex-direction:column; align-items:center; gap:8px;">
+                  <div class="logo-swatch" style="width:80px; height:80px; border-radius:16px; background:#f7f9fc; display:grid; place-items:center;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="56" height="56" viewBox="0 0 24 24" aria-label="Circle notch candidate">
+                      <rect width="24" height="24" rx="6" fill="#111827"/>
+                      <circle cx="12" cy="12" r="7" fill="#fff"/>
+                      <path d="M12 5A7 7 0 0 1 19 12" stroke="#111827" stroke-width="4" stroke-linecap="round"/>
+                    </svg>
+                  </div>
+                  <div style="font-size:14px; color:#6b7280;">Circle Notch</div>
+                </div>
+              </div>
+              <div class="meta">
+                <div class="logo-name">Site Candidate: Compare</div>
+                <div class="logo-actions">
+                  <a href="#" onclick="downloadSVG('logo-circle-notch-candidate', this); return false;">Download Circle Notch</a>
+                </div>
+              </div>
+            </article>
+            <!-- Concept A: Abstract geometric (current) -->
+            <article class="logo-card">
+              <div class="preview">
+                <img src="ha-logo.svg" alt="Abstract geometric mark" width="64" height="64" />
+              </div>
+              <div class="meta">
+                <div class="logo-name">A. Abstract Geometric</div>
+                <div class="logo-actions"><a href="ha-logo.svg" download>Download</a></div>
+              </div>
+            </article>
+
+            <!-- Concept M: Split Diamond -->
+            <article class="logo-card">
+              <div class="preview">
+                <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 24 24" aria-label="Split diamond">
+                  <rect width="24" height="24" rx="6" fill="#0f172a"/>
+                  <path d="M12 5l7 7-7 7-7-7 7-7Z" fill="#fff"/>
+                  <path d="M12 5v14" stroke="#0f172a" stroke-width="2"/>
+                </svg>
+              </div>
+              <div class="meta">
+                <div class="logo-name">M. Split Diamond</div>
+                <div class="logo-actions"><a href="#" onclick="downloadSVG('logo-split-diamond', this); return false;">Download</a></div>
+              </div>
+            </article>
+
+            <!-- Concept N: Wave Stack -->
+            <article class="logo-card">
+              <div class="preview">
+                <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 24 24" aria-label="Wave stack">
+                  <rect width="24" height="24" rx="6" fill="#111827"/>
+                  <path d="M4 9c2 0 2.5-2 4.5-2S11 9 13 9s2.5-2 4.5-2S21 9 21 9" stroke="#fff" stroke-width="2" fill="none"/>
+                  <path d="M4 15c2 0 2.5-2 4.5-2S11 15 13 15s2.5-2 4.5-2S21 15 21 15" stroke="#94a3b8" stroke-width="2" fill="none"/>
+                </svg>
+              </div>
+              <div class="meta">
+                <div class="logo-name">N. Wave Stack</div>
+                <div class="logo-actions"><a href="#" onclick="downloadSVG('logo-wave-stack', this); return false;">Download</a></div>
+              </div>
+            </article>
+
+            <!-- Concept O: Compass Point -->
+            <article class="logo-card">
+              <div class="preview">
+                <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 24 24" aria-label="Compass point">
+                  <rect width="24" height="24" rx="6" fill="#0f172a"/>
+                  <path d="M12 4l3 7 5 3-7 3-3 7-3-7-7-3 7-3 3-7Z" fill="#fff" opacity="0.95"/>
+                </svg>
+              </div>
+              <div class="meta">
+                <div class="logo-name">O. Compass Point</div>
+                <div class="logo-actions"><a href="#" onclick="downloadSVG('logo-compass-point', this); return false;">Download</a></div>
+              </div>
+            </article>
+
+            <!-- Concept P: Pixel Grid -->
+            <article class="logo-card">
+              <div class="preview">
+                <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 24 24" aria-label="Pixel grid">
+                  <rect width="24" height="24" rx="6" fill="#111827"/>
+                  <rect x="6" y="6" width="4" height="4" fill="#fff"/>
+                  <rect x="10" y="6" width="4" height="4" fill="#e5e7eb"/>
+                  <rect x="6" y="10" width="4" height="4" fill="#e5e7eb"/>
+                  <rect x="10" y="10" width="4" height="4" fill="#fff"/>
+                  <rect x="14" y="10" width="4" height="4" fill="#94a3b8"/>
+                </svg>
+              </div>
+              <div class="meta">
+                <div class="logo-name">P. Pixel Grid</div>
+                <div class="logo-actions"><a href="#" onclick="downloadSVG('logo-pixel-grid', this); return false;">Download</a></div>
+              </div>
+            </article>
+
+            <!-- Concept Q: Bracket Mark -->
+            <article class="logo-card">
+              <div class="preview">
+                <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 24 24" aria-label="Bracket mark">
+                  <rect width="24" height="24" rx="6" fill="#0f172a"/>
+                  <path d="M8 6H6v12h2M16 6h2v12h-2" stroke="#fff" stroke-width="2" stroke-linecap="round"/>
+                </svg>
+              </div>
+              <div class="meta">
+                <div class="logo-name">Q. Bracket Mark</div>
+                <div class="logo-actions"><a href="#" onclick="downloadSVG('logo-bracket-mark', this); return false;">Download</a></div>
+              </div>
+            </article>
+
+            <!-- Concept R: Chevron Loop -->
+            <article class="logo-card">
+              <div class="preview">
+                <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 24 24" aria-label="Chevron loop">
+                  <rect width="24" height="24" rx="6" fill="#111827"/>
+                  <path d="M6 9l6-4 6 4-6 4-6-4Z" fill="#fff"/>
+                  <path d="M6 15l6 4 6-4" stroke="#94a3b8" stroke-width="2" stroke-linecap="round"/>
+                </svg>
+              </div>
+              <div class="meta">
+                <div class="logo-name">R. Chevron Loop</div>
+                <div class="logo-actions"><a href="#" onclick="downloadSVG('logo-chevron-loop', this); return false;">Download</a></div>
+              </div>
+            </article>
+
+            <!-- Concept S: Orbit -->
+            <article class="logo-card">
+              <div class="preview">
+                <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 24 24" aria-label="Orbit">
+                  <rect width="24" height="24" rx="6" fill="#0f172a"/>
+                  <circle cx="12" cy="12" r="2.5" fill="#fff"/>
+                  <ellipse cx="12" cy="12" rx="7" ry="3.5" stroke="#94a3b8" stroke-width="2" fill="none"/>
+                </svg>
+              </div>
+              <div class="meta">
+                <div class="logo-name">S. Orbit</div>
+                <div class="logo-actions"><a href="#" onclick="downloadSVG('logo-orbit', this); return false;">Download</a></div>
+              </div>
+            </article>
+
+            <!-- Concept T: Folded Ribbon -->
+            <article class="logo-card">
+              <div class="preview">
+                <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 24 24" aria-label="Folded ribbon">
+                  <rect width="24" height="24" rx="6" fill="#111827"/>
+                  <path d="M6 6h8l4 5-8 7V11H6V6Z" fill="#fff"/>
+                </svg>
+              </div>
+              <div class="meta">
+                <div class="logo-name">T. Folded Ribbon</div>
+                <div class="logo-actions"><a href="#" onclick="downloadSVG('logo-folded-ribbon', this); return false;">Download</a></div>
+              </div>
+            </article>
+
+            <!-- Concept U: Focus Ring -->
+            <article class="logo-card">
+              <div class="preview">
+                <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 24 24" aria-label="Focus ring">
+                  <rect width="24" height="24" rx="6" fill="#0f172a"/>
+                  <circle cx="12" cy="12" r="7" stroke="#94a3b8" stroke-width="2" fill="none"/>
+                  <circle cx="12" cy="12" r="4.5" stroke="#ffffff" stroke-width="2" fill="none"/>
+                  <circle cx="12" cy="12" r="1.5" fill="#ffffff"/>
+                </svg>
+              </div>
+              <div class="meta">
+                <div class="logo-name">U. Focus Ring</div>
+                <div class="logo-actions"><a href="#" onclick="downloadSVG('logo-focus-ring', this); return false;">Download</a></div>
+              </div>
+            </article>
+
+            <!-- Concept V: Upward Steps -->
+            <article class="logo-card">
+              <div class="preview">
+                <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 24 24" aria-label="Upward steps">
+                  <rect width="24" height="24" rx="6" fill="#111827"/>
+                  <path d="M5 16h4v-4h4v-4h6" stroke="#ffffff" stroke-width="2" stroke-linecap="round"/>
+                </svg>
+              </div>
+              <div class="meta">
+                <div class="logo-name">V. Upward Steps</div>
+                <div class="logo-actions"><a href="#" onclick="downloadSVG('logo-upward-steps', this); return false;">Download</a></div>
+              </div>
+            </article>
+
+            <!-- Concept W: Open Book (Learning) -->
+            <article class="logo-card">
+              <div class="preview">
+                <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 24 24" aria-label="Open book">
+                  <rect width="24" height="24" rx="6" fill="#0f172a"/>
+                  <path d="M12 17c-2-1.2-4-1.8-6-1.8V7c2 0 4 .6 6 1.8 2-1.2 4-1.8 6-1.8v8.2c-2 0-4 .6-6 1.8Z" fill="#ffffff"/>
+                </svg>
+              </div>
+              <div class="meta">
+                <div class="logo-name">W. Open Book</div>
+                <div class="logo-actions"><a href="#" onclick="downloadSVG('logo-open-book', this); return false;">Download</a></div>
+              </div>
+            </article>
+
+            <!-- Concept X: Forward Arrow -->
+            <article class="logo-card">
+              <div class="preview">
+                <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 24 24" aria-label="Forward arrow">
+                  <rect width="24" height="24" rx="6" fill="#111827"/>
+                  <path d="M6 12h7" stroke="#ffffff" stroke-width="2" stroke-linecap="round"/>
+                  <path d="M12 7l6 5-6 5" fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </div>
+              <div class="meta">
+                <div class="logo-name">X. Forward Arrow</div>
+                <div class="logo-actions"><a href="#" onclick="downloadSVG('logo-forward-arrow', this); return false;">Download</a></div>
+              </div>
+            </article>
+
+            <!-- Concept Y: Path Progress -->
+            <article class="logo-card">
+              <div class="preview">
+                <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 24 24" aria-label="Path progress">
+                  <rect width="24" height="24" rx="6" fill="#0f172a"/>
+                  <path d="M5 16c3-5 6-7 14-8" stroke="#94a3b8" stroke-width="2" fill="none" stroke-linecap="round"/>
+                  <circle cx="5" cy="16" r="1.5" fill="#ffffff"/>
+                  <circle cx="12" cy="12" r="1.5" fill="#ffffff"/>
+                  <circle cx="19" cy="8" r="1.5" fill="#ffffff"/>
+                </svg>
+              </div>
+              <div class="meta">
+                <div class="logo-name">Y. Path Progress</div>
+                <div class="logo-actions"><a href="#" onclick="downloadSVG('logo-path-progress', this); return false;">Download</a></div>
+              </div>
+            </article>
+
+            <!-- Concept Z: Growth Bars -->
+            <article class="logo-card">
+              <div class="preview">
+                <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 24 24" aria-label="Growth bars">
+                  <rect width="24" height="24" rx="6" fill="#111827"/>
+                  <rect x="6" y="13" width="3" height="5" rx="1" fill="#ffffff"/>
+                  <rect x="11" y="11" width="3" height="7" rx="1" fill="#e5e7eb"/>
+                  <rect x="16" y="8" width="3" height="10" rx="1" fill="#94a3b8"/>
+                </svg>
+              </div>
+              <div class="meta">
+                <div class="logo-name">Z. Growth Bars</div>
+                <div class="logo-actions"><a href="#" onclick="downloadSVG('logo-growth-bars', this); return false;">Download</a></div>
+              </div>
+            </article>
+
+            <!-- Concept G: Interlocking Squares -->
+            <article class="logo-card">
+              <div class="preview">
+                <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 24 24" aria-label="Interlocking squares">
+                  <rect width="24" height="24" rx="6" fill="#0f172a"/>
+                  <rect x="6" y="6" width="8" height="8" rx="2" fill="#fff" opacity="0.95"/>
+                  <rect x="10" y="10" width="8" height="8" rx="2" fill="#94a3b8" opacity="0.9"/>
+                </svg>
+              </div>
+              <div class="meta">
+                <div class="logo-name">G. Interlocking Squares</div>
+                <div class="logo-actions"><a href="#" onclick="downloadSVG('logo-interlocking-squares', this); return false;">Download</a></div>
+              </div>
+            </article>
+
+            <!-- Concept H: Diagonal Stripe -->
+            <article class="logo-card">
+              <div class="preview">
+                <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 24 24" aria-label="Diagonal stripe">
+                  <rect width="24" height="24" rx="6" fill="#111827"/>
+                  <path d="M3 18 18 3h3v3L6 21H3v-3Z" fill="#ffffff" opacity="0.9"/>
+                </svg>
+              </div>
+              <div class="meta">
+                <div class="logo-name">H. Diagonal Stripe</div>
+                <div class="logo-actions"><a href="#" onclick="downloadSVG('logo-diagonal-stripe', this); return false;">Download</a></div>
+              </div>
+            </article>
+
+            <!-- Concept I: Circle + Bar -->
+            <article class="logo-card">
+              <div class="preview">
+                <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 24 24" aria-label="Circle and bar">
+                  <rect width="24" height="24" rx="6" fill="#0f172a"/>
+                  <circle cx="9" cy="12" r="4" fill="#ffffff"/>
+                  <rect x="13" y="7" width="4" height="10" rx="2" fill="#94a3b8"/>
+                </svg>
+              </div>
+              <div class="meta">
+                <div class="logo-name">I. Circle + Bar</div>
+                <div class="logo-actions"><a href="#" onclick="downloadSVG('logo-circle-bar', this); return false;">Download</a></div>
+              </div>
+            </article>
+
+            <!-- Concept J: Offset Rings -->
+            <article class="logo-card">
+              <div class="preview">
+                <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 24 24" aria-label="Offset rings">
+                  <rect width="24" height="24" rx="6" fill="#111827"/>
+                  <circle cx="10" cy="12" r="5" stroke="#ffffff" stroke-width="2" fill="none"/>
+                  <circle cx="14" cy="12" r="5" stroke="#94a3b8" stroke-width="2" fill="none"/>
+                </svg>
+              </div>
+              <div class="meta">
+                <div class="logo-name">J. Offset Rings</div>
+                <div class="logo-actions"><a href="#" onclick="downloadSVG('logo-offset-rings', this); return false;">Download</a></div>
+              </div>
+            </article>
+
+            <!-- Concept K: Stair Steps -->
+            <article class="logo-card">
+              <div class="preview">
+                <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 24 24" aria-label="Stair steps">
+                  <rect width="24" height="24" rx="6" fill="#0f172a"/>
+                  <path d="M6 16h4v-4h4v-4h4" stroke="#ffffff" stroke-width="2" stroke-linecap="round"/>
+                </svg>
+              </div>
+              <div class="meta">
+                <div class="logo-name">K. Stair Steps</div>
+                <div class="logo-actions"><a href="#" onclick="downloadSVG('logo-stair-steps', this); return false;">Download</a></div>
+              </div>
+            </article>
+
+            <!-- Concept L: Arc & Dot -->
+            <article class="logo-card">
+              <div class="preview">
+                <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 24 24" aria-label="Arc and dot">
+                  <rect width="24" height="24" rx="6" fill="#111827"/>
+                  <path d="M6 15a6 6 0 0 1 12 0" stroke="#ffffff" stroke-width="2" fill="none"/>
+                  <circle cx="12" cy="8" r="1.5" fill="#ffffff"/>
+                </svg>
+              </div>
+              <div class="meta">
+                <div class="logo-name">L. Arc & Dot</div>
+                <div class="logo-actions"><a href="#" onclick="downloadSVG('logo-arc-dot', this); return false;">Download</a></div>
+              </div>
+            </article>
+
+            <!-- Concept B: Monogram H -->
+            <article class="logo-card">
+              <div class="preview">
+                <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 24 24" aria-label="Monogram H">
+                  <rect width="24" height="24" rx="6" fill="#111827"/>
+                  <path d="M7 5v14M17 5v14M7 12h10" stroke="#ffffff" stroke-width="2" stroke-linecap="round"/>
+                </svg>
+              </div>
+              <div class="meta">
+                <div class="logo-name">B. Monogram H</div>
+                <div class="logo-actions"><a href="#" onclick="downloadSVG('logo-monogram-h', this); return false;">Download</a></div>
+              </div>
+            </article>
+
+            <!-- Concept C: Monogram HA -->
+            <article class="logo-card">
+              <div class="preview">
+                <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 24 24" aria-label="Monogram HA">
+                  <rect width="24" height="24" rx="6" fill="#0f172a"/>
+                  <path d="M6 17V7m0 5h5M18 17V7m0 5h-5" stroke="#fff" stroke-width="2" stroke-linecap="round"/>
+                </svg>
+              </div>
+              <div class="meta">
+                <div class="logo-name">C. Monogram HA</div>
+                <div class="logo-actions"><a href="#" onclick="downloadSVG('logo-monogram-ha', this); return false;">Download</a></div>
+              </div>
+            </article>
+
+            <!-- Concept D: Circular mark with notch -->
+            <article class="logo-card">
+              <div class="preview">
+                <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 24 24" aria-label="Circular notch">
+                  <rect width="24" height="24" rx="6" fill="#111827"/>
+                  <circle cx="12" cy="12" r="7" fill="#fff"/>
+                  <path d="M12 5A7 7 0 0 1 19 12" stroke="#111827" stroke-width="4" stroke-linecap="round"/>
+                </svg>
+              </div>
+              <div class="meta">
+                <div class="logo-name">D. Circle Notch</div>
+                <div class="logo-actions"><a href="#" onclick="downloadSVG('logo-circle-notch', this); return false;">Download</a></div>
+              </div>
+            </article>
+
+            <!-- Concept E: Triangle layers -->
+            <article class="logo-card">
+              <div class="preview">
+                <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 24 24" aria-label="Triangle layers">
+                  <rect width="24" height="24" rx="6" fill="#0f172a"/>
+                  <path d="M12 5l7 12H5l7-12Z" fill="#fff" opacity="0.9"/>
+                  <path d="M12 9l4.5 8h-9L12 9Z" fill="#94a3b8" opacity="0.8"/>
+                </svg>
+              </div>
+              <div class="meta">
+                <div class="logo-name">E. Triangle Layers</div>
+                <div class="logo-actions"><a href="#" onclick="downloadSVG('logo-triangle-layers', this); return false;">Download</a></div>
+              </div>
+            </article>
+
+            <!-- Concept F: Hexagon cut -->
+            <article class="logo-card">
+              <div class="preview">
+                <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 24 24" aria-label="Hexagon cut">
+                  <rect width="24" height="24" rx="6" fill="#111827"/>
+                  <path d="M8 6h8l4 6-4 6H8L4 12 8 6Z" fill="#fff"/>
+                  <path d="M8 6h8l-8 12H8Z" fill="#e5e7eb"/>
+                </svg>
+              </div>
+              <div class="meta">
+                <div class="logo-name">F. Hex Cut</div>
+                <div class="logo-actions"><a href="#" onclick="downloadSVG('logo-hex-cut', this); return false;">Download</a></div>
+              </div>
+            </article>
+
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="container">
+        <div>© <span id="year"></span> <a href="index.html">Haider Ali</a>. All rights reserved.</div>
+      </div>
+    </footer>
+
+    <script>
+      document.getElementById('year').textContent = new Date().getFullYear();
+      function downloadSVG(name, anchor){
+        const svg = anchor.closest('.logo-card').querySelector('svg');
+        if(!svg) return;
+        const blob = new Blob([svg.outerHTML], {type: 'image/svg+xml'});
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = url; a.download = name + '.svg';
+        document.body.appendChild(a); a.click(); document.body.removeChild(a);
+        URL.revokeObjectURL(url);
+      }
+    </script>
+  </body>
+  </html>

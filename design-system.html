@@ -1,0 +1,394 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Design System</title>
+    <meta name="description" content="Design system components and patterns" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+      .ds-header { position: sticky; top: 0; z-index: 50; background: #fff; border-bottom: 1px solid var(--border); }
+      .ds-header .brand { color: var(--text); }
+      .ds-wrap { padding: 32px 0; }
+      .ds-section { padding: 24px 0; }
+      .ds-section h2 { font-size: 22px; margin: 0 0 12px; }
+      .preview { border: 1px solid var(--border); border-radius: 12px; overflow: hidden; background: #fff; }
+      .preview .note { padding: 12px 16px; border-bottom: 1px solid var(--border); color: #5b6472; font-size: 14px; background: #fafbfc; }
+      .ds-grid-lw { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+      @media (max-width: 900px) { .ds-grid-lw { grid-template-columns: repeat(2, 1fr); } }
+      @media (max-width: 600px) { .ds-grid-lw { grid-template-columns: 1fr; } }
+    </style>
+  </head>
+  <body style="background:#f2f4f7;">
+    <div class="ds-grid" style="display:grid; grid-template-columns: 240px 1fr; grid-template-rows: 80px auto auto; grid-template-areas: 'header header' 'sidenav main' 'footer footer'; min-height: 100vh;">
+    <header class="site-header ds-header" style="grid-area: header;">
+      <div class="nav" style="padding:0 20px;">
+        <div class="brand" style="margin-left:12px; display:flex; align-items:center; gap:10px; color: var(--text); font-size:18px; line-height:1;">
+          <a href="index.html" style="display:flex; align-items:center; gap:10px; color:inherit; text-decoration:none;">
+            <img src="ds-logo.svg" alt="Design System logo" width="24" height="24" style="display:block;" />
+            <span>Design System</span>
+          </a>
+        </div>
+        <nav class="primary-nav" aria-label="Secondary">
+          <ul>
+            <li><a href="index.html">← Back to site</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <aside class="ds-side" aria-label="Design system navigation" style="grid-area: sidenav; position: sticky; top:80px; align-self:start; height: calc(100vh - 80px); overflow:auto; padding:16px 12px; border-right:1px solid var(--border); background:#fff;">
+        <nav>
+          <ul style="list-style:none; margin:0; padding:0; display:flex; flex-direction:column; gap:8px;">
+            <li><a href="#typography">Typography</a></li>
+            <li><a href="#components">Components</a></li>
+          </ul>
+        </nav>
+    </aside>
+
+    <main class="ds-wrap" style="grid-area: main;">
+      <div class="container ds-container">
+        <section class="ds-section" id="typography">
+          <h2>Typography</h2>
+          <div class="preview">
+            <div class="note">Type Scale & Elements</div>
+            <div class="ds-typography" style="padding:16px;">
+              <h1>H1 — Primary Page Title</h1>
+              <h2 class="section-title">H2 — Section Title</h2>
+              <h3>H3 — Subsection Heading</h3>
+              <h4>H4 — Minor Heading</h4>
+              <h5>H5 — Label Heading</h5>
+              <h6>H6 — Small Heading</h6>
+
+              <p>Body — Base paragraph text demonstrating default font, size, and line height. This includes an <a href="#">inline link example</a> and some <strong>bold text</strong> with <em>emphasis</em>.</p>
+              <p class="muted">Muted — Secondary text for subtle emphasis and hints.</p>
+
+              <ul>
+                <li>Unordered list item one</li>
+                <li>Unordered list item two</li>
+                <li>Unordered list item three</li>
+              </ul>
+
+              <ol>
+                <li>Ordered list item one</li>
+                <li>Ordered list item two</li>
+                <li>Ordered list item three</li>
+              </ol>
+
+              <blockquote>Blockquote — A short pull quote or callout aligned with body text.</blockquote>
+
+              <pre><code>// Code — Inline preformatted sample
+function greet(name) {
+  return `Hello, ${name}`;
+}
+</code></pre>
+
+              <p>
+                Small text — <small>Examples of small text sizing for captions</small>
+              </p>
+            </div>
+          </div>
+        </section>
+        <section class="ds-section" id="components">
+          <h2>Components</h2>
+          <div class="preview">
+            <div class="note">Home Hero</div>
+            <!-- Reuse the home hero markup for preview -->
+            <section class="home-hero" style="min-height:40vh; padding:80px 0;">
+              <div class="container">
+                <div class="home-hero__inner">
+                  <div>
+                    <h1>Helping product teams ship with clarity and speed</h1>
+                    <p>I partner with product, design, and engineering to align strategy, reduce risk, and deliver outcomes users love.</p>
+                    <p><a href="index.html#help">How I help product teams</a></p>
+                  </div>
+                </div>
+              </div>
+            </section>
+          </div>
+          <div class="preview" style="margin-top:24px;">
+            <div class="note">Latest Writing — 3 Column (synced with Home)</div>
+            <section>
+              <div class="container">
+                <h2 class="section-title">Latest Writing</h2>
+                <div class="grid">
+                  <article class="card post">
+                    <a class="post__link" href="#" aria-label="Read: The Strategy Ladder">
+                      <img class="post__image" src="product.jpg" alt="Abstract product strategy visuals" loading="lazy" />
+                      <span class="post__body">
+                        <span class="title">The Strategy Ladder</span>
+                        <span class="excerpt">A simple way to connect vision to weekly work.</span>
+                      </span>
+                    </a>
+                  </article>
+                  <article class="card post">
+                    <a class="post__link" href="#" aria-label="Read: Define “Good” Before You Build">
+                      <img class="post__image" src="design.jpg" alt="Design notes and interface sketches" loading="lazy" />
+                      <span class="post__body">
+                        <span class="title">Define “Good” Before You Build</span>
+                        <span class="excerpt">Reduce risk by aligning on success metrics early.</span>
+                      </span>
+                    </a>
+                  </article>
+                  <article class="card post">
+                    <a class="post__link" href="#" aria-label="Read: Bet Small, Learn Fast">
+                      <img class="post__image" src="tech.jpg" alt="Technology concept background" loading="lazy" />
+                      <span class="post__body">
+                        <span class="title">Bet Small, Learn Fast</span>
+                        <span class="excerpt">Stack small wins to unlock outsized outcomes.</span>
+                      </span>
+                    </a>
+                  </article>
+                </div>
+              </div>
+            </section>
+          </div>
+          <div class="preview" style="margin-top:24px;">
+            <div class="note">Buttons</div>
+            <div style="padding:16px; display:flex; flex-wrap:wrap; gap:12px; align-items:center;">
+              <a href="#" class="btn btn--primary">Primary</a>
+              <a href="#" class="btn btn--secondary">Secondary</a>
+              <a href="#" class="btn btn--outline">Outline</a>
+              <a href="#" class="btn btn--ghost">Ghost</a>
+              <a href="#" class="btn btn--danger">Danger</a>
+              <a href="#" class="btn btn--success">Success</a>
+              <a href="#" class="btn btn--link">Link Button</a>
+              <a href="#" class="btn btn--small btn--primary">Small</a>
+              <a href="#" class="btn btn--large btn--primary">Large</a>
+              <a href="#" class="btn btn--icon btn--outline" aria-label="Settings">⚙️</a>
+              <a href="#" class="btn btn--block btn--secondary" style="max-width:320px;">Block Button</a>
+            </div>
+          </div>
+
+          <div class="preview" style="margin-top:24px;">
+            <div class="note">Latest Writing — 3 Column (synced with Home)</div>
+            <section>
+              <div class="container">
+                <h2 class="section-title">Latest Writing</h2>
+                <div class="grid">
+                  <article class="card post">
+                    <a class="post__link" href="#" aria-label="Read: The Strategy Ladder">
+                      <img class="post__image" src="product.jpg" alt="Abstract product strategy visuals" loading="lazy" />
+                      <span class="post__body">
+                        <span class="title">The Strategy Ladder</span>
+                        <span class="excerpt">A simple way to connect vision to weekly work.</span>
+                      </span>
+                    </a>
+                  </article>
+                  <article class="card post">
+                    <a class="post__link" href="#" aria-label="Read: Define “Good” Before You Build">
+                      <img class="post__image" src="design.jpg" alt="Design notes and interface sketches" loading="lazy" />
+                      <span class="post__body">
+                        <span class="title">Define “Good” Before You Build</span>
+                        <span class="excerpt">Reduce risk by aligning on success metrics early.</span>
+                      </span>
+                    </a>
+                  </article>
+                  <article class="card post">
+                    <a class="post__link" href="#" aria-label="Read: Bet Small, Learn Fast">
+                      <img class="post__image" src="tech.jpg" alt="Technology concept background" loading="lazy" />
+                      <span class="post__body">
+                        <span class="title">Bet Small, Learn Fast</span>
+                        <span class="excerpt">Stack small wins to unlock outsized outcomes.</span>
+                      </span>
+                    </a>
+                  </article>
+                </div>
+              </div>
+            </section>
+          </div>
+
+          <div class="preview" style="margin-top:24px;">
+            <div class="note">Latest Writing — Asymmetric 3 Column (320 / 680 / 320)</div>
+            <section>
+              <div class="container" style="max-width: 1400px;">
+                <h2 class="section-title">Latest Writing — Asymmetric</h2>
+                <div class="lw-asym-grid grid--asym-3" style="overflow:auto;">
+                  <article class="card post">
+                    <a class="post__link" href="#" aria-label="Read: The Strategy Ladder">
+                      <img class="post__image" src="product.jpg" alt="Abstract product strategy visuals" loading="lazy" />
+                      <span class="post__body">
+                        <span class="title">The Strategy Ladder</span>
+                        <span class="excerpt">A simple way to connect vision to weekly work.</span>
+                      </span>
+                    </a>
+                  </article>
+                  <article class="card post">
+                    <a class="post__link" href="#" aria-label="Read: Define “Good” Before You Build">
+                      <img class="post__image" src="design.jpg" alt="Design notes and interface sketches" loading="lazy" />
+                      <span class="post__body">
+                        <span class="title">Define “Good” Before You Build</span>
+                        <span class="excerpt">Reduce risk by aligning on success metrics early.</span>
+                      </span>
+                    </a>
+                  </article>
+                  <article class="card post">
+                    <a class="post__link" href="#" aria-label="Read: Bet Small, Learn Fast">
+                      <img class="post__image" src="tech.jpg" alt="Technology concept background" loading="lazy" />
+                      <span class="post__body">
+                        <span class="title">Bet Small, Learn Fast</span>
+                        <span class="excerpt">Stack small wins to unlock outsized outcomes.</span>
+                      </span>
+                    </a>
+                  </article>
+                </div>
+              </div>
+            </section>
+          </div>
+
+          <div class="preview" style="margin-top:24px; width:100%; overflow:auto;">
+            <div class="note">Latest Writing — Asymmetric 3 Column, 2 Rows (6 cards)</div>
+            <section>
+              <div class="container" style="max-width: 1400px;">
+                <h2 class="section-title">Latest Writing — Asymmetric (2 Rows)</h2>
+                <div class="lw-asym-grid-2rows grid--asym-3 grid--2rows" style="overflow:auto;">
+                  <!-- Row 1 -->
+                  <article class="card post">
+                    <a class="post__link" href="#">
+                      <img class="post__image" src="product.jpg" alt="Product strategy" loading="lazy" />
+                      <span class="post__body">
+                        <span class="title">Outcome-Driven Planning</span>
+                        <span class="excerpt">Focus teams on measurable progress, not output.</span>
+                      </span>
+                    </a>
+                  </article>
+                  <article class="card post">
+                    <a class="post__link" href="#">
+                      <img class="post__image" src="design.jpg" alt="Design notes" loading="lazy" />
+                      <span class="post__body">
+                        <span class="title">Design for Tradeoffs</span>
+                        <span class="excerpt">Communicate constraints to speed up decisions.</span>
+                      </span>
+                    </a>
+                  </article>
+                  <article class="card post">
+                    <a class="post__link" href="#">
+                      <img class="post__image" src="tech.jpg" alt="Tech concept" loading="lazy" />
+                      <span class="post__body">
+                        <span class="title">Lightweight Rituals</span>
+                        <span class="excerpt">Cadence that keeps teams aligned and shipping.</span>
+                      </span>
+                    </a>
+                  </article>
+
+                  <!-- Row 2 -->
+                  <article class="card post">
+                    <a class="post__link" href="#">
+                      <img class="post__image" src="product.jpg" alt="Validation" loading="lazy" />
+                      <span class="post__body">
+                        <span class="title">Validate Before You Build</span>
+                        <span class="excerpt">Reduce risk with quick experiments.</span>
+                      </span>
+                    </a>
+                  </article>
+                  <article class="card post">
+                    <a class="post__link" href="#">
+                      <img class="post__image" src="design.jpg" alt="Clarity" loading="lazy" />
+                      <span class="post__body">
+                        <span class="title">Clarity Over Complexity</span>
+                        <span class="excerpt">Simpler systems scale better with teams.</span>
+                      </span>
+                    </a>
+                  </article>
+                  <article class="card post">
+                    <a class="post__link" href="#">
+                      <img class="post__image" src="tech.jpg" alt="Metrics" loading="lazy" />
+                      <span class="post__body">
+                        <span class="title">Metrics That Matter</span>
+                        <span class="excerpt">Define success criteria users can feel.</span>
+                      </span>
+                    </a>
+                  </article>
+                </div>
+              </div>
+            </section>
+          </div>
+
+          <div class="preview" style="margin-top:24px;">
+            <div class="note">Latest Writing — Asymmetric (2 Rows) with Tall Middle Feature</div>
+            <section>
+              <div class="container" style="max-width: 1400px;">
+                <h2 class="section-title">Latest Writing — Asymmetric (Tall Middle)</h2>
+                <div class="grid--asym-3 grid--2rows" style="overflow:auto; align-items: stretch;">
+                  <!-- Left column row 1 -->
+                  <article class="card post">
+                    <a class="post__link" href="#">
+                      <img class="post__image" src="product.jpg" alt="Product strategy" loading="lazy" />
+                      <span class="post__body">
+                        <span class="title">Outcome-Driven Planning</span>
+                        <span class="excerpt">Focus teams on measurable progress, not output.</span>
+                      </span>
+                    </a>
+                  </article>
+
+                  <!-- Middle column spans two rows as a feature -->
+                  <article class="card post post--feature-tall">
+                    <a class="post__link" href="#">
+                      <img class="post__image" src="design.jpg" alt="Design feature" loading="lazy" />
+                      <span class="post__body">
+                        <span class="title">Deep Dive: Design Systems</span>
+                        <span class="excerpt">A visual walkthrough of scalable design foundations.</span>
+                      </span>
+                    </a>
+                  </article>
+
+                  <!-- Right column row 1 -->
+                  <article class="card post">
+                    <a class="post__link" href="#">
+                      <img class="post__image" src="tech.jpg" alt="Tech concept" loading="lazy" />
+                      <span class="post__body">
+                        <span class="title">Lightweight Rituals</span>
+                        <span class="excerpt">Cadence that keeps teams aligned and shipping.</span>
+                      </span>
+                    </a>
+                  </article>
+
+                  <!-- Left column row 2 -->
+                  <article class="card post">
+                    <a class="post__link" href="#">
+                      <img class="post__image" src="product.jpg" alt="Validation" loading="lazy" />
+                      <span class="post__body">
+                        <span class="title">Validate Before You Build</span>
+                        <span class="excerpt">Reduce risk with quick experiments.</span>
+                      </span>
+                    </a>
+                  </article>
+
+                  <!-- Right column row 2 -->
+                  <article class="card post">
+                    <a class="post__link" href="#">
+                      <img class="post__image" src="tech.jpg" alt="Metrics" loading="lazy" />
+                      <span class="post__body">
+                        <span class="title">Metrics That Matter</span>
+                        <span class="excerpt">Define success criteria users can feel.</span>
+                      </span>
+                    </a>
+                  </article>
+                </div>
+              </div>
+            </section>
+          </div>
+        </section>
+      </div>
+    </main>
+
+    <footer style="grid-area: footer; display:grid; grid-template-columns: 240px 1fr; background:#1f2937; color:#e5e7eb;">
+      <div aria-hidden="true" style="border-right:1px solid rgba(255,255,255,0.08); background:#1f2937;"></div>
+      <div>
+        <div class="container" style="color:#e5e7eb;">
+          <div>© <span id="ds-year"></span> <a href="index.html" style="color:inherit; text-decoration: underline;">Haider Ali</a>. All rights reserved.</div>
+        </div>
+      </div>
+    </footer>
+
+    </div>
+
+    <script>
+      // No dynamic header on DS page; keep static light header
+      document.getElementById('ds-year').textContent = new Date().getFullYear();
+    </script>
+  </body>
+  </html>
