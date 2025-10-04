@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900" preserveAspectRatio="xMidYMid slice">
+  <defs>
+    <radialGradient id="bgRadial" cx="50%" cy="35%" r="65%">
+      <stop offset="0%" stop-color="#0f172a" />
+      <stop offset="55%" stop-color="#020617" />
+      <stop offset="100%" stop-color="#00010a" />
+    </radialGradient>
+    <linearGradient id="arcGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#22d3ee" stop-opacity="0.95" />
+      <stop offset="100%" stop-color="#a855f7" stop-opacity="0.95" />
+    </linearGradient>
+    <linearGradient id="orbGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#f97316" stop-opacity="0.9" />
+      <stop offset="100%" stop-color="#ef4444" stop-opacity="0.8" />
+    </linearGradient>
+    <filter id="glowBlur" x="-40%" y="-40%" width="180%" height="180%">
+      <feGaussianBlur stdDeviation="60" />
+    </filter>
+  </defs>
+
+  <rect width="1600" height="900" fill="url(#bgRadial)" />
+
+  <g opacity="0.6" filter="url(#glowBlur)">
+    <circle cx="200" cy="220" r="260" fill="#0ea5e9" />
+    <circle cx="1360" cy="160" r="220" fill="#8b5cf6" />
+    <circle cx="960" cy="680" r="260" fill="#f97316" />
+  </g>
+
+  <g opacity="0.8">
+    <path d="M-120 460 C 200 240, 560 260, 860 420 C 1160 580, 1460 560, 1720 420 L 1720 920 L -120 920 Z"
+          fill="#111827" opacity="0.55" />
+    <path d="M-80 520 C 200 320, 520 340, 860 480 C 1200 620, 1480 620, 1760 480 L 1760 920 L -80 920 Z"
+          fill="#111827" opacity="0.32" />
+  </g>
+
+  <g opacity="0.5">
+    <path d="M320 240 A 400 400 0 0 1 1280 240" fill="none" stroke="url(#arcGradient)" stroke-width="20" stroke-linecap="round" />
+    <path d="M420 340 A 300 300 0 0 1 1180 340" fill="none" stroke="url(#arcGradient)" stroke-width="14" stroke-linecap="round" opacity="0.6" />
+    <path d="M520 430 A 220 220 0 0 1 1080 430" fill="none" stroke="url(#arcGradient)" stroke-width="10" stroke-linecap="round" opacity="0.4" />
+  </g>
+
+  <g opacity="0.3">
+    <rect x="260" y="560" width="200" height="140" rx="40" fill="#0f172a" />
+    <rect x="520" y="560" width="240" height="140" rx="40" fill="#0f172a" />
+    <rect x="820" y="560" width="210" height="140" rx="40" fill="#0f172a" />
+    <rect x="1080" y="560" width="240" height="140" rx="40" fill="#0f172a" />
+  </g>
+
+  <g opacity="0.75">
+    <circle cx="420" cy="360" r="20" fill="#22d3ee" />
+    <circle cx="620" cy="260" r="26" fill="#a855f7" />
+    <circle cx="940" cy="300" r="24" fill="url(#orbGradient)" />
+    <circle cx="1260" cy="360" r="18" fill="#22d3ee" />
+  </g>
+</svg>
