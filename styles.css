@@ -49,6 +49,7 @@ a:hover { text-decoration: underline; }
 section { padding: 64px 0; border-bottom: 1px solid var(--border); }
 section:last-of-type { border-bottom: 0; }
 .section-title { font-size: 28px; margin: 0 0 20px; }
+
 /* Hero */
 .home-hero { position: relative; display: flex; align-items: center; padding: 180px 0 96px; min-height: 55vh; background-image: url('hero-bg.svg'); background-size: cover; background-position: center; background-repeat: no-repeat; }
 .home-hero::before { content: ""; position: absolute; inset: 0; background: rgba(0,0,0,0.52); pointer-events: none; }
@@ -235,3 +236,185 @@ footer { border-top: 1px solid var(--border); padding: 28px 0; color: var(--mute
 }
 
 /* People: stacked by default; 2 columns at ≥48em */
+
+/* Article Styles */
+.article-body h2,
+.article-body h3,
+.in-this-article h3,
+.ship-it-checklist h4,
+.example h4 {
+  font-family: Inter, sans-serif;
+}
+
+.article-body p,
+.article-body ul,
+.example p {
+  font-family: Georgia, serif;
+}
+
+.article-body h2 {
+  font-size: 24px;
+  margin-top: 40px;
+}
+
+.article-body h3 {
+  font-size: 22px;
+  margin-top: 48px;
+  margin-bottom: 4px;
+}
+
+.article-body p {
+  font-size: 16px;
+  line-height: 1.7;
+}
+
+.article-body ul {
+  list-style-type: disc;
+  padding-left: 20px;
+}
+
+.article-body a {
+  color: var(--accent);
+}
+
+.in-this-article {
+  padding: 16px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background-color: #f8f9fa;
+}
+
+.in-this-article h3 {
+  margin-top: 0;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.in-this-article ul {
+  list-style: none;
+  padding-left: 0;
+  margin-bottom: 0;
+}
+
+.article-body p em {
+  color: var(--muted);
+  display: block;
+  margin-bottom: 16px;
+}
+
+.ship-it-checklist,
+.example {
+  margin-top: 24px;
+  padding: 20px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background-color: #f8f9fa;
+}
+
+.ship-it-checklist h4,
+.example h4 {
+  margin-top: 0;
+  margin-bottom: 12px;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.ship-it-checklist ul {
+  list-style-type: disc;
+  padding-left: 20px;
+  margin: 0;
+}
+
+.ship-it-checklist li {
+  margin-bottom: 8px;
+}
+
+.example p {
+  font-style: italic;
+  color: #5b6472;
+  border-left: 3px solid #e5e8ec;
+  padding-left: 16px;
+}
+
+/* Meta + image rhythm */
+.article-meta {
+  color: #6b7280;
+  font-size: 14px;
+  margin-bottom: 8px;
+}
+.article-body > img:first-of-type {
+  margin-top: 8px;
+  margin-bottom: 8px;
+  border-radius: 12px;
+  border: 1px solid var(--border);
+}
+
+
+/* Article Typography Overrides (final) */
+.article-body {
+  color: var(--text);
+}
+.article-body header h1 {
+  font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  font-weight: 700;
+  letter-spacing: -0.2px;
+}
+.article-body h2,
+.article-body h3 {
+  font-family: Georgia, 'Times New Roman', Times, serif;
+}
+.article-body h2 { font-size: 24px; margin: 40px 0 8px; }
+.article-body h3 { font-size: 22px; margin: 40px 0 6px; }
+.article-body p,
+.article-body li {
+  font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  font-size: 16px;
+  line-height: 1.75;
+}
+.article-body ul { padding-left: 20px; }
+.article-body a { color: var(--accent); }
+
+/* TOC styling */
+.in-this-article { background: #f8f9fa; }
+.in-this-article h3 {
+  font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  font-size: 14px;
+  letter-spacing: 0.3px;
+  color: var(--muted);
+}
+.in-this-article ul { list-style: none; padding-left: 0; margin: 0; }
+.in-this-article li + li { margin-top: 8px; }
+.in-this-article a {
+  display: block;
+  color: var(--text);
+  text-decoration: none;
+}
+.in-this-article a:hover { text-decoration: underline; }
+
+/* Utility blocks */
+.ship-it-checklist h4,
+.example h4 {
+  font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+}
+.example p { font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; }
+
+.article-subtitle {
+  font-size: 20px;
+  color: var(--muted);
+  margin: 0 0 16px;
+  font-weight: 400;
+  font-family: Inter, sans-serif;
+}
+
+.article-summary {
+  background-color: #f8f9fa;
+  padding: 16px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+}
+
+.article-summary p {
+  margin: 0;
+  font-family: Georgia, serif;
+}
+
