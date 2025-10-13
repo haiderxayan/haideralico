@@ -1,0 +1,221 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Unfinished Design - Haider Ali</title>
+    <meta name="description" content="Unfinished Design - A book exploring the intersection of design, technology, and human experience" />
+    <!-- Open Graph -->
+    <meta property="og:title" content="Unfinished Design - Haider Ali" />
+    <meta property="og:description" content="Explore the intersection of design, technology, and human experience in this insightful book." />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="https://haiderali.co/book-cover.jpg" />
+    <meta property="og:url" content="https://haiderali.co/book-unfinished-design.html" />
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Unfinished Design - Haider Ali" />
+    <meta name="twitter:description" content="Explore the intersection of design, technology, and human experience in this insightful book." />
+    <meta name="twitter:image" content="https://haiderali.co/book-cover.jpg" />
+    <link rel="canonical" href="https://haiderali.co/book-unfinished-design.html" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+      .book-hero {
+        padding: 4rem 0;
+        background: #f8f9fa;
+      }
+      
+      .book-container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 2rem;
+      }
+      
+      .book-content {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 4rem;
+        margin-top: 3rem;
+      }
+      
+      .book-cover-large {
+        box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        border-radius: 8px;
+        overflow: hidden;
+        max-width: 400px;
+      }
+      
+      .book-cover-large img {
+        width: 100%;
+        height: auto;
+        display: block;
+      }
+      
+      .book-info {
+        max-width: 600px;
+      }
+      
+      .book-title {
+        font-size: 2.5rem;
+        margin-bottom: 1rem;
+        color: #1a1a1a;
+      }
+      
+      .book-subtitle {
+        font-size: 1.25rem;
+        color: #4a5568;
+        margin-bottom: 2rem;
+        line-height: 1.5;
+      }
+      
+      .book-description {
+        font-size: 1.1rem;
+        line-height: 1.8;
+        color: #4a5568;
+        margin-bottom: 2.5rem;
+      }
+      
+      .cta-button {
+        display: inline-block;
+        background-color: #2563eb;
+        color: white;
+        padding: 0.75rem 2rem;
+        border-radius: 6px;
+        font-weight: 600;
+        text-decoration: none;
+        transition: background-color 0.2s;
+      }
+      
+      .cta-button:hover {
+        background-color: #1d4ed8;
+      }
+      
+      @media (max-width: 768px) {
+        .book-content {
+          grid-template-columns: 1fr;
+          gap: 2rem;
+        }
+        
+        .book-cover-large {
+          margin: 0 auto;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="container nav">
+        <div class="brand brand--with-logo">
+          <a class="brand__link" href="index.html">
+            <img class="brand__logo" src="ha-logo-circle-notch.svg" alt="Haider Ali logo" width="24" height="24" />
+            <span>Haider Ali</span>
+          </a>
+        </div>
+        <button class="nav-toggle" type="button" aria-expanded="false" aria-label="Toggle navigation" aria-controls="primary-nav">
+          <span class="nav-toggle__bar"></span>
+          <span class="nav-toggle__bar"></span>
+          <span class="nav-toggle__bar"></span>
+        </button>
+        <nav id="primary-nav" class="primary-nav" aria-label="Primary">
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="https://medium.com/@haiderxayan" rel="noopener" target="_blank">Writing</a></li>
+            <li><a href="index.html#help">Process</a></li>
+            <li><a href="https://www.linkedin.com/in/haideralixayan" rel="noopener" target="_blank">Connect</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <section class="book-hero">
+        <div class="book-container">
+          <div class="book-content">
+            <div class="book-cover-large">
+              <img src="book-cover.jpg" alt="Unfinished Design Book Cover">
+            </div>
+            <div class="book-info">
+              <h1 class="book-title">Unfinished Design</h1>
+              <p class="book-subtitle">Exploring the intersection of design, technology, and human experience</p>
+              <div class="book-description">
+                <p>In a world where technology is evolving at an unprecedented pace, design has become more than just aesthetics—it's about creating meaningful connections between humans and technology.</p>
+                <p>This book dives deep into the principles and practices that shape great design in the digital age, offering insights and practical guidance for designers, developers, and product leaders alike.</p>
+              </div>
+              <a href="https://leanpub.com/unfinished-design" class="cta-button" target="_blank" rel="noopener">Get the Book on Leanpub</a>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="container">
+        <div>
+          <p>© <span id="year"></span> Haider Ali. All rights reserved.</p>
+          <p><a href="behind-the-pixel.html">Behind the Pixel: The Prompt That Shapes AI Experiences</a></p>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      document.getElementById('year').textContent = new Date().getFullYear();
+
+      const siteHeader = document.querySelector('.site-header');
+      const navToggle = document.querySelector('.nav-toggle');
+      const primaryNav = document.getElementById('primary-nav');
+
+      const closeMenu = () => {
+        if (!siteHeader) return;
+        siteHeader.classList.remove('menu-open');
+        navToggle?.setAttribute('aria-expanded', 'false');
+        document.body.style.overflow = '';
+      };
+
+      const openMenu = () => {
+        if (!siteHeader) return;
+        siteHeader.classList.add('menu-open');
+        navToggle?.setAttribute('aria-expanded', 'true');
+        document.body.style.overflow = 'hidden';
+      };
+
+      const toggleMenu = () => {
+        if (!siteHeader) return;
+        
+        if (siteHeader.classList.contains('menu-open')) {
+          closeMenu();
+        } else {
+          openMenu();
+        }
+      };
+
+      navToggle?.addEventListener('click', toggleMenu);
+
+      primaryNav?.querySelectorAll('a').forEach((link) => {
+        link.addEventListener('click', () => {
+          closeMenu();
+        });
+      });
+
+      // Close menu when clicking outside
+      document.addEventListener('click', (e) => {
+        if (!siteHeader?.contains(e.target)) {
+          closeMenu();
+        }
+      });
+
+      // Update header state on scroll
+      const updateHeaderState = () => {
+        if (window.scrollY > 20) {
+          siteHeader?.classList.add('scrolled');
+        } else {
+          siteHeader?.classList.remove('scrolled');
+        }
+      };
+
+      window.addEventListener('scroll', updateHeaderState);
+      updateHeaderState();
+    </script>
+  </body>
+</html>
