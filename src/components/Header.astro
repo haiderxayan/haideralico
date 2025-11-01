@@ -1,0 +1,65 @@
+---
+import { SITE_TITLE } from '../consts';
+import HeaderLink from './HeaderLink.astro';
+---
+
+<header class="site-header border-b border-gray-200 bg-white">
+	<nav class="mx-auto max-w-[1200px] px-6 sm:px-8">
+		<div class="flex items-center justify-between py-6">
+			<a href="/" class="flex items-center gap-3 text-lg font-semibold tracking-tight text-gray-900">
+				<svg class="h-6 w-6" viewBox="0 0 140 140" aria-hidden="true" focusable="false">
+					<defs>
+						<mask id="header-notched">
+							<rect x="0" y="0" width="140" height="140" fill="#fff" />
+							<path d="M110 38 L140 0 L140 60 Z" fill="#000" />
+						</mask>
+					</defs>
+					<circle cx="70" cy="70" r="52" fill="none" stroke="currentColor" stroke-width="14" mask="url(#header-notched)" />
+					<rect x="102" y="26" width="14" height="14" rx="2" ry="2" fill="currentColor" />
+				</svg>
+				{SITE_TITLE}
+			</a>
+			<details class="relative sm:hidden">
+				<summary class="flex cursor-pointer items-center gap-2 px-4 py-2 text-sm font-medium text-gray-600">
+					Menu
+					<svg class="h-4 w-4 text-gray-500" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+						<path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 0 1 1.06.02L10 11.17l3.71-3.94a.75.75 0 1 1 1.08 1.04l-4.25 4.5a.75.75 0 0 1-1.08 0l-4.25-4.5a.75.75 0 0 1 .02-1.06Z" clip-rule="evenodd" />
+					</svg>
+				</summary>
+				<div class="absolute right-0 mt-2 w-56 border border-gray-200 bg-white p-4 shadow-lg">
+					<div class="flex flex-col gap-3">
+						<HeaderLink href="/" class="w-full text-left">Home</HeaderLink>
+						<HeaderLink href="/about" class="w-full text-left">About</HeaderLink>
+						<HeaderLink href="/work" class="w-full text-left">Work</HeaderLink>
+						<HeaderLink href="/blog" class="w-full text-left">Writing</HeaderLink>
+						<HeaderLink href="/speaking" class="w-full text-left">Speaking</HeaderLink>
+						<HeaderLink href="/book" class="w-full text-left">Book</HeaderLink>
+						<HeaderLink href="/contact" class="w-full text-left">Contact</HeaderLink>
+						<a href="/search" class="flex w-full items-center gap-2 text-sm text-gray-600 hover:text-gray-900" aria-label="Search">
+							<svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+								<circle cx="11" cy="11" r="8"></circle>
+								<path d="m21 21-4.3-4.3"></path>
+							</svg>
+							Search
+						</a>
+					</div>
+				</div>
+			</details>
+			<div class="hidden items-center gap-8 sm:flex">
+				<HeaderLink href="/">Home</HeaderLink>
+				<HeaderLink href="/about">About</HeaderLink>
+				<HeaderLink href="/work">Work</HeaderLink>
+				<HeaderLink href="/blog">Writing</HeaderLink>
+				<HeaderLink href="/speaking">Speaking</HeaderLink>
+				<HeaderLink href="/book">Book</HeaderLink>
+				<HeaderLink href="/contact">Contact</HeaderLink>
+				<a href="/search" class="text-gray-600 transition hover:text-gray-900" aria-label="Search">
+					<svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+						<circle cx="11" cy="11" r="8"></circle>
+						<path d="m21 21-4.3-4.3"></path>
+					</svg>
+				</a>
+			</div>
+		</div>
+	</nav>
+</header>

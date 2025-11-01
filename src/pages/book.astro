@@ -1,0 +1,83 @@
+---
+import PageLayout from '../layouts/PageLayout.astro';
+import BookCover from '../assets/Unfinished-book-cover-transparent-2.png';
+const coverSrc = typeof BookCover === 'string' ? BookCover : BookCover.src;
+---
+
+<PageLayout
+  title="Stay Unfinished — Book by Haider Ali"
+  description="Stay Unfinished is Haider Ali's guide to building products that evolve with people, systems, and time."
+  image={typeof BookCover === 'string' ? undefined : BookCover}
+>
+  <section class="border-b border-gray-200 py-16">
+    <div class="grid gap-10 md:grid-cols-[minmax(0,1fr)_minmax(0,1fr)] md:items-center">
+      <figure class="order-last md:order-first">
+        <img src={coverSrc} alt="Stay Unfinished book cover" class="mx-auto w-full max-w-sm rounded-3xl shadow-xl" loading="lazy" />
+      </figure>
+      <div class="space-y-6 text-lg leading-relaxed text-gray-700">
+        <h1 class="text-5xl font-bold text-gray-900">Stay Unfinished</h1>
+        <p>
+          <em>Stay Unfinished</em> is a field guide for leaders, product teams, and founders building in a world that
+          refuses to sit still. It's the mindset and toolkit I've used to help enterprises launch faster, learn from
+          reality, and scale what works.
+        </p>
+        <p>
+          The book is intentionally published in motion. Readers see how I iterate positioning, structure, and content
+          as feedback comes in—proof that unfinished work can still deliver value and momentum.
+        </p>
+        <div class="flex flex-wrap gap-4 pt-2">
+          <a href="https://amzn.in/d/fWqtwbF" target="_blank" rel="noopener noreferrer" class="inline-flex items-center rounded-full bg-[#0A84FF] px-6 py-3 text-sm font-semibold text-white transition hover:bg-[#086cd1]">Buy on Amazon</a>
+          <a href="/blog/unfinished-sample/" class="inline-flex items-center rounded-full border border-gray-300 px-6 py-3 text-sm font-semibold text-gray-900 transition hover:border-gray-400 hover:bg-gray-50">Read a sample chapter</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="space-y-10 py-16">
+    <div class="space-y-4 text-lg leading-relaxed text-gray-700">
+      <h2 class="text-3xl font-semibold text-gray-900">Inside the Book</h2>
+      <p>
+        Part manifesto, part operator's manual. Each chapter pairs stories from the field with blunt checklists you can
+        use immediately. You'll see how teams ship in half the time, how leaders communicate change, and how AI fits into
+        a human-centered workflow.
+      </p>
+      <ul class="list-disc space-y-2 pl-6 text-sm text-gray-600">
+        <li>Frameworks for shipping before perfection gets in the way.</li>
+        <li>Ways to build feedback loops with customers, stakeholders, and data.</li>
+        <li>Systems to keep distributed teams aligned on vision and execution.</li>
+        <li>Stories of missteps, pivots, and the rituals that kept momentum alive.</li>
+      </ul>
+    </div>
+
+    <div class="grid gap-8 md:grid-cols-2">
+      <div class="rounded-3xl border border-gray-200 bg-white p-6 shadow-sm">
+        <h3 class="text-xl font-semibold text-gray-900">Formats</h3>
+        <ul class="mt-3 list-disc space-y-2 pl-5 text-sm text-gray-600">
+          <li>Kindle + Paperback on Amazon.</li>
+          <li>Continuous updates on <a href="https://stayunfinished.com" class="text-[#0A84FF] underline" target="_blank" rel="noopener noreferrer">stayunfinished.com</a>.</li>
+          <li>Workshop companion deck for teams.</li>
+        </ul>
+      </div>
+      <div class="rounded-3xl border border-gray-200 bg-white p-6 shadow-sm">
+        <h3 class="text-xl font-semibold text-gray-900">Who it's for</h3>
+        <ul class="mt-3 list-disc space-y-2 pl-5 text-sm text-gray-600">
+          <li>Design, product, and engineering leaders navigating scale.</li>
+          <li>Transformation teams aligning executive vision with delivery.</li>
+          <li>Founders building systems and culture at the same time.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="border-t border-gray-200 py-16">
+    <div class="space-y-6 text-center text-lg leading-relaxed text-gray-700">
+      <h2 class="text-3xl font-semibold text-gray-900">Bring the philosophy to your team</h2>
+      <p>
+        Use the book as a kickoff for a workshop or ongoing coaching program. I'll tailor a session for your team so we can
+        turn the ideas into action.
+      </p>
+      <a href="/speaking" class="inline-flex items-center justify-center rounded-full bg-[#0A84FF] px-6 py-3 text-sm font-semibold text-white transition hover:bg-[#086cd1]">Plan a workshop</a>
+    </div>
+  </section>
+</PageLayout>
+

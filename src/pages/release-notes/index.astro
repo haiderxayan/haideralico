@@ -1,0 +1,52 @@
+---
+import PageLayout from '../../layouts/PageLayout.astro';
+import FormattedDate from '../../components/FormattedDate.astro';
+import { getCollection, render } from 'astro:content';
+
+const releaseNotes = await getCollection('releaseNotes');
+const sortedReleases = releaseNotes
+	.sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
+
+const releasesWithContent = await Promise.all(
+	sortedReleases.map(async (entry) => {
+		const { Content } = await render(entry);
+		return { ...entry, Content };
+	})
+);
+---
+
+<PageLayout
+	title="Site Updates — Haider Ali"
+	description="A changelog for haiderali.co and the systems that support it."
+>
+	<section class="space-y-6 py-16 border-b border-gray-200">
+		<h1 class="text-5xl font-bold text-gray-900 leading-tight">Release Notes</h1>
+		<p class="text-lg text-gray-700 max-w-3xl">
+			A running log of improvements to haiderali.co, new resources, and updates to workshops, systems, and advisory programs.
+		</p>
+	</section>
+
+	<section class="py-12 space-y-12">
+		{releasesWithContent.length === 0 ? (
+			<p class="text-base text-gray-600">Release notes are coming soon. Check back shortly.</p>
+		) : (
+			releasesWithContent.map((release) => (
+				<article class="border border-gray-200 rounded-2xl bg-white/80 backdrop-blur-sm p-8 shadow-sm" id={release.id}>
+					<header class="flex flex-col gap-2 sm:flex-row sm:items-baseline sm:justify-between">
+						<div>
+							<p class="text-sm font-semibold tracking-wide text-[#0A84FF] uppercase">Version {release.data.version}</p>
+							<h2 class="text-2xl font-bold text-gray-900">{release.data.title}</h2>
+						</div>
+						<p class="text-sm text-gray-500">
+							<FormattedDate date={release.data.date} />
+						</p>
+					</header>
+					<p class="mt-4 text-base text-gray-700 leading-relaxed">{release.data.summary}</p>
+					<div class="mt-6 space-y-4 text-base text-gray-700 leading-relaxed [&>ul]:list-disc [&>ul]:pl-6 [&>h2]:text-xl [&>h2]:font-semibold">
+						<release.Content />
+					</div>
+				</article>
+			))
+		)}
+	</section>
+</PageLayout>

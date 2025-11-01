@@ -1,0 +1,60 @@
+---
+const pagePath = Astro.url.pathname;
+---
+
+<button
+  id="feedback-open"
+  class="fixed bottom-6 right-6 z-50 inline-flex items-center gap-2 px-5 py-3 border border-gray-300 rounded-lg bg-white text-gray-900 shadow-md hover:border-gray-400 transition-colors focus:outline-none"
+  aria-label="Share feedback"
+>
+  <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+    <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+  </svg>
+  <span class="text-sm font-medium">Feedback</span>
+</button>
+
+<dialog id="feedback-dialog" class="rounded-2xl p-0 shadow-2xl backdrop:bg-black/30">
+  <form method="dialog" class="absolute right-4 top-4">
+    <button type="submit" data-close-feedback aria-label="Close" class="rounded-full p-2 text-gray-500 hover:bg-gray-100">
+      <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18M6 6l12 12"/></svg>
+    </button>
+  </form>
+
+  <div class="w-[90vw] max-w-md rounded-2xl bg-white p-6 text-left">
+    <h2 class="text-xl font-semibold text-gray-900">Share your feedback</h2>
+    <p class="mt-1 text-sm text-gray-600">We read every message. Optional email helps us reply.</p>
+
+    <form action="https://formspree.io/f/mjkalyng" method="POST" class="mt-4 space-y-4" aria-label="Feedback form">
+      <input type="hidden" name="_subject" value="Haider Ali — Site feedback" />
+      <input type="hidden" name="page" value={pagePath} />
+
+      <div class="space-y-2">
+        <label for="fb-message" class="text-sm font-medium text-gray-700">Your message<span class="text-[#400eeb]">*</span></label>
+        <textarea id="fb-message" name="message" required rows="5" class="w-full border border-gray-300 bg-transparent px-3 py-2 text-gray-900 focus:border-[#400eeb] focus:outline-none" placeholder="What’s working? What’s confusing? What should change?"></textarea>
+      </div>
+      <div class="space-y-2">
+        <label for="fb-email" class="text-sm font-medium text-gray-700">Email (optional)</label>
+        <input id="fb-email" name="email" type="email" inputmode="email" class="w-full border border-gray-300 bg-transparent px-3 py-2 text-gray-900 focus:border-[#400eeb] focus:outline-none" placeholder="you@company.com" />
+      </div>
+
+      <div class="flex items-center justify-between pt-2">
+        <p class="text-xs text-gray-500">Sends via Formspree. No spam.</p>
+        <button type="submit" class="inline-flex items-center justify-center rounded-lg bg-[#400eeb] px-4 py-2 text-sm font-medium text-white transition hover:bg-[#3009c7]">Send</button>
+      </div>
+    </form>
+  </div>
+</dialog>
+
+<script>
+  const btn = document.getElementById('feedback-open');
+  const dialog = document.getElementById('feedback-dialog');
+  if (btn && dialog) {
+    btn.addEventListener('click', () => dialog.showModal());
+    dialog.addEventListener('click', (e) => {
+      if (e.target === dialog) dialog.close();
+    });
+    dialog.querySelectorAll('[data-close-feedback]').forEach((el) => {
+      el.addEventListener('click', () => dialog.close());
+    });
+  }
+</script>

@@ -1,0 +1,139 @@
+---
+// Import the global.css file here so that it is included on
+// all pages through the use of the <BaseHead /> component.
+import '../styles/global.css';
+import type { ImageMetadata } from 'astro';
+import FallbackImage from '../assets/blog-placeholder-1.jpg';
+import { SITE_DESCRIPTION, SITE_TITLE, SITE_KEYWORDS, AUTHOR_NAME, SITE_URL } from '../consts';
+
+interface Props {
+	title?: string;
+	description?: string;
+	image?: ImageMetadata;
+}
+
+const siteUrl = Astro.site?.toString().replace(/\/$/, '') ?? SITE_URL;
+const canonicalURL = new URL(`${Astro.url.pathname}${Astro.url.search}`, siteUrl);
+const rssUrl = Astro.site ? new URL('rss.xml', Astro.site) : new URL('rss.xml', siteUrl);
+
+const { title, description = SITE_DESCRIPTION, image = FallbackImage } = Astro.props;
+const rawTitle = title ?? SITE_TITLE;
+const pageTitle = rawTitle.includes(SITE_TITLE) ? rawTitle : `${rawTitle} — ${SITE_TITLE}`;
+const ogImage = new URL(image.src, siteUrl).toString();
+const logoUrl = new URL('/favicon-192.png', siteUrl).toString();
+const schemaData = {
+	'@context': 'https://schema.org',
+	'@graph': [
+		{
+			'@type': 'WebSite',
+			'@id': `${siteUrl}#website`,
+			url: siteUrl,
+			name: SITE_TITLE,
+			description: SITE_DESCRIPTION,
+			publisher: {
+				'@id': `${siteUrl}#organization`,
+			},
+			inLanguage: 'en',
+			potentialAction: {
+				'@type': 'SearchAction',
+				target: `${siteUrl}/search/?q={search_term_string}`,
+				'query-input': 'required name=search_term_string',
+			},
+		},
+		{
+			'@type': 'Organization',
+			'@id': `${siteUrl}#organization`,
+			name: SITE_TITLE,
+			description: SITE_DESCRIPTION,
+			url: siteUrl,
+			logo: {
+				'@type': 'ImageObject',
+				url: logoUrl,
+				width: 192,
+				height: 192,
+			},
+			founder: {
+				'@type': 'Person',
+				name: AUTHOR_NAME,
+			},
+			sameAs: [
+				'https://userfirstinsights.substack.com',
+				'https://www.linkedin.com/in/haideralidesign/',
+				'https://github.com/haiderali',
+				'https://x.com/haiderali',
+			],
+		},
+		{
+			'@type': 'WebPage',
+			'@id': `${canonicalURL.href}#webpage`,
+			url: canonicalURL.href,
+			name: pageTitle,
+			description,
+			isPartOf: {
+				'@id': `${siteUrl}#website`,
+			},
+			inLanguage: 'en',
+			primaryImageOfPage: {
+				'@type': 'ImageObject',
+				url: ogImage,
+			},
+		},
+	],
+};
+---
+
+<!-- Global Metadata -->
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png" />
+<link rel="icon" type="image/png" sizes="192x192" href="/favicon-192.png" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+<link rel="sitemap" href="/sitemap-index.xml" />
+<link
+	rel="alternate"
+	type="application/rss+xml"
+	title={SITE_TITLE}
+	href={rssUrl}
+/>
+<meta name="generator" content={Astro.generator} />
+
+<!-- Font preloads -->
+<link rel="preload" href="/fonts/atkinson-regular.woff" as="font" type="font/woff" crossorigin />
+<link rel="preload" href="/fonts/atkinson-bold.woff" as="font" type="font/woff" crossorigin />
+
+<!-- Canonical URL -->
+<link rel="canonical" href={canonicalURL} />
+<meta name="robots" content="index,follow" />
+
+<!-- Primary Meta Tags -->
+<title>{pageTitle}</title>
+<meta name="title" content={pageTitle} />
+<meta name="description" content={description} />
+
+<!-- Additional SEO -->
+<meta name="author" content={AUTHOR_NAME} />
+<meta name="keywords" content={SITE_KEYWORDS} />
+<meta name="theme-color" content="#0A84FF" />
+<meta property="og:site_name" content={SITE_TITLE} />
+<meta property="og:locale" content="en_US" />
+
+<!-- Open Graph / Facebook -->
+<meta property="og:type" content="website" />
+<meta property="og:url" content={canonicalURL} />
+<meta property="og:title" content={pageTitle} />
+<meta property="og:description" content={description} />
+<meta property="og:image" content={ogImage} />
+
+<!-- Twitter -->
+<meta property="twitter:card" content="summary_large_image" />
+<meta property="twitter:url" content={canonicalURL} />
+<meta property="twitter:title" content={pageTitle} />
+<meta property="twitter:description" content={description} />
+<meta property="twitter:image" content={ogImage} />
+<meta property="twitter:creator" content="@haiderali" />
+<meta property="twitter:site" content="@haiderali" />
+
+<!-- Structured Data -->
+<script type="application/ld+json">{JSON.stringify(schemaData)}</script>
+

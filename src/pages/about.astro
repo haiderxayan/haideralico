@@ -1,0 +1,108 @@
+---
+import PageLayout from '../layouts/PageLayout.astro';
+import Portrait from '../assets/Haider-Ali-Portrait.jpeg';
+const portraitSrc = typeof Portrait === 'string' ? Portrait : Portrait.src;
+---
+
+<PageLayout
+  title="About Haider Ali"
+  description="Design leader, author, and digital experience architect helping enterprises build human-centered systems."
+  image={typeof Portrait === 'string' ? undefined : Portrait}
+>
+  <section class="border-b border-gray-200 py-16">
+    <div class="grid gap-10 md:grid-cols-[minmax(0,2fr)_minmax(0,1fr)] md:items-start">
+      <div class="space-y-6 text-lg leading-relaxed text-gray-700">
+        <h1 class="text-5xl font-bold text-gray-900">Haider Ali</h1>
+        <p>
+          I'm a design leader, author, and digital experience architect who guides enterprises through the complexity
+          of UX, AI, and large-scale design systems. At Aramco, I direct enterprise design platforms that support
+          thousands of employees and partners, building systems that keep products coherent while they evolve.
+        </p>
+        <p>
+          Over two decades—from a small bookshop I ran at 14 to launching global programs—I've learned that the teams
+          who win are the ones who treat experience as a living system. My work blends qualitative research, data-informed
+          decisions, and a bias for iteration so we can release, learn, and adapt without losing rigor.
+        </p>
+        <p>
+          Today I advise leaders, coach teams, and write about the future of digital experience. Whether it's AI-assisted
+          product discovery, governance for enterprise design systems, or framing the story that gets executives aligned,
+          my focus is simple: help teams build products that earn trust every day.
+        </p>
+        <div class="flex flex-wrap gap-4 pt-4">
+          <a href="/book" class="inline-flex items-center rounded-full border border-gray-300 px-5 py-2 text-sm font-semibold text-gray-900 transition hover:border-gray-400 hover:bg-gray-50">Read the Book</a>
+          <a href="/blog" class="inline-flex items-center rounded-full border border-gray-300 px-5 py-2 text-sm font-semibold text-gray-900 transition hover:border-gray-400 hover:bg-gray-50">Explore Writing</a>
+          <a href="/speaking" class="inline-flex items-center rounded-full border border-gray-300 px-5 py-2 text-sm font-semibold text-gray-900 transition hover:border-gray-400 hover:bg-gray-50">Speaking & Workshops</a>
+        </div>
+      </div>
+      <figure class="mx-auto w-full max-w-xs">
+        <img
+          src={portraitSrc}
+          alt="Portrait of Haider Ali"
+          class="w-full rounded-3xl shadow-lg ring-1 ring-gray-200"
+          loading="lazy"
+        />
+      </figure>
+    </div>
+  </section>
+
+  <section class="border-b border-gray-200 py-16">
+    <div class="grid gap-12 md:grid-cols-2">
+      <div class="space-y-6 text-lg leading-relaxed text-gray-700">
+        <h2 class="text-3xl font-semibold text-gray-900">Guiding Principles</h2>
+        <p>
+          Every engagement starts with context. We map the humans in the loop, surface the constraints that shape their
+          work, and connect strategy to execution. I build teams that ship in sprints without losing sight of the system,
+          weaving research, governance, and craft together.
+        </p>
+        <p>
+          My framework—Plan, Build, Learn, Scale—keeps momentum steady. We set direction, launch the smallest valuable
+          version, capture real feedback, then scale what works across the organization.
+        </p>
+        <ul class="mt-4 space-y-3 text-sm text-gray-600">
+          <li><strong class="text-gray-900">Enterprise Design Systems:</strong> operating models, design tokens, component libraries, and adoption programs.</li>
+          <li><strong class="text-gray-900">Human-Centered AI:</strong> aligning intelligent experiences with transparent decision making.</li>
+          <li><strong class="text-gray-900">Product Leadership:</strong> mentoring designers and product teams to deliver measurable outcomes.</li>
+        </ul>
+      </div>
+      <div class="space-y-6 text-lg leading-relaxed text-gray-700">
+        <h2 class="text-3xl font-semibold text-gray-900">Experience Snapshot</h2>
+        <div class="rounded-3xl border border-gray-200 bg-gray-50 p-6 shadow-sm">
+          <dl class="space-y-4 text-sm text-gray-600">
+            <div>
+              <dt class="font-semibold text-gray-900">Current</dt>
+              <dd>Director of Design, Digital Transformation at Aramco — steering AI-augmented UX and enterprise systems.</dd>
+            </div>
+            <div>
+              <dt class="font-semibold text-gray-900">Author</dt>
+              <dd><em>Stay Unfinished</em>, a book written in public on building products that learn faster than they ship.</dd>
+            </div>
+            <div>
+              <dt class="font-semibold text-gray-900">Coach & Advisor</dt>
+              <dd>Partnering with founders and leaders at Croods Inc, UXIQ, DXA Hub, and emerging startups in the region.</dd>
+            </div>
+            <div>
+              <dt class="font-semibold text-gray-900">Speaker</dt>
+              <dd>Talks and workshops on AI in UX, building design systems, and leading teams at scale.</dd>
+            </div>
+          </dl>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-16">
+    <div class="space-y-6 text-lg leading-relaxed text-gray-700">
+      <h2 class="text-3xl font-semibold text-gray-900">Beyond the Resume</h2>
+      <p>
+        The through-line in everything I ship is curiosity. I care about how people make decisions, the systems that
+        restrict them, and the rituals that help them progress. The book, newsletter, workshops, and consulting practice
+        are all expressions of that curiosity.
+      </p>
+      <p>
+        If you'd like to collaborate—or just compare notes on design leadership—reach out at
+        <a href="mailto:hello@haiderali.co" class="text-[#0A84FF] underline">hello@haiderali.co</a>.
+      </p>
+    </div>
+  </section>
+</PageLayout>
+

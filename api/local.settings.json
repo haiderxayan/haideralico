@@ -1,0 +1,10 @@
+{
+  "IsEncrypted": false,
+  "Values": {
+    "AzureWebJobsStorage": "UseDevelopmentStorage=true",
+    "FUNCTIONS_WORKER_RUNTIME": "node",
+    "GITHUB_CLIENT_ID": "YOUR_CLIENT_ID",
+    "GITHUB_CLIENT_SECRET": "YOUR_CLIENT_SECRET",
+    "OAUTH_REDIRECT_URI": "http://localhost:4280/api/callback"
+  }
+}

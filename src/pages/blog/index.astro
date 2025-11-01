@@ -1,0 +1,63 @@
+---
+import { getCollection } from 'astro:content';
+import BaseHead from '../../components/BaseHead.astro';
+import BlogBanner from '../../assets/blog-living-manuscript.jpg';
+import Footer from '../../components/Footer.astro';
+import FormattedDate from '../../components/FormattedDate.astro';
+import Header from '../../components/Header.astro';
+
+const posts = (await getCollection('blog')).sort(
+  (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
+);
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <BaseHead
+      title="Writing — Essays by Haider Ali"
+      description="Essays and field notes on enterprise design systems, AI-enabled experience design, and digital leadership."
+      image={typeof BlogBanner === 'string' ? undefined : BlogBanner}
+    />
+  </head>
+  <body class="bg-white text-gray-900">
+    <Header />
+    <main class="min-h-[65vh]">
+      <section class="mx-auto w-full max-w-3xl px-6 py-16 sm:px-8 sm:py-20">
+        <header class="space-y-6 border-b border-gray-200 pb-12">
+          <h1 class="text-5xl font-bold text-gray-900 leading-tight">Writing</h1>
+          <p class="text-lg text-gray-700 leading-relaxed">
+            Essays, talks, and playbooks exploring how we design intelligent systems with empathy and measurable outcomes.
+          </p>
+        </header>
+        <ul class="m-0 list-none space-y-10 p-0 pt-12">
+          {posts.map((post) => (
+            <li class="border-b border-gray-100 pb-10 last:border-0" key={post.id}>
+              <article class="space-y-3">
+                <p class="text-xs font-semibold uppercase tracking-widest text-gray-400">
+                  <FormattedDate date={post.data.pubDate} />
+                </p>
+                <h2 class="text-2xl font-semibold text-gray-900">
+                  <a href={`/blog/${post.slug ?? post.id}/`} class="hover:text-[#0A84FF]">
+                    {post.data.title}
+                  </a>
+                </h2>
+                {post.data.description && (
+                  <p class="text-base leading-relaxed text-gray-600">{post.data.description}</p>
+                )}
+                <a href={`/blog/${post.slug ?? post.id}/`} class="inline-flex items-center gap-2 text-sm font-semibold text-[#0A84FF]">
+                  Read article
+                  <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <path d="M5 12h14" />
+                    <path d="m12 5 7 7-7 7" />
+                  </svg>
+                </a>
+              </article>
+            </li>
+          ))}
+        </ul>
+      </section>
+    </main>
+    <Footer />
+  </body>
+</html>
