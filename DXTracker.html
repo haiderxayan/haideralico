@@ -364,7 +364,7 @@
     </style>
 </head>
 <body>
-    <div class="slide-container">
+    <div class="slide-container deck" id="deck">
         
         <!-- Slide 1: Overview & Unified Roadmap -->
         <div class="slide">
@@ -700,7 +700,14 @@
         </div>
         
     </div>
-    
+    <div class="deck-controls" aria-label="Slide controls">
+      <button type="button" id="prev" aria-label="Previous slide">◀</button>
+      <span class="counter" id="counter">1/5</span>
+      <button type="button" id="next" aria-label="Next slide">▶</button>
+      <button type="button" id="fs" aria-label="Toggle fullscreen">⛶</button>
+      <button type="button" id="print" aria-label="Print to PDF">⎙</button>
+    </div>
+
     <style>
         /* Dependencies Styles */
         .dependency-grid {
@@ -761,6 +768,235 @@
         .risk-note strong {
             color: #1b5e20;
         }
-    </style>
+
+        /* Presentation deck behavior */
+        .deck {
+            position: fixed;
+            inset: 0;
+            width: 100vw;
+            height: 100vh;
+            overflow: hidden;
+            background: #f5f5f5;
+        }
+
+        .deck .slide {
+            position: absolute;
+            inset: 0;
+            margin: 0;
+            min-height: 100vh;
+            border-radius: 0;
+            box-shadow: none;
+            background: transparent;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 40px 32px;
+            opacity: 0;
+            transform: translateX(2%);
+            transition: opacity 180ms ease, transform 180ms ease;
+            pointer-events: none;
+        }
+
+        .deck .slide > * {
+            width: min(1200px, 100%);
+        }
+
+        .deck .slide.active {
+            opacity: 1;
+            transform: translateX(0);
+            pointer-events: auto;
+            z-index: 1;
+        }
+
+        .deck-controls {
+            position: fixed;
+            right: 16px;
+            bottom: 16px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(255,255,255,0.9);
+            border: 1px solid #e0e0e0;
+            border-radius: 999px;
+            padding: 6px 8px;
+            box-shadow: 0 8px 24px -12px rgba(0,0,0,0.25);
+        }
+
+        .deck-controls button {
+            appearance: none;
+            background: white;
+            color: #333;
+            border: 1px solid #e0e0e0;
+            border-radius: 999px;
+            padding: 6px 10px;
+            font: inherit;
+            cursor: pointer;
+        }
+
+        .deck-controls .counter {
+            color: #666;
+            padding: 0 6px;
+            min-width: 60px;
+            text-align: center;
+            font-variant-numeric: tabular-nums;
+        }
+
+        @media print {
+          .deck { position: static; overflow: visible; background: white; }
+          .deck .slide { position: static; opacity: 1; transform: none; break-after: page; height: 100vh; }
+          .deck .slide:last-child { break-after: auto; }
+          .deck-controls { display: none; }
+        }
+</style>
+<script>
+(function() {
+  const deck = document.getElementById('deck');
+  if (!deck) return;
+  const slides = Array.from(deck.querySelectorAll('.slide'));
+  const counter = document.getElementById('counter');
+  const btnPrev = document.getElementById('prev');
+  const btnNext = document.getElementById('next');
+  const btnFs = document.getElementById('fs');
+  const btnPrint = document.getElementById('print');
+
+  function parseIndexFromHash() {
+    const n = parseInt((location.hash || '').replace('#',''), 10);
+    if (Number.isFinite(n) && n >= 1 && n <= slides.length) return n - 1;
+    return 0;
+  }
+
+  let idx = parseIndexFromHash();
+
+  function show(i) {
+    idx = Math.max(0, Math.min(i, slides.length - 1));
+    slides.forEach((s, j) => {
+      s.classList.toggle('active', j === idx);
+      s.setAttribute('aria-hidden', j === idx ? 'false' : 'true');
+    });
+    if (counter) counter.textContent = (idx + 1) + '/' + slides.length;
+    const newHash = '#' + (idx + 1);
+    if (location.hash !== newHash) history.replaceState(null, '', newHash);
+  }
+
+  function next() { show(idx + 1); }
+  function prev() { show(idx - 1); }
+
+  // Controls
+  btnPrev && btnPrev.addEventListener('click', prev);
+  btnNext && btnNext.addEventListener('click', next);
+  btnFs && btnFs.addEventListener('click', async () => {
+    try {
+      if (!document.fullscreenElement) {
+        await document.documentElement.requestFullscreen();
+      } else {
+        await document.exitFullscreen();
+      }
+    } catch(e) { /* ignore */ }
+  });
+  btnPrint && btnPrint.addEventListener('click', () => window.print());
+
+  // Keyboard navigation
+  window.addEventListener('keydown', (e) => {
+    const k = e.key;
+    if (k === 'ArrowRight' || k === 'PageDown' || k === ' ') { e.preventDefault(); next(); }
+    if (k === 'ArrowLeft' || k === 'PageUp') { e.preventDefault(); prev(); }
+    if (k === 'Home') { e.preventDefault(); show(0); }
+    if (k === 'End') { e.preventDefault(); show(slides.length - 1); }
+    if (k.toLowerCase && k.toLowerCase() === 'f') { btnFs?.click(); }
+    if (k.toLowerCase && k.toLowerCase() === 'p') { btnPrint?.click(); }
+  });
+
+  // Hash navigation
+  window.addEventListener('hashchange', () => show(parseIndexFromHash()));
+
+  // Touch swipe
+  let startX = 0;
+  window.addEventListener('touchstart', (e) => { if (e.touches[0]) startX = e.touches[0].clientX; }, { passive: true });
+  window.addEventListener('touchend', (e) => {
+    if (!e.changedTouches[0]) return;
+    const dx = e.changedTouches[0].clientX - startX;
+    if (dx < -30) next();
+    if (dx > 30) prev();
+  });
+
+  // Initialize
+  show(idx);
+})();
+</script>
 </body>
 </html>
+<script>
+(function() {
+  const deck = document.getElementById('deck');
+  if (!deck) return;
+  const slides = Array.from(deck.querySelectorAll('.slide'));
+  const counter = document.getElementById('counter');
+  const btnPrev = document.getElementById('prev');
+  const btnNext = document.getElementById('next');
+  const btnFs = document.getElementById('fs');
+  const btnPrint = document.getElementById('print');
+
+  function parseIndexFromHash() {
+    const n = parseInt((location.hash || '').replace('#',''), 10);
+    if (Number.isFinite(n) && n >= 1 && n <= slides.length) return n - 1;
+    return 0;
+  }
+
+  let idx = parseIndexFromHash();
+
+  function show(i) {
+    idx = Math.max(0, Math.min(i, slides.length - 1));
+    slides.forEach((s, j) => {
+      s.classList.toggle('active', j === idx);
+      s.setAttribute('aria-hidden', j === idx ? 'false' : 'true');
+    });
+    if (counter) counter.textContent = (idx + 1) + '/' + slides.length;
+    const newHash = '#' + (idx + 1);
+    if (location.hash !== newHash) history.replaceState(null, '', newHash);
+  }
+
+  function next() { show(idx + 1); }
+  function prev() { show(idx - 1); }
+
+  // Controls
+  btnPrev && btnPrev.addEventListener('click', prev);
+  btnNext && btnNext.addEventListener('click', next);
+  btnFs && btnFs.addEventListener('click', async () => {
+    try {
+      if (!document.fullscreenElement) {
+        await document.documentElement.requestFullscreen();
+      } else {
+        await document.exitFullscreen();
+      }
+    } catch(e) { /* ignore */ }
+  });
+  btnPrint && btnPrint.addEventListener('click', () => window.print());
+
+  // Keyboard navigation
+  window.addEventListener('keydown', (e) => {
+    const k = e.key;
+    if (k === 'ArrowRight' || k === 'PageDown' || k === ' ') { e.preventDefault(); next(); }
+    if (k === 'ArrowLeft' || k === 'PageUp') { e.preventDefault(); prev(); }
+    if (k === 'Home') { e.preventDefault(); show(0); }
+    if (k === 'End') { e.preventDefault(); show(slides.length - 1); }
+    if (k.toLowerCase && k.toLowerCase() === 'f') { btnFs?.click(); }
+    if (k.toLowerCase && k.toLowerCase() === 'p') { btnPrint?.click(); }
+  });
+
+  // Hash navigation
+  window.addEventListener('hashchange', () => show(parseIndexFromHash()));
+
+  // Touch swipe
+  let startX = 0;
+  window.addEventListener('touchstart', (e) => { if (e.touches[0]) startX = e.touches[0].clientX; }, { passive: true });
+  window.addEventListener('touchend', (e) => {
+    if (!e.changedTouches[0]) return;
+    const dx = e.changedTouches[0].clientX - startX;
+    if (dx < -30) next();
+    if (dx > 30) prev();
+  });
+
+  // Initialize
+  show(idx);
+})();
+</script>
