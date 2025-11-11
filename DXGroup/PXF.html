@@ -1,0 +1,427 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Product Experience Assessment Framework — Executive Approval</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
+    <style>
+      :root {
+        --bg: #f6f7fb;
+        --panel: #ffffff;
+        --text: #101828;
+        --muted: #475467;
+        --accent: #1d4ed8;
+        --border: #e4e7ec;
+        --radius: 16px;
+      }
+      * { box-sizing: border-box; }
+      body {
+        margin: 0;
+        font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+        background: var(--bg);
+        color: var(--text);
+        line-height: 1.6;
+      }
+      .page {
+        max-width: 960px;
+        margin: 0 auto;
+        padding: 32px 20px 60px;
+      }
+      h1, h2, h3, h4 { color: var(--text); margin-top: 0; }
+      h1 { font-size: 2.25rem; margin-bottom: 8px; }
+      h2 { font-size: 1.5rem; margin: 32px 0 12px; }
+      h3 { font-size: 1.2rem; margin: 24px 0 8px; }
+      p { margin: 0 0 12px; color: var(--muted); }
+      strong { color: var(--text); }
+      .card {
+        background: var(--panel);
+        border: 1px solid var(--border);
+        border-radius: var(--radius);
+        padding: 24px;
+        margin-bottom: 20px;
+        box-shadow: 0 10px 40px rgba(15, 23, 42, 0.05);
+      }
+      .meta-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+        gap: 12px;
+        margin: 0;
+        padding: 0;
+        list-style: none;
+        color: var(--muted);
+      }
+      .meta-grid li strong {
+        display: block;
+        font-size: 0.9rem;
+        text-transform: uppercase;
+        letter-spacing: 0.04em;
+        margin-bottom: 4px;
+        color: var(--muted);
+      }
+      ul, ol { padding-left: 20px; color: var(--muted); }
+      ul li, ol li { margin-bottom: 6px; }
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 16px 0;
+        font-size: 0.95rem;
+      }
+      th, td {
+        border: 1px solid var(--border);
+        padding: 10px 12px;
+        text-align: left;
+      }
+      th {
+        background: #eef2ff;
+        color: #111827;
+        font-weight: 600;
+      }
+      .timeline-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+        gap: 16px;
+      }
+      .timeline-grid .card { margin-bottom: 0; }
+      .tag {
+        display: inline-block;
+        padding: 2px 10px;
+        background: #e0e7ff;
+        color: #1d4ed8;
+        border-radius: 999px;
+        font-size: 0.85rem;
+        font-weight: 600;
+      }
+      .divider { height: 1px; width: 100%; background: var(--border); margin: 32px 0; }
+      @media (max-width: 640px) {
+        .page { padding: 24px 16px 40px; }
+        .timeline-grid { grid-template-columns: 1fr; }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="page">
+      <section class="card">
+        <p class="tag">Executive Approval Request</p>
+        <h1>Product Experience Assessment Framework</h1>
+        <ul class="meta-grid">
+          <li><strong>Prepared by</strong>Haider, Digital Experience Architecture Team</li>
+          <li><strong>Department</strong>Digital &amp; AI Center of Excellence</li>
+          <li><strong>Date</strong>November 2025</li>
+          <li><strong>Decision</strong>Approve Phase One (12-month implementation)</li>
+        </ul>
+      </section>
+
+      <section class="card">
+        <h2>Executive Summary</h2>
+        <h3>The Problem</h3>
+        <ul>
+          <li>Digital products launch without standardized UX validation.</li>
+          <li>Inconsistent user experiences harm productivity.</li>
+          <li>No baseline metrics exist to validate improvement claims.</li>
+          <li>Compliance gaps persist across accessibility and usability standards.</li>
+          <li>Post-launch rework drives avoidable cost and delay.</li>
+        </ul>
+        <h3>The Solution</h3>
+        <p>Deploy a two-phase Product Experience Assessment Framework that introduces systematic, standards-based validation for every digital product.</p>
+        <ul>
+          <li><strong>Phase One (12 months):</strong> Lay the foundation using WCAG 2.1 AA, Nielsen heuristics, and ISO 9241.</li>
+          <li><strong>Phase Two (12-18 months):</strong> Layer oil &amp; gas-specific requirements once baseline is established.</li>
+        </ul>
+        <h3>Expected Outcomes</h3>
+        <ul>
+          <li>100% product compliance with UX standards prior to launch.</li>
+          <li>Baseline quality metrics captured across the digital portfolio.</li>
+          <li>Self-service toolkit enables independent assessment by teams.</li>
+          <li>ServiceNow-integrated audit trail ensures governance.</li>
+        </ul>
+      </section>
+
+      <section class="card">
+        <h2>Phase One: Foundation (12 Months)</h2>
+        <h3>Core Framework Components</h3>
+        <p><strong>Three Assessment Dimensions</strong></p>
+        <ol>
+          <li><strong>Accessibility Compliance:</strong> WCAG 2.1 Level AA baseline.</li>
+          <li><strong>Usability Quality:</strong> Evaluation through Nielsen heuristics and ISO 9241.</li>
+          <li><strong>Performance Standards:</strong> Industry benchmarks aligned to enterprise expectations.</li>
+        </ol>
+        <p><strong>Two Strategic Checkpoints</strong></p>
+        <ol>
+          <li><strong>Design Review:</strong> Conducted before development begins.</li>
+          <li><strong>Pre-Launch Audit:</strong> Completed two weeks prior to deployment.</li>
+        </ol>
+        <p><strong>Self-Service Toolkit</strong></p>
+        <ul>
+          <li>Assessment templates (Word/Excel).</li>
+          <li>Step-by-step checklists and evidence guides.</li>
+          <li>ServiceNow submission forms for approvals.</li>
+        </ul>
+        <p><strong>Governance Model</strong></p>
+        <ul>
+          <li>Teams self-assess using the toolkit.</li>
+          <li>Evidence submitted via ServiceNow for CoE review.</li>
+          <li>Launch blocked until approval is granted.</li>
+        </ul>
+        <h3>Why Build on Existing Standards?</h3>
+        <p><strong>Immediate Benefits</strong></p>
+        <ul>
+          <li>Established credibility with 30+ years of validation.</li>
+          <li>Faster delivery by adapting proven guidance.</li>
+          <li>Defensible, objective criteria reduce debate.</li>
+          <li>Lower resistance thanks to familiar concepts.</li>
+        </ul>
+        <p><strong>Phase Two Evolution</strong></p>
+        <ul>
+          <li>Adopt ISA-101 for control systems.</li>
+          <li>Account for limited connectivity in field operations.</li>
+          <li>Integrate safety-critical system standards.</li>
+          <li>Reflect energy-sector operational realities.</li>
+        </ul>
+      </section>
+
+      <section class="card">
+        <h2>Implementation Timeline</h2>
+        <div class="timeline-grid">
+          <div class="card">
+            <h3>Quarter 1: Discovery &amp; Foundation</h3>
+            <ul>
+              <li>Conduct 15-20 stakeholder interviews.</li>
+              <li>Validate standards-based approach.</li>
+              <li>Design framework specifications.</li>
+            </ul>
+            <p><strong>Deliverable:</strong> Framework Design + Interview Findings.</p>
+          </div>
+          <div class="card">
+            <h3>Quarter 2: Build &amp; Validate</h3>
+            <ul>
+              <li>Create toolkit templates and guidance.</li>
+              <li>Configure ServiceNow integration.</li>
+              <li>Validate with early adopters.</li>
+            </ul>
+            <p><strong>Deliverable:</strong> Complete Toolkit + Operational ServiceNow.</p>
+          </div>
+          <div class="card">
+            <h3>Quarter 3: Pilot &amp; Refine</h3>
+            <ul>
+              <li>Run 3-5 pilot products through checkpoints.</li>
+              <li>Collect usage data and feedback.</li>
+              <li>Refine framework based on learning.</li>
+            </ul>
+            <p><strong>Deliverable:</strong> Pilot Results + Framework Refinements.</p>
+          </div>
+          <div class="card">
+            <h3>Quarter 4: Scale &amp; Establish</h3>
+            <ul>
+              <li>Train organization-wide.</li>
+              <li>Roll out mandatory compliance.</li>
+              <li>Monitor adoption and support teams.</li>
+            </ul>
+            <p><strong>Deliverable:</strong> Operational Framework + Phase Two Recommendations.</p>
+          </div>
+        </div>
+        <h3>Key Decision Gates</h3>
+        <ul>
+          <li><strong>Month 3:</strong> Approve framework design.</li>
+          <li><strong>Month 6:</strong> Approve toolkit + ServiceNow readiness.</li>
+          <li><strong>Month 9:</strong> Approve organizational rollout.</li>
+          <li><strong>Month 12:</strong> Approve Phase Two scope and investment.</li>
+        </ul>
+      </section>
+
+      <section class="card">
+        <h2>Resource Requirements</h2>
+        <h3>Phase One (12 Months)</h3>
+        <table>
+          <thead>
+            <tr>
+              <th>Resource</th>
+              <th>Commitment</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Program Lead (Haider)</td>
+              <td>10-12 hrs/week</td>
+            </tr>
+            <tr>
+              <td>Supporting DXA Team</td>
+              <td>4-6 hrs/week</td>
+            </tr>
+            <tr>
+              <td>ServiceNow Team</td>
+              <td>60-80 hrs</td>
+            </tr>
+            <tr>
+              <td>Stakeholder Interviews</td>
+              <td>15-20 hrs</td>
+            </tr>
+            <tr>
+              <td>Leadership Reviews</td>
+              <td>8-10 hrs</td>
+            </tr>
+          </tbody>
+        </table>
+        <h3>Training Requirements</h3>
+        <table>
+          <thead>
+            <tr>
+              <th>Training Program</th>
+              <th>Purpose</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Nielsen Norman Group (2-3 people)</td>
+              <td>UX evaluation methodology</td>
+            </tr>
+            <tr>
+              <td>Accessibility Certification (IAAP)</td>
+              <td>WCAG expertise</td>
+            </tr>
+            <tr>
+              <td>Research Methods Training</td>
+              <td>Assessment design fundamentals</td>
+            </tr>
+            <tr>
+              <td>Industrial HMI Standards (ISA)</td>
+              <td>Oil &amp; gas operational context</td>
+            </tr>
+            <tr>
+              <td>Optional External Validation</td>
+              <td>Independent framework review</td>
+            </tr>
+            <tr>
+              <td>Miscellaneous</td>
+              <td>Workshops, materials, tools</td>
+            </tr>
+          </tbody>
+        </table>
+        <p><strong>Phase Two (Estimated):</strong> 12-18 months post Phase One, $80K-150K budget, broader resourcing TBD.</p>
+      </section>
+
+      <section class="card">
+        <h2>Success Metrics</h2>
+        <h3>Phase One Outcomes</h3>
+        <p><strong>Quantitative</strong></p>
+        <ul>
+          <li>100% compliance rate for new product launches.</li>
+          <li>Assessment completion &lt; 2 hours per checkpoint.</li>
+          <li>Approval cycle &lt; 5 business days.</li>
+          <li>Baseline product quality scores captured.</li>
+        </ul>
+        <p><strong>Qualitative</strong></p>
+        <ul>
+          <li>80%+ stakeholder satisfaction.</li>
+          <li>Teams self-serve assessments with minimal coaching.</li>
+          <li>Enterprise awareness of UX standards.</li>
+          <li>Clear Phase Two priorities identified.</li>
+        </ul>
+        <h3>Long-Term Impact (Post Phase Two)</h3>
+        <ul>
+          <li>30% reduction in post-launch UX issues.</li>
+          <li>20%+ average improvement in product quality.</li>
+          <li>50% reduction in CoE manual review time.</li>
+          <li>Consistent experience across the digital portfolio.</li>
+        </ul>
+      </section>
+
+      <section class="card">
+        <h2>Risk Assessment</h2>
+        <table>
+          <thead>
+            <tr>
+              <th>Risk</th>
+              <th>Impact</th>
+              <th>Mitigation</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Stakeholder resistance to compliance</td>
+              <td>High</td>
+              <td>Co-design approach, executive mandate, enablement narrative.</td>
+            </tr>
+            <tr>
+              <td>ServiceNow integration delays</td>
+              <td>Medium</td>
+              <td>Start manually, phase automation.</td>
+            </tr>
+            <tr>
+              <td>Framework feels one-size-fits-all</td>
+              <td>High</td>
+              <td>Flexible criteria with customization options.</td>
+            </tr>
+            <tr>
+              <td>DXA capacity constraints</td>
+              <td>High</td>
+              <td>Defined scope, realistic timeline, phased delivery.</td>
+            </tr>
+            <tr>
+              <td>Framework too complex for adoption</td>
+              <td>Medium</td>
+              <td>Straightforward templates, training, pilot validation.</td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="card">
+        <h2>Strategic Alignment</h2>
+        <ul>
+          <li><strong>Digital Transformation:</strong> Ensures digital investments deliver user value.</li>
+          <li><strong>Operational Excellence:</strong> Standardizes quality across products.</li>
+          <li><strong>Compliance &amp; Governance:</strong> Creates auditable validation steps.</li>
+          <li><strong>Employee Productivity:</strong> Better tools enable better outcomes.</li>
+          <li><strong>Innovation Culture:</strong> Structured, iterative improvement loop.</li>
+        </ul>
+      </section>
+
+      <section class="card">
+        <h2>Recommendation</h2>
+        <p><strong>Approve Phase One implementation</strong> of the Product Experience Assessment Framework.</p>
+        <ul>
+          <li>Standards-based approach delivers immediate credibility.</li>
+          <li>Modest investment for high ROI potential.</li>
+          <li>Phased risk management proves value before expansion.</li>
+          <li>Timeline accounts for capacity constraints.</li>
+          <li>Builds lasting organizational capability.</li>
+          <li>Addresses a critical governance gap.</li>
+        </ul>
+        <p><strong>Approval Includes:</strong> 12-month authority, DXA bandwidth, ServiceNow support, stakeholder access, and targeted training budget.</p>
+        <p><strong>Approval Does Not Include:</strong> Phase Two commitment, additional headcount, or modifications to existing development processes beyond checkpoints.</p>
+      </section>
+
+      <section class="card">
+        <h2>Immediate Next Steps (Upon Approval)</h2>
+        <h3>Week 1-2</h3>
+        <ul>
+          <li>Finalize detailed project plan.</li>
+          <li>Assign roles and responsibilities.</li>
+          <li>Schedule stakeholder interviews.</li>
+          <li>Engage ServiceNow team.</li>
+        </ul>
+        <h3>Month 1-3</h3>
+        <ul>
+          <li>Complete discovery interviews.</li>
+          <li>Design framework specifications.</li>
+          <li>Kick off training programs.</li>
+          <li>Present framework design for approval.</li>
+        </ul>
+        <p><strong>Approval Decision Required By:</strong> [Insert Date]</p>
+      </section>
+
+      <section class="card">
+        <h2>Questions?</h2>
+        <p><strong>Contact:</strong><br />Haider — Digital Experience Architecture Team<br />Digital &amp; AI Center of Excellence<br />[Contact Information]</p>
+        <p><strong>For Discussion:</strong> Framework detail, resource allocation, timeline, governance integration.</p>
+      </section>
+
+      <section class="card">
+        <p><strong>Document Version:</strong> 1.0<br /><strong>Last Updated:</strong> November 2025<br /><strong>Next Review:</strong> Quarterly milestone gates</p>
+      </section>
+    </div>
+  </body>
+</html>
