@@ -1,0 +1,193 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Phase One Scope — Product Experience Assessment Framework</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <style>
+      :root {
+        --bg: #f8fafc;
+        --panel: #ffffff;
+        --text: #0f172a;
+        --muted: #475467;
+        --accent: #1d4ed8;
+        --border: #e2e8f0;
+        --radius: 18px;
+      }
+      * { box-sizing: border-box; }
+      body {
+        margin: 0;
+        font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+        background: var(--bg);
+        color: var(--text);
+        line-height: 1.6;
+      }
+      .page {
+        max-width: 980px;
+        margin: 0 auto;
+        padding: 32px 20px 72px;
+      }
+      h1, h2, h3, h4 { margin: 0 0 12px; color: var(--text); }
+      h1 { font-size: 2.4rem; }
+      h2 { font-size: 1.6rem; margin-top: 32px; }
+      h3 { font-size: 1.2rem; margin-top: 20px; }
+      p { margin: 0 0 12px; color: var(--muted); }
+      ul { padding-left: 20px; color: var(--muted); }
+      ul li { margin-bottom: 6px; }
+      .card {
+        background: var(--panel);
+        border: 1px solid var(--border);
+        border-radius: var(--radius);
+        padding: 28px;
+        margin-bottom: 24px;
+        box-shadow: 0 30px 60px rgba(15, 23, 42, 0.08);
+      }
+      .tag {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        font-size: 0.85rem;
+        font-weight: 600;
+        letter-spacing: 0.04em;
+        text-transform: uppercase;
+        color: #1d4ed8;
+        background: #e0e7ff;
+        border-radius: 999px;
+        padding: 4px 12px;
+        margin-bottom: 12px;
+      }
+      .grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+        gap: 16px;
+      }
+      .grid .card { margin-bottom: 0; padding: 20px; }
+      .deliverable-number {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 36px;
+        height: 36px;
+        border-radius: 12px;
+        background: #eff4ff;
+        color: var(--accent);
+        font-weight: 700;
+        margin-bottom: 10px;
+      }
+      .list-heading { font-weight: 600; color: var(--text); }
+      .deferred-list li::marker { color: #ea580c; }
+      footer {
+        margin-top: 40px;
+        text-align: center;
+        color: var(--muted);
+        font-size: 0.9rem;
+      }
+      @media (max-width: 640px) {
+        .page { padding: 24px 16px 48px; }
+        h1 { font-size: 2rem; }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="page">
+      <header class="card">
+        <span class="tag">Agreed Phase One Scope</span>
+        <h1>Product Experience Assessment Framework</h1>
+        <p>The Digital Experience Architecture (DXA) team will spend the next 12 months building a rigorous internal audit capability to prove measurable value before integrating the framework into Aramco’s broader governance model.</p>
+        <p><strong>Focus:</strong> Establish clear evaluation criteria, run quarterly audits, report insights, and offer an advisory audit service. Process enforcement, automation, and tooling will be deferred to later phases.</p>
+      </header>
+
+      <section class="card">
+        <h2>Engagement Principles</h2>
+        <ul>
+          <li>Phase One centers on DXA-led audits and learning, not enterprise enforcement.</li>
+          <li>Deliverables emphasize clarity, transparency, and defensible decision-making.</li>
+          <li>Outputs must be easy to scale into governance once value is demonstrated.</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>Core Deliverables</h2>
+        <div class="card">
+          <div class="deliverable-number">1</div>
+          <h3>Evaluation Parameters &amp; Criteria</h3>
+          <ul>
+            <li>Define measurable parameters for auditing digital products.</li>
+            <li>Anchor criteria in WCAG 2.1, Nielsen usability heuristics, and ISO 9241.</li>
+            <li>Create a weighted scoring methodology that produces clear, defensible ratings.</li>
+            <li>Document evaluation steps to ensure consistency across auditors.</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <div class="deliverable-number">2</div>
+          <h3>Product Selection Methodology</h3>
+          <ul>
+            <li>Develop a transparent formula to decide which products enter the audit queue.</li>
+            <li>Prioritize using user base size, business criticality, risk exposure, support volume, and other data points.</li>
+            <li>Provide rationale for selections so stakeholders understand why their product was or was not audited.</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <div class="deliverable-number">3</div>
+          <h3>Internal Audit Process</h3>
+          <ul>
+            <li>DXA team conducts quarterly audits on the prioritized products.</li>
+            <li>Produce evaluation checklists, testing procedures, and evidence collection standards.</li>
+            <li>Target 3–5 product audits per quarter to build meaningful baseline coverage.</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <div class="deliverable-number">4</div>
+          <h3>Quarterly Management Reporting</h3>
+          <ul>
+            <li>Deliver executive-ready reports covering findings, inconsistencies, and recommendations.</li>
+            <li>Share product-by-product results plus trend analysis as the dataset matures.</li>
+            <li>Highlight actionable insights leadership can use to prioritize investment.</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <div class="deliverable-number">5</div>
+          <h3>Audit Request Service</h3>
+          <ul>
+            <li>Create a simple mechanism for product teams to request voluntary audits.</li>
+            <li>DXA reviews, schedules, and delivers audit reports as an advisory service.</li>
+            <li>Intentionally non-enforcement: the goal is enablement and partnership.</li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="card">
+        <h2>Cadence &amp; Operating Model</h2>
+        <ul>
+          <li><span class="list-heading">Quarterly rhythm:</span> Select products, perform assessments, and publish management report.</li>
+          <li><span class="list-heading">Evidence standard:</span> Screenshots, annotated findings, metrics, and remediation guidance captured for each audit.</li>
+          <li><span class="list-heading">Stakeholder touchpoints:</span> Kickoff per audit, weekly check-ins during testing, and readouts with product owners.</li>
+          <li><span class="list-heading">Success definition:</span> Establish trusted baseline data that demonstrates the value of a broader framework rollout.</li>
+        </ul>
+      </section>
+
+      <section class="card">
+        <h2>Deferred for Future Phases</h2>
+        <ul class="deferred-list">
+          <li>Embedding the framework into organization-wide delivery processes and mandatory checkpoints.</li>
+          <li>Building ServiceNow workflows or other automation layers.</li>
+          <li>Formal governance models or compliance enforcement mechanisms.</li>
+          <li>Procurement or integration of specialized tooling.</li>
+          <li>Enterprise-wide compliance requirements or policy changes.</li>
+        </ul>
+        <p>These investments will be revisited after Phase One demonstrates measurable value and gains executive sponsorship for expansion.</p>
+      </section>
+
+      <footer>
+        Prepared by Digital Experience Architecture — November 2025
+      </footer>
+    </div>
+  </body>
+</html>
