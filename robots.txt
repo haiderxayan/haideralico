@@ -1,3 +1,5 @@
-# Block search engine indexing of the DXGroup directory
+# Ask search crawlers to skip these project directories.
 User-agent: *
 Disallow: /DXGroup/
+Disallow: /sms/
+Disallow: /SMS/
